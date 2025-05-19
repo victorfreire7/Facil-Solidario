@@ -1,13 +1,18 @@
 const express = require('express');
-const app = express();
+// const app = express();
+const homeRoute = require('./src/routes/home');
 
-const routes = express.Router();
-routes.get('/', (req, res)=> {
-    res.json('hello world!');
-} )
+class App {
+    constructor(){
+        this.app = express();
+        this.routes();
+    }
+
+    routes() {
+        this.app.use('/', homeRoute);
+
+    }
+}
 
 
-app.use(routes);
-
-
-module.exports = app;
+module.exports = new App().app;
