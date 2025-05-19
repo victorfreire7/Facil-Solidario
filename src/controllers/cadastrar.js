@@ -1,5 +1,5 @@
 function index (req, res){
-    res.json('hello world!');
+    res.json('sign up');
 }
 
 function store (req, res){
