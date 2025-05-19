@@ -3,6 +3,8 @@ const homeRoute = require('./src/routes/home');
 const quemsomosRoute = require('./src/routes/quemsomos');
 const pontoscoletaRoute = require('./src/routes/pontoscoleta');
 const politicasRoute = require('./src/routes/politicas');
+const cadastrarRoute = require('./src/routes/cadastrar');
+
 
 
 class App {
@@ -22,6 +24,7 @@ class App {
         this.app.use('/quem-somos', quemsomosRoute);
         this.app.use('/pontos-de-coleta', pontoscoletaRoute);
         this.app.use('/politicas-de-privacidade', politicasRoute);
+        this.app.use('/sign-up', cadastrarRoute);
     }
 }
 
