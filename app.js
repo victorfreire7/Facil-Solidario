@@ -1,5 +1,7 @@
 const express = require('express');
 const homeRoute = require('./src/routes/home');
+const quemsomosRoute = require('./src/routes/quemsomos');
+
 
 class App {
     constructor(){
@@ -15,7 +17,7 @@ class App {
 
     routes() {
         this.app.use('/', homeRoute);
-
+        this.app.use('/quem-somos', quemsomosRoute);
     }
 }
 
