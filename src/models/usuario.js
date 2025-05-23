@@ -1,6 +1,14 @@
 const { randomUUID } = require('node:crypto'); 
 const { Sequelize } = require('sequelize');
 const db = require('../db');
+const bcryptjs = require('bcryptjs');
+
+db.addHook('beforeSave', async user => { 
+    if(user.senha){ // isso é oque criptografa a senha.
+        user.senha_hash = await bcryptjs.hash(user.senha, 8);
+    }
+});
+
 
 module.exports = db.define('usuario', {
     id: {
@@ -43,15 +51,20 @@ module.exports = db.define('usuario', {
         unique: true
     },
 
+    senha_hash: {
+        type: Sequelize.STRING,
+        defaultValue: ''
+    },
+
     senha: {
-        type: Sequelize.STRING, 
+        type: Sequelize.VIRTUAL, // um dado primitivo "virtual" nao altera o banco de dados.
         allowNull: false,
         defaultValue: '', 
         validate: {
             len: {
                 args: [8, 50]
-            },
+            }
         }
-    },
+    }
 });
 
