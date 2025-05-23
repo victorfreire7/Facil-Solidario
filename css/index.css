@@ -10,7 +10,8 @@
     --amarelo-requeijao: #FFF4E4;
     --azul-cinza: #BFC2CF;
     --azul-cinza-escuro: #7C84A4;
-    --branco: #fff
+    --branco: #fff;
+    --preto-claro: #151310;
 }
 
 @font-face {
@@ -23,7 +24,7 @@
 body {
     font-family: 'poppins';
     background-color: var(--verde-musgo);
-    height: 1000vh;
+    height: auto;
     overflow-x: hidden;
     position: relative;
 
@@ -173,6 +174,55 @@ header {
     transition: .3s linear;
     color: var(--amarelo-requeijao);
 }
+
+footer {
+    width: 100vw;
+    height: auto;
+    background-color: var(--preto-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer-line-1{
+    width: 90vw;
+    height: 15vh;
+    border-bottom: 1px solid var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-line-1 img{
+    width: 10vw;
+    height: auto;
+    object-fit: cover;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0);
+
+}
+.footer-line-1 button{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    width: auto;
+    height: auto;
+
+}
+.footer-line-1 button img{
+    width: 3vw;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    color: none;
+
+}
+
+.footer-line-2{
+    width: 90vw;
+    height: 50vh;
+    border-bottom: 1px solid var(--branco);
+    margin-bottom: 5vw;
+}
+
 
 @media screen and (max-width: 800px) {
 
