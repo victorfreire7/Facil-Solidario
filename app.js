@@ -6,14 +6,13 @@ const politicasRoute = require('./src/routes/politicas');
 const cadastrarRoute = require('./src/routes/cadastrar');
 const loginRoute = require('./src/routes/login');
 const formularioRoute = require('./src/routes/formulario');
-
-
+const db = require('./src/db');
 
 
 class App {
     constructor(){
         this.app = express();
-        this.use
+        this.db();
         this.routes();
     }
 
@@ -30,6 +29,17 @@ class App {
         this.app.use('/sign-up', cadastrarRoute);
         this.app.use('/sign-in', loginRoute);
         this.app.use('/formulario-doacao', formularioRoute);
+    }
+
+    db(){
+        db.sync(()=> { console.log('BD conectado') })
+        .then(() => {
+            this.app.emit('connection-established'); 
+            /* 
+            crio um string de emissao chamada 'connection-established' que é ativada apenas quando a conexao com o banco de ados é estabelecida.
+            essa string é emissao é utilizada posteriormente no arquivo 'server.js'
+            */
+        });
     }
 }
 
