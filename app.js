@@ -13,6 +13,7 @@ class App {
     constructor(){
         this.app = express();
         this.db();
+        this.middlewares();
         this.routes();
     }
 
