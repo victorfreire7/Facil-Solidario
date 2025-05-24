@@ -1,6 +1,5 @@
 const { randomUUID } = require('node:crypto');
 const { Sequelize } = require('sequelize');
-const doacaoModel = require('./doacao');
 const db = require('../db');
 const bcryptjs = require('bcryptjs');
 
@@ -66,4 +65,4 @@ module.exports = db.define('usuario', {
             }
         }
     }
-}).hasMany(doacaoModel, { foreignKey: userId, onDelete: 'CASCADE' });
+});

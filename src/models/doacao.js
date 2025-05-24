@@ -1,6 +1,5 @@
 const { randomUUID } = require('node:crypto');
 const { Sequelize } = require('sequelize');
-const usuarioModel = require('./doacao');
 const db = require('../db');
 
 module.exports = db.define('doacao', {
@@ -13,34 +12,22 @@ module.exports = db.define('doacao', {
 
     tipo: {
         type: Sequelize.STRING,
-        defaultValue: '',
         allowNull: false,
-        validate: {
-            max: 50
-        }
+        // validate: {
+        //     max: 50
+        // }
     },
 
     quantidade: {
-        type: Sequelize.INTEGER,
-        defaultValue: '',
+        type: Sequelize.STRING,
         allowNull: false,
-        validate: {
-            max: 50
-        }
+        // validate: {
+        //     max: 50
+        // }
     },
 
     entregue: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
-    },
-
-    userId: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        defaultValue: '',
-        references: {
-            model: 'usuario',
-            key: 'id_usuario'
-        }
     }
-}).belongsTo(usuarioModel, { foreignKey: "userId" });
+}).belongsTo(db.models.usuario);
