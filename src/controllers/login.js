@@ -33,12 +33,12 @@ async function show (req, res){
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
                     expiresIn: 300
                 });
-                return res.json({auth: true, token: token}); //criamos um jwt do usuario após ele logar corretamente           
+                res.set('Authorization', `Bearer ${token}`)
+                return res.json({auth: true, token:token}); //criamos um jwt do usuario após ele logar corretamente           
             } else {
-                return res.status(500).json('senha errada.')
+                return res.status(500).json('login invalido!')
             }
-        })
-        ; 
+        }); 
 
         
 
