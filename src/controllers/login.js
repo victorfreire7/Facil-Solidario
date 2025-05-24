@@ -6,7 +6,7 @@ function index (req, res){
     res.json('login');
 }
 
-async function show (req, res){
+async function store (req, res){
     try {
         
         const user = await UsuarioRepository.findOne(
@@ -41,4 +41,4 @@ async function show (req, res){
 }
 
 
-module.exports = { index, show };
+module.exports = { index, store };
