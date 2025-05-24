@@ -1,6 +1,7 @@
 const UsuarioRepository = require('../models/usuario');
 const bcryptjs = require('bcryptjs');
-
+require("dotenv").config();
+const jwt = require('jsonwebtoken');
 
 function index (req, res){
     res.json('login');
@@ -25,11 +26,21 @@ async function show (req, res){
 
         await bcryptjs.compare(req.body.senha, user.senha_hash) // utilizamos await pois a promisse do bcrypt é assincrona.
         .then((result) => {
-            result 
-            ? res.json('login realizado') 
-            : res.json('senha incorreta');
+            if (result) {
+                req.session.user = user;
+
+                const id = user.id_usuario
+                const token = jwt.sign({ id }, process.env.JWT_SECRET, {
+                    expiresIn: 300
+                });
+                return res.json({auth: true, token: token}); //criamos um jwt do usuario após ele logar corretamente           
+            } else {
+                return res.status(500).json('senha errada.')
+            }
         })
         ; 
+
+        
 
     } catch (error) {
         res.json(error);
