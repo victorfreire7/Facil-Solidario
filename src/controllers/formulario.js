@@ -6,11 +6,16 @@ function index (req, res){
 
 async function store (req, res){
     try {
-        await doacaoModel.create({
+        doacaoModel.create({
+            tipo: "alimento",
+            quantidade: "10",
             
-        })
+        });
+
+        res.json('form enviado');
+        
     } catch (error) {
-        res.json(error)
+        return res.json(error)
     }
 }
 

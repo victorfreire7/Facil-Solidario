@@ -13,21 +13,23 @@ module.exports = db.define('doacao', {
     tipo: {
         type: Sequelize.STRING,
         allowNull: false,
-        // validate: {
-        //     max: 50
-        // }
+        validate: {
+            max: 50
+        }
     },
 
     quantidade: {
         type: Sequelize.STRING,
         allowNull: false,
-        // validate: {
-        //     max: 50
-        // }
+        validate: {
+            max: 50
+        }
     },
 
     entregue: {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
-    }
-}).belongsTo(db.models.usuario);
+    },
+
+})
+// .belongsTo(db.models.usuario, { foreignKey: this.id_doacao });
