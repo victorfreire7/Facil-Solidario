@@ -1,9 +1,17 @@
+const doacaoModel = require('../models/doacao');
+
 function index (req, res){
     res.json('formulario');
 }
 
-function store (req, res){
-    
+async function store (req, res){
+    try {
+        await doacaoModel.create({
+            
+        })
+    } catch (error) {
+        res.json(error)
+    }
 }
 
 module.exports = { index, store };
