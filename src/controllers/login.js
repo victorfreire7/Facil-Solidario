@@ -25,7 +25,8 @@ async function show (req, res){
         await bcryptjs.compare(req.body.senha, user.senha_hash) // utilizamos await pois a promisse do bcrypt é assincrona.
         .then((result) => {
             if (result) {
-                res.json(result)
+                req.session.user = user;
+                res.json(req.session.user);
             } else {
                 return res.status(500).json('login invalido!');
             }
