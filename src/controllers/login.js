@@ -7,7 +7,6 @@ function index (req, res){
 }
 
 async function show (req, res){
-   
     try {
         
         const user = await UsuarioRepository.findOne(
@@ -26,7 +25,7 @@ async function show (req, res){
         await bcryptjs.compare(req.body.senha, user.senha_hash) // utilizamos await pois a promisse do bcrypt é assincrona.
         .then((result) => {
             if (result) {
-                
+                res.json(result)
             } else {
                 return res.status(500).json('login invalido!');
             }
