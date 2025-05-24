@@ -7,6 +7,7 @@ const pontoscoletaRoute = require('./src/routes/pontoscoleta');
 const politicasRoute = require('./src/routes/politicas');
 const cadastrarRoute = require('./src/routes/cadastrar');
 const loginRoute = require('./src/routes/login');
+const logoutRoute = require('./src/routes/logout');
 const formularioRoute = require('./src/routes/formulario');
 
 const loginRequired = require('./src/middlewares/loginRequired');
@@ -43,6 +44,7 @@ class App {
         this.app.use('/politicas-de-privacidade', politicasRoute);
         this.app.use('/sign-up', cadastrarRoute);
         this.app.use('/sign-in', loginRoute);
+        this.app.use('/logout', logoutRoute);
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
     }
 
