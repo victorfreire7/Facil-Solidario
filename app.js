@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session')
 const homeRoute = require('./src/routes/home');
 const quemsomosRoute = require('./src/routes/quemsomos');
 const pontoscoletaRoute = require('./src/routes/pontoscoleta');
@@ -20,6 +21,16 @@ class App {
     middlewares() {
         this.app.use(express.urlencoded({ extended: true }));
         this.app.use(express.json());
+        this.app.use(session({
+            secret: ' ',
+            resave: false,
+            saveUninitialized: true,
+            cookie: { 
+                secure: true,
+                maxAge: 30*24*60*60*1000 // 30 dias de sessao;
+            },
+            
+        }))
       }
 
     routes() {
