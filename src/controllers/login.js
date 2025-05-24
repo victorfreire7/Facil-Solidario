@@ -26,7 +26,7 @@ async function show (req, res){
         .then((result) => {
             if (result) {
                 req.session.user = user;
-                res.json(req.session.user);
+                res.json('login realizado!');
             } else {
                 return res.status(500).json('login invalido!');
             }
