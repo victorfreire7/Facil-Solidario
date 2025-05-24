@@ -1,5 +1,6 @@
 const { randomUUID } = require('node:crypto');
 const { Sequelize } = require('sequelize');
+const doacaoRepository = require('./doacao');
 const db = require('../db');
 const bcryptjs = require('bcryptjs');
 
@@ -9,7 +10,7 @@ db.addHook('beforeSave', async user => {
     }
 });
 
-module.exports = db.define('usuario', {
+const User = db.define('usuario', {
     id_usuario: {
         type: Sequelize.STRING,
         defaultValue: randomUUID(),
@@ -66,3 +67,8 @@ module.exports = db.define('usuario', {
         }
     }
 });
+
+User.hasMany(doacaoRepository);
+doacaoRepository.belongsTo(User);
+
+module.exports = User;

@@ -13,6 +13,7 @@ async function store (req, res){
             telefone: req.body.telefone,
             senha: req.body.senha
         }).then((result) => {
+            req.session.save();
             res.json(result);
             // res.redirect('/sign-in');
         });

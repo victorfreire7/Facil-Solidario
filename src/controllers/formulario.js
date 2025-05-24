@@ -9,7 +9,7 @@ async function store (req, res){
         doacaoModel.create({
             tipo: "alimento",
             quantidade: "10",
-            
+            usuarioIdUsuario: req.session.user.id_usuario
         });
 
         res.json('form enviado');
