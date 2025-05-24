@@ -27,16 +27,16 @@ async function show (req, res){
         await bcryptjs.compare(req.body.senha, user.senha_hash) // utilizamos await pois a promisse do bcrypt é assincrona.
         .then((result) => {
             if (result) {
-                req.session.user = user;
-
                 const id = user.id_usuario
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-                    expiresIn: 300
+                    expiresIn: process.env.JWT_EXPIRATION
                 });
-                res.set('authorization', `Bearer ${token}`)
-                return res.json({auth: true, token:token}); //criamos um jwt do usuario após ele logar corretamente           
+                
+                return res.json({token});
+                 //criamos um jwt do usuario após ele logar corretamente          
+                 //sempre que o usuario tentar acessar uma página que precisa de login, é solicitado este token 
             } else {
-                return res.status(500).json('login invalido!')
+                return res.status(500).json('login invalido!');
             }
         }); 
 
