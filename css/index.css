@@ -20,6 +20,10 @@
     font-weight: normal;
 }
 
+.space{
+    height: 16vh;
+    width: 100vw;
+}
 
 body {
     font-family: 'poppins';

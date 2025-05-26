@@ -1,0 +1,27 @@
+@import url(index.css);
+main{
+    width: 100vw;
+    height: auto;
+    background-image: url(../img/404-bg.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: var(--amarelo-requeijao);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+img{
+    margin-top: 2vw;
+    width: 15vw;
+    height: auto;
+    object-position: center;
+    object-fit: contain;
+}
+h1{
+    color: var(--verde-musgo);
+    font-size: 7em;
+}
