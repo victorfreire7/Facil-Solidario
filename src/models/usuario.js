@@ -1,5 +1,4 @@
-const { randomUUID } = require('node:crypto');
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const doacaoRepository = require('./doacao');
 const db = require('../db');
 const bcryptjs = require('bcryptjs');
@@ -12,14 +11,14 @@ db.addHook('beforeSave', async user => {
 
 const User = db.define('usuario', {
     id_usuario: {
-        type: Sequelize.STRING,
-        defaultValue: randomUUID(),
+        type: DataTypes.STRING,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false,
     },
 
     nome: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue: '',
         validate: {
@@ -30,7 +29,7 @@ const User = db.define('usuario', {
     },
 
     email: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue: '',
         unique: true,
@@ -45,14 +44,14 @@ const User = db.define('usuario', {
     },
 
     telefone: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue: '',
         unique: true
     },
 
     senha_hash: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         defaultValue: ''
     },
 

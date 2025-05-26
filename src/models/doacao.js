@@ -1,17 +1,16 @@
-const { randomUUID } = require('node:crypto');
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const db = require('../db');
 
 module.exports = db.define('doacao', {
     id_doacao: {
-        type: Sequelize.STRING,
-        defaultValue: randomUUID(),
+        type: DataTypes.STRING,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
         allowNull: false
     },
 
     tipo: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
             max: 50
@@ -19,7 +18,7 @@ module.exports = db.define('doacao', {
     },
 
     quantidade: {
-        type: Sequelize.STRING,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
             max: 50
