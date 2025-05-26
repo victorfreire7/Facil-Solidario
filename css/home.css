@@ -1,1 +1,80 @@
 @import url(index.css);
+
+.space{
+    height: 16vh;
+    width: 100vw;
+}
+
+.container1{
+    width: 100vw;
+    height: auto;
+    background-image: url(../img/bg-texture.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.content-container-1{
+    width: 30vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 8vw;
+    color: var(--branco);
+
+}
+.container-for-bg{
+    background-image: url(../img/shadow-green.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 35vw;
+    height: auto;
+    padding-left: 1vw;
+}
+
+.container-for-bg span:nth-child(1){
+    font-size: 3em;
+    font-weight: bold;
+}
+.container-for-bg div{
+    width: 18vw;
+    height: 2px;
+    background-color: var(--laranja-ababora);
+}
+.container-for-bg span:nth-child(3){
+    font-size: 1.2em;
+}
+.content-container-1 button{
+    margin-top: 10vh;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 15px;
+    background-color: var(--laranja-ababora);
+    color: var(--branco);
+    border: none;
+    font-size: 1.5em;
+    box-shadow: 0px 2px 15px 1px rgba(0, 0, 0, 0.258);
+    transition: .2s linear;
+}
+.content-container-1 button:hover{
+    cursor: pointer;
+}
+.content-container-1 button:active{
+    transform: translateY(5px);
+    transition: .3s linear;
+}
+
+.container1 img{
+    width: 40vw;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    margin-right: 10vw;
+}
