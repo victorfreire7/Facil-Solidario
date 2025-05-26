@@ -1,5 +1,5 @@
 const UsuarioRepository = require('../models/usuario');
-
+const validator = require('validator');
 
 function index (req, res){
     res.json('sign up');
@@ -7,6 +7,10 @@ function index (req, res){
 
 async function store (req, res){
     try {
+
+        if(!validator.isEmail(req.body.email)){
+            return res.json('Por favor, digite um E-mail válido!');
+        }
 
         if(show(req.body.email)){
             return res.json('E-mail já utilizado!');
