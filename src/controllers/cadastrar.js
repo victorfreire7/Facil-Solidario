@@ -8,13 +8,22 @@ function index (req, res){
 async function store (req, res){
     try {
 
-        if(!validator.isEmail(req.body.email)){
+        if(!validator.isEmail(req.body.email)){ // crio uma verificação de caso o e-mail seja valido.
+            req.session.save();
             return res.json('Por favor, digite um E-mail válido!');
         }
-
-        if(show(req.body.email)){
-            return res.json('E-mail já utilizado!');
-        }
+        
+        await UsuarioRepository.findOne({ //executo um método que procura um valor no BD e retorna um dado BOOLEAN
+            where: {
+                email: req.body.email // envio como argumento o input de email
+            }
+        }).then((result) => {
+            if(result) {
+                req.session.save();
+                res.json('e-mail já utilizado'); // se o já existir o e-mail no BD, isso sera retornado
+            }
+        })
+        
 
         await UsuarioRepository.create({
             nome: req.body.nome,
@@ -33,11 +42,7 @@ async function store (req, res){
 }
 
 async function show(arg) {
-        await UsuarioRepository.findOne({ //executo um método que procura um valor no BD e retorna um dado BOOLEAN
-            where: {
-                email: arg // envio como argumento o input de email
-            }
-        }) ? true : false // se o retorno do método for true, minha função retornada true; faço o mesmo com um valor false.
+       
 }
 
 module.exports = { index, store };
