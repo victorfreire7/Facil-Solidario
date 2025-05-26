@@ -8,12 +8,12 @@ const politicasRoute = require('./src/routes/politicas');
 const cadastrarRoute = require('./src/routes/cadastrar');
 const loginRoute = require('./src/routes/login');
 const logoutRoute = require('./src/routes/logout');
+const adminloginRoute = require('./src/routes/adminlogin');
 const formularioRoute = require('./src/routes/formulario');
 
 const loginRequired = require('./src/middlewares/loginRequired');
 
 const db = require('./src/db');
-
 
 class App {
     constructor(){
@@ -45,6 +45,7 @@ class App {
         this.app.use('/sign-up', cadastrarRoute);
         this.app.use('/sign-in', loginRoute);
         this.app.use('/logout', logoutRoute);
+        this.app.use('/adminlogin', adminloginRoute);
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
     }
 
