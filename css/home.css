@@ -80,6 +80,40 @@
     margin-right: 10vw;
 }
 
+.container2{
+    width: 100vw;
+    height: auto;
+    background-color: var(--amarelo-requeijao);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 5vh;
+}
+
+.title-container2{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: red;   
+}
+
+.title-container2 span:nth-child(1){
+    font-size: 2.3em;
+    font-weight: bold;
+}
+.title-container2 span:nth-child(2){
+    font-weight: bold;
+}
+
+.section-for-cards{
+    
+}
+
+
 @media screen and (max-width: 800px){
     header{
         position: fixed;
