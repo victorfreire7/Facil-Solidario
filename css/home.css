@@ -42,6 +42,10 @@
 .container-for-bg span:nth-child(1){
     font-size: 3em;
     font-weight: bold;
+    display: flex;
+    width: 30vw;
+    height: auto;
+    text-align: left;
 }
 .container-for-bg div{
     width: 18vw;
@@ -77,4 +81,56 @@
     object-fit: contain;
     object-position: center;
     margin-right: 10vw;
+}
+
+@media screen and (max-width: 800px){
+    header{
+        position: fixed;
+    }
+    .container1{
+        flex-direction: column-reverse;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container1 img{
+        width: 50vw;
+        display: none;
+    }
+    .content-container-1{
+        width: 90vw;
+        height: auto;
+        margin: 0;
+    }
+    .container-for-bg{
+        margin-top: 3vh;
+        width: 80vw;
+        height: auto;
+        background-image: none;
+        background-size: 90vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        backdrop-filter:blur(2px);
+    }
+    .container-for-bg span:nth-child(1){
+        text-align: center;
+        font-size: 2.7em;
+        width: 80vw;
+    }
+    .container-for-bg div{
+        width: 70vw;
+    }
+    .container-for-bg span:nth-child(3){
+        text-align: center;
+        
+    }
+
+    .container1 button{
+        width: 50vw;
+        margin-bottom: 5vh;
+        margin-top: 2vh;
+        height: 10vh;
+    }
 }
