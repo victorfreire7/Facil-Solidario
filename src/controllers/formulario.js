@@ -7,8 +7,8 @@ function index (req, res){
 async function store (req, res){
     try {
         doacaoModel.create({
-            tipo: "alimento",
-            quantidade: "10",
+            tipo: req.body.tipo,
+            quantidade: req.body.quantidade,
             usuarioIdUsuario: req.session.user.id_usuario
         });
 
