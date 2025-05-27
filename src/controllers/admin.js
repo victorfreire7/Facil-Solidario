@@ -1,5 +1,6 @@
 const userRepository = require('../models/usuario');
 const doacaoRepository = require('../models/doacao');
+const { where } = require('sequelize');
 
 async function index(req, res){
     const users = await userRepository.findAll({
@@ -26,10 +27,21 @@ async function show(req, res){
 }
 
 async function showDoacao(req, res) {
-
+    const doacao = await doacaoRepository.findByPk(req.params.doacao)
+    
+    res.json({"render aqui": "", "doacao": doacao});
 }
 
-async function update(req, res){    
+async function update(req, res){   
+    const doacao = await doacaoRepository.findByPk(req.params.doacao);
+    
+    await doacao.update({
+        tipo: req.body.tipo,
+        quantidade: req.body.quantidade,
+        entregue: req.body.entregue
+    }).then((result) => {
+        res.json(result);
+    })
 }
 
 module.exports = { index, show, showDoacao, update }
