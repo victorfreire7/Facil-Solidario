@@ -3,25 +3,33 @@ const doacaoRepository = require('../models/doacao');
 
 async function index(req, res){
     const users = await userRepository.findAll({
-        attributes: ['id_usuario', 'nome', 'email']
+        attributes: ['id_usuario', 'nome', 'email'],
+        include: [{
+            model: doacaoRepository,
+            attributes: ['id_doacao', 'tipo', 'quantidade', 'entregue']
+        }]
     });
 
     res.json(users);
 }
 
-async function store(req, res){
-    
-}
-
 async function show(req, res){
     const users = await userRepository.findByPk(req.params.id, {
-
+        attributes: ['id_usuario', 'nome', 'email'],
+        include: [{
+            model: doacaoRepository,
+            attributes: ['id_doacao', 'tipo', 'quantidade', 'entregue']
+        }]
     });
 
     res.json(users)
 }
 
-async function update(req, res){
+async function showDoacao(req, res) {
+
 }
 
-module.exports = { index, store, show, update }
+async function update(req, res){    
+}
+
+module.exports = { index, show, showDoacao, update }
