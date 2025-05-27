@@ -45,7 +45,7 @@ class App {
         this.app.use('/sign-up', cadastrarRoute);
         this.app.use('/sign-in', loginRoute);
         this.app.use('/logout', logoutRoute);
-        this.app.use('/adminlogin', adminloginRoute);
+        this.app.use('/admin-login', adminloginRoute);
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
     }
 
