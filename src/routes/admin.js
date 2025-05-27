@@ -5,6 +5,6 @@ const adminController = require('../controllers/admin');
 router.get("/", adminController.index);
 
 router.get("/:id", adminController.show);
-router.put("/", adminController.update);
+router.put("/:id", adminController.update);
 
 module.exports = router;
