@@ -1,16 +1,16 @@
-async function index(){
-
+async function index(req, res){
+    res.json('admin render');
 }
 
-async function store(){
+async function store(req, res){
     
 }
 
-async function show(){
+async function show(req, res){
     
 }
 
-async function update(){
+async function update(req, res){
 }
 
 module.exports = { index, store, show, update }
