@@ -2,7 +2,7 @@ const UsuarioRepository = require('../models/usuario');
 const validator = require('validator');
 
 function index (req, res){
-    res.json('sign up');
+    res.json('sign up'); // aqui seria a renderização do EJS
 }
 
 async function store (req, res){
@@ -22,7 +22,7 @@ async function store (req, res){
                 req.session.save();
                 res.json('e-mail já utilizado'); // se o já existir o e-mail no BD, isso sera retornado
             }
-        })
+        });
         
 
         await UsuarioRepository.create({
@@ -32,17 +32,13 @@ async function store (req, res){
             senha: req.body.senha
         }).then((result) => {
             req.session.save();
-            res.json(result);
-            // res.redirect('/sign-in');
+            res.json(result); 
+            // res.redirect('/sign-in'); 
         });
     }
     catch (error){
         res.json(error)
     }
-}
-
-async function show(arg) {
-       
 }
 
 module.exports = { index, store };
