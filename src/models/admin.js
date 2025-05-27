@@ -3,11 +3,11 @@ const db = require('../db');
 const doacaoRepository = require('./doacao');
 const bcryptjs = require('bcryptjs');
 
-db.addHook('beforeSave', async user => {
-    if (user.senha) {
-        user.senha_hash = await bcryptjs.hash(user.senha, 8);
-    }
-})
+// db.addHook('beforeSave', async user => {
+//     if (user.senha) {
+//         user.senha_hash = await bcryptjs.hash(user.senha, 8);
+//     }
+// })
 
 const Admin = db.define('admin', {
     id_admin: {
@@ -29,16 +29,16 @@ const Admin = db.define('admin', {
         defaultValue: ''
     },
 
-    senha: {
-        type: Sequelize.VIRTUAL,
-        allowNull: false,
-        defaultValue: '',
-        validate: {
-            len: {
-                args: [8, 50]
-            }
-        }
-    }
+    // senha: {
+    //     type: Sequelize.VIRTUAL,
+    //     allowNull: false,
+    //     defaultValue: '',
+    //     validate: {
+    //         len: {
+    //             args: [8, 50]
+    //         }
+    //     }
+    // }
 
 });
 
