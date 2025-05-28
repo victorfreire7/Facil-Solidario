@@ -1,6 +1,5 @@
 const userRepository = require('../models/usuario');
 const doacaoRepository = require('../models/doacao');
-const { where } = require('sequelize');
 
 async function index(req, res){
     const users = await userRepository.findAll({
