@@ -8,18 +8,18 @@ function index (req, res){
 
 async function store (req, res){
 
-    const {senha, confirmacaoSenha} = req.body; //Pego os valores digitados nos campos senha e confirmacaoSenha
-    
-    if(senha !== confirmacaoSenha) { //Verifico se as senhas são iguais ou nao
-        return res.status(400).json ({error: 'As senhas não iguais'});
-    }
 
-    else{
     try {
 
         if(!validator.isEmail(req.body.email)){ // crio uma verificação de caso o e-mail seja valido.
             req.session.save();
             return res.json('Por favor, digite um E-mail válido!');
+        }
+
+        const {senha, confirmacaoSenha} = req.body; //Pego os valores digitados nos campos senha e confirmacaoSenha
+    
+        if(senha !== confirmacaoSenha) { //Verifico se as senhas são iguais ou nao
+        return res.status(400).json ({error: 'As senhas não iguais'});
         }
         
         await UsuarioRepository.findOne({ //executo um método que procura um valor no BD e retorna um dado BOOLEAN
@@ -50,6 +50,6 @@ async function store (req, res){
     }
     }
 
-}
+
 
 module.exports = { index, store };
