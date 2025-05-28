@@ -15,8 +15,8 @@ function store (req, res){
             text: req.body.texto,
         };
         sgMail.send(msg).then((result) => {
-            res.json(result);
-        })
+            res.json('E-mail enviado com sucesso!'); 
+        });
     } catch (error) {
        res.json(error) 
     }
