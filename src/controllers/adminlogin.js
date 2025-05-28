@@ -5,10 +5,12 @@ const adminRepository = require('../models/admin');
 const randomStringGenerator = require('random-string-generator');
 const bcryptjs = require('bcryptjs');
 
-const dayLogin = randomStringGenerator(6); // gera uma string aleátoria de 6 caracteres.
-const dayPassword = randomStringGenerator(25); // faço o mesmo aqui
 
 async function index(req, res) {
+    const dayLogin = randomStringGenerator(6); // gera uma string aleátoria de 6 caracteres.
+    const dayPassword = randomStringGenerator(25); // faço o mesmo aqui
+
+
     const admins = await adminRepository.findOne(); //guardo dentro de uma constante os valores da tabela admin
 
     if(!admins){ // caso nao exista um admin ainda, eu vou criar um.
@@ -30,7 +32,7 @@ async function index(req, res) {
         subject: `LOGIN DE ADMINISTRADOR DO DIA.`,
         text: 
         `
-            Seu login diário para entrar como ADMINISTRADOR no sistemas do Fácil Solidário LTDA. é:
+            Seu login atual para entrar como ADMINISTRADOR no sistemas do Fácil Solidário LTDA. é:
 
             \n \n \n
 
