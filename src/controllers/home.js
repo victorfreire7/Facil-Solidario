@@ -5,7 +5,7 @@ function index (req, res){
     res.json('hello world!');
 }
 
-async function store (req, res){
+function store (req, res){
     try {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
@@ -14,7 +14,7 @@ async function store (req, res){
             subject: `nome: ${req.body.nome} email: ${req.body.email}`,
             text: req.body.texto,
         };
-        await sgMail.send(msg).then((result) => {
+        sgMail.send(msg).then((result) => {
             res.json(result);
         })
     } catch (error) {
