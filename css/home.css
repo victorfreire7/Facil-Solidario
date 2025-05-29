@@ -93,7 +93,7 @@
 
 .title-container2{
     width: 100vw;
-    height: 10vh;
+    height: 15vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,8 +113,8 @@
     align-items: center;
     justify-content: space-around;
     gap: 5vh;
-    width: 95vw;
-    height: 50vh;
+    width: 100vw;
+    height: 70vh;
     margin-top: 5vh;
     margin-bottom: 8vh;
     
@@ -155,10 +155,61 @@
 
 }
 
+.container3{
+    width: 100vw;
+    height: auto;
+    background-color: var(--amarelo-requeijao);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 5vh;
+}
+
+.text-cont3{
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.text-cont3 span{
+    font-size: 3em;
+}
+
+.text-cont3 p{
+    width: 40vw;
+    height: auto;
+    font-size: 1.2em;
+}
+
+.text-cont3 button{
+    border: none;
+    background-color: var(--laranja-ababora);
+    color: var(--branco);
+    width: 12vw;
+    height: 9vh;
+    font-size: 1.2em;
+    border-radius: 10px;
+
+    box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.251);
+}
+
+.section-div-val-doacoes{
+    background-color: green;
+}
+.section-div-val-doacoes div{
+    width: 30vw;
+    height: 80vh;
+    background-color: var(--azul-cinza-escuro);
+}
 
 @media screen and (max-width: 800px){
     header{
         position: fixed;
+        z-index: 2000;
     }
     .container1{
         flex-direction: column-reverse;
