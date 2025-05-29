@@ -1,5 +1,7 @@
-var ip = '192.168.137.1';
+var ip = '192.168.1.9';
 var porta = 3030;
+
+// ip nootebook etec = 192.168.137.1
 
 // Importa o módulo http para criar o servidor
 const http = require('http');

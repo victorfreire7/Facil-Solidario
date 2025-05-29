@@ -98,11 +98,10 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: red;   
 }
 
 .title-container2 span:nth-child(1){
-    font-size: 2.3em;
+    font-size: 2.5em;
     font-weight: bold;
 }
 .title-container2 span:nth-child(2){
@@ -110,7 +109,50 @@
 }
 
 .section-for-cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5vh;
+    width: 95vw;
+    height: 50vh;
+    margin-top: 5vh;
+    margin-bottom: 8vh;
     
+    background-image: url(../img/BG-listra.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cards{
+    width: 18vw;
+    height: 40vh;
+    background-color: var(--amarelo-requeijao);
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 1px rgba(0, 0, 0, 0.301);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5vh;
+}
+.cards:nth-child(2){
+    background-color: var(--branco);
+}
+.cards img{
+    width: 4vw;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+
+}
+.cards p{
+    font-size: 1.2em;
+    text-align: center;
+    width: 15vw;
+    height: auto;
+    margin-top: 2vh;
+
 }
 
 
@@ -164,4 +206,30 @@
         margin-top: 2vh;
         height: 10vh;
     }
+
+    .title-container2 span:nth-child(2){
+    text-align: center;
+}
+
+    .section-for-cards{
+        flex-direction: column;
+        height: auto;
+    }
+    .cards{
+        width: 80vw;
+        height: 20vh;
+        margin-bottom: 5vh;
+        flex-direction: row;
+        gap: 7vw;
+        justify-content: flex-start;
+    }
+    .cards img{
+        width: 10vw;
+        margin-left: 5vw;
+    }
+    .cards p{
+        width: 60vw;
+        text-align: left;
+    }
+
 }
