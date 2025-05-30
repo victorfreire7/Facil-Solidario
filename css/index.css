@@ -188,6 +188,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 10vh; /*Provavelmente tirar isso depois*/
 }
 .footer-line-1{
     width: 90vw;
