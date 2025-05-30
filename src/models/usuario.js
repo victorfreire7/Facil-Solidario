@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const doacaoRepository = require('./doacao');
 const db = require('../db');
 const bcryptjs = require('bcryptjs');
@@ -56,7 +56,7 @@ const User = db.define('usuario', {
     },
 
     senha: {
-        type: Sequelize.VIRTUAL, // um dado primitivo "virtual" nao altera o banco de dados.
+        type: DataTypes.VIRTUAL, // um dado primitivo "virtual" nao altera o banco de dados.
         allowNull: false,
         defaultValue: '',
         validate: {
