@@ -10,19 +10,18 @@ async function index(req, res) {
     const dayLogin = randomStringGenerator(6); // gera uma string aleátoria de 6 caracteres.
     const dayPassword = randomStringGenerator(25); // faço o mesmo aqui
 
-
     const admins = await adminRepository.findOne(); //guardo dentro de uma constante os valores da tabela admin
 
     if(!admins){ // caso nao exista um admin ainda, eu vou criar um.
         await adminRepository.create({
             login: dayLogin, // seto como valor de login, a string aleatoria criada anteriormente.   
             senha_hash: await bcryptjs.hash(dayPassword, 8) // faço o mesmo com a senha.
-        })
+        });
     } else { // caso já exista um admin, eu mudo os valores dele pros novos
         await admins.update({
             login: dayLogin,
             senha_hash: await bcryptjs.hash(dayPassword, 8)
-        })
+        });
     }
     
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -62,12 +61,13 @@ async function store(req, res) {
         )
         
         if(!admin){
-            return res.json('login de acesso inválido');
+            return res.json('login nao achado');
         }
 
         await bcryptjs.compare(req.body.senha, admin.senha_hash)
         .then((result) => {
              if (result) {
+                // console.log(admin)
                 req.session.admin = admin;
                 return res.json('redirectionando!');
             } else {
