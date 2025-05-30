@@ -54,7 +54,7 @@
 }
 .content-container-1 button{
     margin-top: 10vh;
-    width: 15vw;
+    width: 18vw;
     height: 10vh;
     border-radius: 15px;
     background-color: var(--laranja-ababora);
@@ -163,7 +163,7 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    margin-bottom: 5vh;
+    padding-bottom: 15vh;
 }
 
 .text-cont3{
@@ -191,10 +191,12 @@
     border: none;
     background-color: var(--laranja-ababora);
     color: var(--branco);
-    width: 20vw;
-    height: 8vh;
+    width: 18vw;
+    height: 10vh;
     font-size: 1.7em;
     border-radius: 10px;
+    
+    font-family: 'poppins', sans-serif;
 
     box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.251);
 }
@@ -485,4 +487,50 @@
         font-size: .8em;
     }
 
+    .section-1-lore{
+        height: 10vh;
+    }
+
+    .section-1-lore::before{
+        height: 10vh;
+    }
+    .section-1-lore p{
+        margin-left: 2vw;
+        font-size: 1.5em;
+    }
+    .section-1-lore button{
+        width: 30vw;
+        height: 5vh;
+        margin-right: 3vw;
+        font-size: 1em;
+    }
+
+    .section-2-lore{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3vh;
+        margin-top: 5vh;
+    }
+
+    .cards-lore{
+        width: 60vw;
+        height: 40vh;
+    }
+
+    .cards-lore:nth-child(1){margin-left: 5vw;}
+    .cards-lore:nth-child(2){margin-left: 38vw;}
+    .cards-lore:nth-child(3){margin-left: 15vw;}
+
+    .cards-lore span{
+        margin-left: 3vw;
+        text-align: center;
+    }
+
+    .cards-lore p{
+        font-size: 1em;
+        width: 98%;
+        height: auto;
+        text-align: center;
+        margin: 0;
+    }
 }
