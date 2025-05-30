@@ -45,6 +45,7 @@ header {
     flex-direction: column;
     border-bottom: 3px solid var(--branco);
     position: fixed;
+    z-index: 1000000000;
 }
 
 .info-header {

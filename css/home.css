@@ -244,7 +244,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-color: var(--amarelo-requeijao);
-    margin-bottom: 2vh;
     padding-bottom: 5vh;
 }
 
@@ -337,6 +336,99 @@
     border: none;
 }
 
+.container5{
+    width: 100vw;
+    height: auto;
+    background-color: var(--amarelo-requeijao);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-top: 10vh;
+}
+
+.title-container-5{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 5vw;
+}
+
+.title-container-5 span{
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.title-container-5 p{
+    font-size: 1.5em;
+}
+
+.content-container-5{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+}
+
+.content-container-5 form{
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: purple;
+}
+
+.input-forms-feedback{
+    width: 45vw;
+    height: 10vh;
+    font-size: 1.3em;
+    border: none;
+    background-color: var(--azul-cinza);
+    border-radius: 10px;
+    font-family: 'poppins', sans-serif;
+    color: var(--amarelo-requeijao);
+    transition: .2s linear;
+}
+.input-forms-feedback::placeholder{
+    color: var(--amarelo-requeijao);
+    transition: .2s linear;
+}
+
+.input-forms-feedback:nth-child(3){
+    height: auto;
+}
+
+.input-forms-feedback:hover{
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.input-forms-feedback:focus{
+    transition: .2s linear;
+    border: 1px solid var(--azul-cinza-escuro);
+}
+
+.content-container-5 .svg-forms{
+    width: 40vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+}
+.content-container-5 .svg-forms img{
+    width: 30vw;
+    height: auto;
+    object-position: center;
+    object-fit: contain;
+}
 
 @media screen and (max-width: 800px){
     
