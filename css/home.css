@@ -184,7 +184,7 @@
 .text-cont3 p{
     width: 40vw;
     height: auto;
-    font-size: 1.6em;
+    font-size: 1.2em;
 }
 
 .text-cont3 button{
@@ -349,5 +349,32 @@
         width: 60vw;
         text-align: left;
     }
+
+    .info-header div:nth-child(2){
+        width: 20vw;
+    }
+    .section-button-languages{
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        z-index: 3001;
+        transform: translate(-50%); 
+        width: 1000vw;
+        height: 5vh;
+    }
+
+    .section-button-languages button{
+        width: 50px;
+        height: 20px;
+        background-color: rgba(245, 222, 179, 0);
+        /* position: fixed; */
+        /* bottom: 0; */
+    }
+
+    .container3{
+        background-color: red;
+    }
+
+    .text-cont3
 
 }
