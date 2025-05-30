@@ -189,7 +189,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 10vh; /*Provavelmente tirar isso depois*/
+    margin-top: 00vh; /*Provavelmente tirar isso depois*/
 }
 .footer-line-1{
     width: 90vw;
@@ -265,6 +265,18 @@ footer {
 
 .links-footer a{
     font-weight: bold;
+}
+
+.frase-motivacional{
+    width: 100vw;
+    height: 20vh;
+    background-color: var(--azul-cinza-escuro);
+    color: var(--azul-cinza);
+    font-style:italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
 }
 
 
@@ -403,6 +415,11 @@ footer {
     .links-footer span{
         margin-top: 2vh;
         font-size: 1.1em;
+    }
+
+    .frase-motivacional{
+        height: 10vh;
+        font-size: 1em;
     }
 
   }
