@@ -1,13 +1,6 @@
-const { Sequelize, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const db = require('../db');
 const doacaoRepository = require('./doacao');
-const bcryptjs = require('bcryptjs');
-
-// db.addHook('beforeSave', async user => {
-//     if (user.senha) {
-//         user.senha_hash = await bcryptjs.hash(user.senha, 8);
-//     }
-// })
 
 const Admin = db.define('admin', {
     id_admin: {
@@ -27,22 +20,10 @@ const Admin = db.define('admin', {
     senha_hash: {
         type: DataTypes.STRING,
         defaultValue: ''
-    },
-
-    // senha: {
-    //     type: Sequelize.VIRTUAL,
-    //     allowNull: false,
-    //     defaultValue: '',
-    //     validate: {
-    //         len: {
-    //             args: [8, 50]
-    //         }
-    //     }
-    // }
+    }
 
 });
 
 Admin.hasMany(doacaoRepository);
-doacaoRepository.belongsTo(Admin);
 
 module.exports = Admin;
