@@ -48,7 +48,7 @@ async function store(req, res) {
         };
         sgMail.send(msg);
 
-        res.redirect('segunda pag');
+        res.json('segunda pag');
 
     } catch (error) {
         res.json(error)
