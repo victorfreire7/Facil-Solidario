@@ -6,6 +6,7 @@ const quemsomosRoute = require('./src/routes/quemsomos');
 const pontoscoletaRoute = require('./src/routes/pontoscoleta');
 const politicasRoute = require('./src/routes/politicas');
 const cadastrarRoute = require('./src/routes/cadastrar');
+const esquecisenhaRoute = require('./src/routes/esquecisenha');
 const loginRoute = require('./src/routes/login');
 const logoutRoute = require('./src/routes/logout');
 const formularioRoute = require('./src/routes/formulario');
@@ -47,6 +48,7 @@ class App {
         this.app.use('/sign-up', cadastrarRoute);
         this.app.use('/sign-in', loginRoute);
         this.app.use('/logout', logoutRoute);
+        this.app.use('/forget-password', loginRequired, esquecisenhaRoute); // nao to conseguindo renderizar esta rota no localhost
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
         
         this.app.use('/admin-login', adminloginRoute);
