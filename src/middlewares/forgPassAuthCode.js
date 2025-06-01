@@ -1,5 +1,5 @@
 function emailValidator(req, res, next){
-    if(!req.session.forgetPassowrdAuthCode){ // sessao caso o código já tenha sido enviado
+    if(!req.session.forgetPasswordAuthCode){ // sessao caso o código já tenha sido enviado
         res.redirect('renderizo a pag 404');
         res.redirect('/');
     }
