@@ -25,7 +25,7 @@ async function store (req, res){
             }
         }).then((result) => {
             if(result) {
-                res.json('e-mail já utilizado'); // se já existir o e-mail no BD, isso sera retornado
+                return res.json('e-mail já utilizado'); // se já existir o e-mail no BD, isso sera retornado
             } else { // caso passe pela última validação, vou guardar em uma váriavel as informações que foram digitadas
                 req.session.firstStep = true;
 
@@ -69,9 +69,8 @@ function indexConfirmacao(req, res) {
 
 
 async function storeConfirmacao(req, res){
-
     if(req.body.codigo != authCode){
-        res.json('código incorreto!!');
+        return res.json('código incorreto!!');
     }
 
     try {
