@@ -1,6 +1,9 @@
 @import url(index.css);
 
 
+main{
+    scroll-snap-type: proximity y;
+}
 
 .container1{
     width: 100vw;
@@ -17,7 +20,7 @@
 
 .content-container-1{
     width: 30vw;
-    height: 90vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,7 +76,7 @@
 }
 
 .container1 img{
-    width: 40vw;
+    width: 35vw;
     height: auto;
     object-fit: contain;
     object-position: center;
@@ -245,6 +248,7 @@
     background-size: cover;
     background-color: var(--amarelo-requeijao);
     padding-bottom: 5vh;
+    padding-top: 5vh;
 }
 
 .section-1-lore{
@@ -441,13 +445,13 @@
 
 .content-container-5 .svg-forms{
     width: 40vw;
-    height: 80vh;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .content-container-5 .svg-forms img{
-    width: 30vw;
+    width: 25vw;
     height: auto;
     object-position: center;
     object-fit: contain;
@@ -502,7 +506,7 @@
     }
 
     .container1 button{
-        width: 50vw;
+        width: 55vw;
         margin-bottom: 5vh;
         margin-top: 2vh;
         height: 10vh;
@@ -556,6 +560,7 @@
 
     .container3{
         flex-direction: column;
+        padding-bottom: 0vh;
     }
 
     .text-cont3{
@@ -578,7 +583,7 @@
     }
     
     .text-cont3 button{
-        width: 40vw;
+        width: 60vw;
     }
 
     .section-div-val-doacoes{
@@ -653,6 +658,7 @@
 
     .title-container-5{
         text-align: center;
+        gap: 3vh;
     }
     .content-container-5{
         flex-direction: column;
