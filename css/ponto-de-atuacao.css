@@ -1,0 +1,117 @@
+@import url(index.css);
+
+.container1{
+    width: 100vw;
+    height: 90vh;
+    background-color: var(--amarelo-requeijao);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container1 div{
+    width: 90vw;
+    height: 80vh;
+    background-image: url(../img/img-etec.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    display: flex;
+    color: var(--branco);
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container1 div span{
+    margin-left: 3vw;
+    font-size: 3em;
+    margin-bottom: 3vh;
+    width: 30vw;
+}
+.container1 div p{
+    margin-left: 3vw;
+    font-size: 1.2em;
+    width: 31vw;
+    margin-bottom: 10vh;
+}
+
+.container2{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10vh;
+    background-color: var(--amarelo-requeijao);
+}
+
+.section-for-text{
+    width: 60vw;
+    height: 80vh;
+    
+}
+.section-for-text .text{
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+}
+
+.section-for-text div.text span{
+    color: var(--laranja-ababora);
+    display: flex;
+    font-size: 2.3em;
+    width: 50vw;
+    height: auto;
+    
+}
+.section-for-text div.text p{
+    width: 40vw;
+}
+
+.section-for-patner{
+    width: 30vw;
+    height: 80vh;
+    margin-bottom: 10vh;
+    margin-right: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2vh;
+    overflow-y: auto;
+    scroll-snap-type: mandatory y;
+}
+
+.section-for-patner img{
+    width: 18vw;
+    height: 20vw;
+    object-fit: contain;
+    object-position: center;
+}
+ 
+
+.container3{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--amarelo-requeijao);
+    padding-bottom: 10vh;
+}
+
+.container3 span{
+    font-size: 3.2em;
+    color: var(--laranja-ababora);
+}
+
+div.maps-api{
+    width: 70vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
