@@ -39,10 +39,15 @@
     .space{
         height: 0;
     }
+    /* .container1{
+    } */
+
     .text{
         margin: 0;
+        width: auto;
     }
     .text span{
+        margin-top: 10vh;
         width: 95vw;
         text-align: center;
     }
@@ -50,5 +55,12 @@
     .text p{
         text-align: center;
         width: 95vw;
+    }
+    
+    .text:nth-child(1) span{
+        margin-top: 1vh;
+    }
+     .text:nth-child(3) span{
+        margin-top: 10vh;
     }
 }
