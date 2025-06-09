@@ -1,0 +1,88 @@
+@import url(index.css);
+
+.container-carrossel{
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    flex-direction: column;
+    background-color: var(--amarelo-requeijao);
+    z-index: 3;
+}
+
+.vacuo{
+    width: 80vw;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 4;
+}
+.carrossel{
+    margin-left: 100vw;
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    overflow: hidden;
+    transition: transform 1s ease;
+    gap: 3vw;
+    z-index: 1;
+}
+.carrossel img{
+    height: auto;
+    width: 60vw;
+    object-fit: contain;
+    object-position: center;
+     transition: transform 1s ease;
+     border-radius: 20px;
+     
+    z-index: 1;
+    /* animation: slide 20s infinite; */
+}
+
+.carrossel img:nth-child(1){
+    margin-left: 10vh;
+}
+.indice {   
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #000000; /* Altera para branco quando ativo */
+}
+
+
+
+@keyframes slide {
+    0% {
+        transform: translateX(0); /* Primeira imagem visível */
+    }
+    33.33% {
+        transform: translateX(-100%); /* Segunda imagem */
+    }
+    66.66% {
+        transform: translateX(-200%); /* Terceira imagem */
+    }
+    100% {
+        transform: translateX(0); /* Retorna para a primeira imagem */
+    }
+}
+

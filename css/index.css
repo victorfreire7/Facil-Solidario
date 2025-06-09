@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -427,4 +428,10 @@ footer {
   
   button{
     font-family: 'poppins', sans-serif;
+  }
+
+  .img-text{
+    width: 5vw;
+    height: 50vh;
+    background-color: red;
   }
