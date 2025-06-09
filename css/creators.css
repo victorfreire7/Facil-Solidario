@@ -69,6 +69,238 @@
     background-color: #000000; /* Altera para branco quando ativo */
 }
 
+.container1 {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10vh;
+    background-color: var(--amarelo-requeijao);
+}
+
+.section-for-text{
+    width: 60vw;
+    height: 80vh;
+}
+
+.section-for-text .text{
+    margin-left: 5vw;
+    margin-bottom: 5vh;
+}
+
+.section-for-text div.text span{
+    color: var(--laranja-ababora);
+    display: flex;
+    font-size: 3em;
+    width: 50vw;
+    height: auto;
+    
+}
+.section-for-text div.text p{
+    width: 40vw;
+    margin-bottom: 10vh;
+    font-size: 1.7em;
+}
+
+.section-for-image{
+    width: 30vw;
+    height: 90vh;
+    margin-bottom: 10vh;
+    margin-right: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 2vh;
+    overflow-y: auto;
+    scroll-snap-type: mandatory y;
+    background-color: red;
+}
+
+.section-for-patner img{
+    width: 18vw;
+    height: 90vh;
+    object-fit: contain;
+    object-position: center;
+}
+
+.container2{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--amarelo-requeijao);
+    padding-top: 5vh;
+}
+
+.container2 span{
+    font-size: 3.2em;
+    color: var(--laranja-ababora);
+}
+
+.section-for-cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100vw;
+    height: 90vh;
+    margin-top: 5vh;
+    margin-bottom: 8vh;
+    background-image: url(../img/BG-listra.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cards{
+    width: 18vw;
+    height: 73vh;
+    border-radius: 16px;
+    box-shadow: 4px 4px 5px 1px rgba(0, 0, 0, 0.301);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: white;
+    opacity: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards:hover{
+    transform: translateY(-2vh);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 100%;
+
+}
+
+
+
+/*
+.cards:nth-child(2){
+    background-color: var(--branco);
+}
+*/ 
+
+.cards p{
+    font-size: 1.2em;
+    text-align: justify;
+    justify-content: center;
+    width: 15vw;
+    height: auto;
+    margin-top: 2vh;
+}
+
+.cards span{
+    display: inline-block;
+    color: black;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 7rem;
+
+}
+ 
+.pause{
+    margin-top: 10rem;
+    display: flex;
+    background-color: #8DA47C;
+    width: 100vw;
+    height: 20vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.pause p{
+    color: white;
+    font-size: 2.5em;
+}
+
+.container3{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--amarelo-requeijao);
+    background-image: url(../img/svg-quemsomos.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 5vh;
+}
+
+.section-title span{
+    font-size: 3.2em;
+    color: var(--laranja-ababora);
+    font-weight: 600;
+}
+
+.section-title p{
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.section-photocards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8vh;
+    width: 48vw;
+    margin: 0 auto 7vh auto;
+    justify-content: center;
+
+}
+
+.photocard{
+    width: 20vw;
+    height: 70vh;
+    border-radius: 16px;
+    box-shadow: 4px 4px 5px 1px rgba(0, 0, 0, 0.301);
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: white;
+    margin: 1vh 0;
+    background-color: #BFC2CF;
+
+}
+
+.photocard img{
+    width: 100%;
+    height: auto;
+}
+
+.photocard .descricao{
+    display: inline;
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 2em;
+}
+
+.pause2{
+    margin-top: 10rem;
+    display: flex;
+    background-color: #D9D9D9;
+    width: 100vw;
+    height: 15vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
 
 
 @keyframes slide {
