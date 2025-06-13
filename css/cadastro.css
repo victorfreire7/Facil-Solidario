@@ -136,4 +136,76 @@ form p a{
     color: black;
 }
 
+@media screen and (max-width: 800px) {
+    body{
+        overflow-x: none;
+    }
+    main{
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 90vh;
+    }
+
+    .text-for-cadastros{
+        width: 100vw;
+        height: auto;
+        gap: 1vh;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+        z-index: 2;
+    }
+    .text-for-cadastros span{
+        font-size: 1.5em;
+        width: auto;
+    }
+
+    .text-for-cadastros p{
+        font-size: .9em;
+        width: auto;
+    }
+
+    .section-forms-cadastro{
+        width: 80vw;
+        height: 70vh;
+        z-index: 1;
+        margin-bottom: 0;
+        justify-content: flex-start;
+        border-radius: 10px;
+    }
+
+    .section-forms-cadastro img{
+        width: 26vw;
+        margin-top: 4vh;
+        margin-bottom: 1vh;
+        src: url(/img/logo-header-preto.svg);
+    }
+
+    form{
+        /* background-color: blue; */
+        z-index: 1;
+        width: 70vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    form span{
+        width: auto;
+        margin-top: 3vh;
+        /* background-color: red; */
+        width: 50vw;
+    }
+
+    form input{
+        width: 50vw;
+        height: 5vh;
+        margin-bottom: 0;
+    }
+    form button{
+        width: 40vw;
+        height: 5vh;
+    }
+}
 
