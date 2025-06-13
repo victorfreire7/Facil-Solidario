@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fácil Solidário</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <style>
+        body{
+            background-image: url(img/bg-cadastro-login.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+        }
+        @media screen and (max-width: 800px) {
+            main{
+                margin-bottom: 22vh;
+            }
+            .section-forms-cadastro{
+                height: 70vh;
+                padding-bottom: 5vh;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="text-for-cadastros">
+            <span>Criar conta</span>
+            <p>Faça parte da nossa causa,
+                seja um doador!</p>
+            <p>Criando uma conta, você fica à um passo de contribuir para a felicidade de uma família!</p>
+        </section>
+        
+        <section class="section-forms-cadastro"> 
+
+            <button class="btn-voltar"><</button> 
+            <img src="img/logo-sem-txt.svg" alt="">
+            <form action="" method="post">
+                <span>Senha</span>
+                <input type="password" required>
+
+                <span>Confirmar Senha</span>
+                <input type="password" required>
+
+                <span class="requerimentos-senha">
+                    A senha precisa conter: <br> 
+                    <ul>
+                        <li>Minímo de 8 caracteres</li>
+                        <li>Um ou mais caracter especial</li>
+                        <li>Uma ou mais letras maiúscula</li>
+                        <li>dois ou mais número</li>
+                    </ul>
+                </span>
+
+                <button>Criar</button>
+                <p>Já é um doador? <a href="#">Faça login.</a></p>
+            </form>   
+        </section>
+    </main>
+</body>
+</html>

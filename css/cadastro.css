@@ -136,6 +136,15 @@ form p a{
     color: black;
 }
 
+.requerimentos-senha{
+    /* background-color: yellowgreen; */
+    color:red;
+}
+
+.requerimentos-senha ul{
+    margin-left: 2vw;
+}
+
 @media screen and (max-width: 800px) {
     body{
         overflow-x: none;
@@ -206,6 +215,12 @@ form p a{
     form button{
         width: 40vw;
         height: 5vh;
+    }
+
+    .requerimentos-senha{
+        width:auto;
+        margin-left: 7vw;
+        font-size: 1em;
     }
 }
 
