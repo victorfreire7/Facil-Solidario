@@ -30,6 +30,10 @@ html{
     overflow-x: hidden;
 }
 
+html button:hover{
+    cursor: pointer;
+}
+
 body {
     font-family: 'poppins';
     background-color: var(--verde-musgo);

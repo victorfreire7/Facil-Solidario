@@ -40,3 +40,6 @@ setInterval(nextSlide, 3000); // Troca a cada 3 segundos
 // Atualiza o índice ao carregar
 updateIndex();
 
+function mudarPag(link){
+  window.location.href = link;
+}
