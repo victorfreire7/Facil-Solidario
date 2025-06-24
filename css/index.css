@@ -26,6 +26,10 @@
     width: 100vw;
 }
 
+html{
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'poppins';
     background-color: var(--verde-musgo);
