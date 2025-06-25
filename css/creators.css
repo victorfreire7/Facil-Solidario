@@ -38,7 +38,7 @@ main{
     flex-direction: row;
     overflow: hidden;
     transition: transform 1s ease;
-    gap: 3vw;
+    gap: 2vw;
     z-index: 1;
 }
 .carrossel img{
@@ -54,7 +54,7 @@ main{
 }
 
 .carrossel img:nth-child(1){
-    margin-left: 10vh;
+    margin-left: 20vw;
 }
 .indice {   
     margin-top: 2vh;
@@ -399,6 +399,10 @@ main{
         object-fit: contain;
         object-position: center;
         border-radius: 16px;
+    }
+
+    .carrossel img:nth-child(1){
+         margin-left: 40vw;
     }
 
     .indice {
