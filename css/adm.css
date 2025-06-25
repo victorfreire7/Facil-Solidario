@@ -1,124 +1,156 @@
 @import url(index.css);
 
-body{
-            background-color: var(--branco);
-            background-image: url(../img/svg-quemsomos.svg);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-main{
-    width: 100vw;
-    height: 100vh;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+body {
+  background-color: var(--branco);
+  background-image: url(../img/svg-quemsomos.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.btn-voltar{
-   width: 50px;
-   height: 50px;
-   border: none;
-   position: absolute;
-   top: 10px;
-   left: 10px;
-   font-size: 4em;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color: var(--branco);
+main {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-main img{
-    width: 12vw;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    margin-bottom: 5vh;
+.btn-voltar {
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--branco);
 }
 
-.main-content{
-    width: 30vw;
-    height: 40vh;
-    background-color: var(--cinza);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
+main img {
+  width: 12vw;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  margin-bottom: 5vh;
+}
+
+.main-content {
+  width: 30vw;
+  height: 40vh;
+  background-color: var(--cinza);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
 }
 
 .main-content form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-form{
-    width: 35vw;
+form {
+  width: 35vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+  margin-bottom: 2vh;
+}
+
+form input {
+  width: 25vw;
+  height: 7vh;
+  border: none;
+  background-color: var(--branco);
+  color: var(--preto);
+  margin-bottom: 3vh;
+  border-radius: 10px;
+  font-size: 1.1em;
+}
+
+form input:focus {
+  border: 1px solid black;
+  color: black;
+}
+form input::placeholder {
+  color: black;
+  padding-left: 12px;
+}
+form input:focus::placeholder {
+  opacity: 0;
+}
+
+form span {
+  width: 30vw;
+  font-size: 1em;
+  padding-left: 5vw;
+}
+
+form button {
+  background-color: var(--laranja-ababora);
+  border: none;
+  color: var(--amarelo-requeijao);
+  width: 10vw;
+  height: 5vh;
+  font-size: 1.3em;
+  margin-top: 3vh;
+  border-radius: 13px;
+}
+
+main p {
+  margin-top: 3vh;
+}
+main p a {
+  font-style: italic;
+  color: black;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    overflow-x: none;
+  }
+  main {
+    flex-direction: column;
+    justify-content: center;
+    height: 90vh;
+  }
+
+  main img {
+    width: 18vw;
+  }
+  .main-content {
+    width: 60vw;
+    height: 40vh;
+  }
+
+  form {
+    width: 50vw;
     height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  }
 
-    flex-direction: column;
-    margin-bottom: 2vh;
-}
+  form input {
+    width: 50vw;
+  }
 
-form input{
-    width: 25vw;    
-    height: 7vh;
-    border: none;
-    background-color: var(--branco);
-    color: var(--preto);
-    margin-bottom: 3vh;
-    border-radius: 10px;
-    font-size: 1.1em;
-}
+  form span {
+    width: 50vw;
+    position: relative;
+    padding-left: 0vw;
+  }
 
-form span{
-    padding-left: 5vw;
+  main button {
+    width: 22vw;
+  }
 }
-
-form input:focus{
-    border: 1px solid black;
-    color:black;
-}
-form input::placeholder{
-    color: black;
-    padding-left: 12px;
-}
-form input:focus::placeholder{
-    opacity: 0;
-}
-
-form span{
-    width: 30vw;
-    font-size: 1em;
-}
-
-form button{
-    background-color: var(--laranja-ababora);
-    border: none;
-    color: var(--amarelo-requeijao);
-    width: 10vw;
-    height: 5vh;
-    font-size: 1.3em;
-    margin-top: 3vh;
-    border-radius: 13px;
-}
-
-main p{
-    margin-top: 3vh;
-}
-main p a{
-    font-style: italic;
-    color: black;
-}
-
-
-
