@@ -1,0 +1,441 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --verde-musgo: #8DA47C;
+    --cinza: #D9D9D9;
+    --laranja-ababora: #EB9262;
+    --amarelo-requeijao: #FFF4E4;
+    --azul-cinza: #BFC2CF;
+    --azul-cinza-escuro: #7C84A4;
+    --branco: #fff;
+    --preto-claro: #151310;
+}
+
+@font-face {
+    font-family: 'poppins';
+    src: url('../font/Poppins/Poppins-Medium.ttf') format('truetype');
+    font-weight: normal;
+}
+
+.space{
+    height: 16vh;
+    width: 100vw;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'poppins';
+    background-color: var(--verde-musgo);
+    height: auto;
+    overflow-x: hidden;
+    position: relative;
+
+    transition: .2s linear;
+}
+
+header {
+    width: 100vw;
+    height: 16vh;
+    background-color: var(--verde-musgo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom: 3px solid var(--branco);
+    position: fixed;
+    z-index: 1000000000;
+}
+
+.info-header {
+    width: 100vw;
+    height: 4vh;
+    color: var(--verde-musgo);
+    background-color: var(--amarelo-requeijao);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+}
+
+.info-header div:nth-child(1) {
+    margin-left: 5vw;
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-header div:nth-child(2) {
+    width: 8vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 2vw;
+}
+
+.info-header button {
+    width: 2vw;
+    height: 2vh;
+    cursor: pointer;
+    background-color: var(--amarelo-requeijao);
+    border: none;
+    background-position: center;
+    background-size: cover;
+}
+
+.info-header button:nth-child(1) {
+    background-image: url(../img/brasil-bandeira.png);
+}
+
+.info-header button:nth-child(2) {
+    background-image: url(../img/USA-bandeira.png);
+}
+
+.info-header button:nth-child(3) {
+    background-image: url(../img/espanha-bandeira.png);
+}
+
+
+.links-header {
+    width: 100vw;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    transition: .3s linear;
+}
+
+.header-content {
+    width: 100vw;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    color: var(--branco);
+    transition: .3s linear;
+}
+
+.header-content img {
+    width: auto;
+    height: 7vh;
+    object-fit: contain;
+    object-position: center;
+    margin-left: 1.5vw;
+}
+
+.header-content ul {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+
+    list-style: none;
+
+    width: 60vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.5em;
+    transition: .3s linear;
+
+}
+
+.header-content ul li a {
+    text-decoration: none;
+    color: var(--branco);
+}
+
+.header-content ul li img {
+    width: 2vw;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+.header-content ul li span{
+    display: none;
+}
+.menu-checkbox {
+    width: 10vw;
+    height: inherit;
+    display: none;
+    transition: .3s linear;
+    /* Esconde o checkbox */
+}
+
+.menu-label {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    align-self: flex-start;
+    border-radius: 10px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;    
+    transition: .3s linear;
+    color: var(--amarelo-requeijao);
+}
+
+footer {
+    width: 100vw;
+    height: auto;
+    background-color: var(--preto-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 00vh; /*Provavelmente tirar isso depois*/
+}
+.footer-line-1{
+    width: 90vw;
+    height: 15vh;
+    border-bottom: 1px solid var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer-line-1 img{
+    width: 10vw;
+    height: auto;
+    object-fit: cover;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0);
+
+}
+.footer-line-1 button{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    width: auto;
+    height: auto;
+
+}
+.footer-line-1 button img{
+    width: 3vw;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    color: none;
+
+}
+
+.footer-line-2{
+    width: 90vw;
+    height: auto;
+    border-bottom: 1px solid var(--branco);
+    margin-bottom: 5vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2vw;
+    flex-direction: row;
+}
+
+.links-footer{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 20vw;
+    height: 45vh;
+
+}
+
+.links-footer span, .links-footer a{
+    text-align: start;
+    text-decoration: none;
+    color: var(--branco);
+    width: max-content;
+    height: auto;
+    margin-left: 2vw;
+    font-size: .9em;
+    margin-bottom: 3vh;
+}
+
+.links-footer span{
+    color: var(--cinza);
+    filter: opacity(90%);
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.links-footer a{
+    font-weight: bold;
+}
+
+.frase-motivacional{
+    width: 100vw;
+    height: 20vh;
+    background-color: var(--azul-cinza-escuro);
+    color: var(--azul-cinza);
+    font-style:italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 800px) {
+
+    header {
+      flex-direction: column;
+      height: auto;
+      position: relative;
+    }
+  
+    .info-header, .links-header {
+      display: none;
+    }
+  
+    .menu-label {
+      display: flex;
+      position: absolute;
+      left: 1vw;
+      top: 2vh;
+      z-index: 1000;
+    }
+  
+    .logo-header {
+      position: absolute;
+      right: 5vw;
+      width: 15vw;
+      height: auto;
+    }
+    .menu-checkbox:checked ~ .info-header,
+    .menu-checkbox:checked ~ .header-content .links-header {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--verde-musgo);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.01);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(7.5px);
+      -webkit-backdrop-filter: blur(7.5px);
+      transition: .5s linear;
+    }
+    .menu-checkbox:checked ~ .header-content .links-header{
+        background-color: var(--laranja-ababora);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        transition: .5s linear;
+
+        height: 90vh;
+    }
+  
+    .menu-checkbox:checked ~ .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .menu-checkbox:checked + .menu-label{
+        transition: .3s linear;
+        color: rgba(0, 0, 0, 0);
+    }
+    .menu-checkbox:checked + .menu-label::before{
+        transition: .2s linear;
+        content: "x";
+        color: white;
+        position: fixed;
+    }
+    .menu-checkbox:checked ~ .header-content ul li:nth-child(5){
+        margin-top: 10vw;
+    }
+    .menu-checkbox:checked ~ .header-content ul li a:nth-child(5)::after{
+        object-fit: none;
+        content: "Sua doações";
+        display: flex;
+    }
+    .menu-checkbox:checked ~ .header-content ul li img {
+        width: 5vw;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        border: 3px solid var(--branco);
+        border-radius: 100%;
+        content: "aaaaa";
+        display: none;
+    }
+    .menu-checkbox:checked ~ .header-content ul li span{
+        display: flex;
+    }
+    .header-content nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+      gap: 15px;
+      margin-left: 5vw;
+    }
+    .header-content nav ul li:nth-child(1){
+        margin-top: 1vw;
+    }
+    .header-content nav ul li a {
+      font-size: 1em;
+      width: auto;
+      height: 2vh;
+    }
+
+
+    .footer-line-1 img{
+        width: 40vw;
+    }
+    
+    .footer-line-1 button img{
+        width: 12vw;
+    }
+    .footer-line-2{
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .links-footer{
+        width: 90vw;
+        height: 25vh;
+        font-size: 1em;
+        background-color: rgba(255, 0, 0, 0);
+        margin-bottom: 4vh;
+    }
+    .links-footer:nth-child(1){
+        margin-bottom: 15vh;
+    }
+    .links-footer a,.links-footer span{
+        margin-bottom: 4vh;
+    }
+    .links-footer span{
+        margin-top: 2vh;
+        font-size: 1.1em;
+    }
+
+    .frase-motivacional{
+        height: 10vh;
+        font-size: 1em;
+    }
+
+  }
+  
+  button{
+    font-family: 'poppins', sans-serif;
+  }
+
+  .img-text{
+    width: 5vw;
+    height: 50vh;
+    background-color: red;
+  }

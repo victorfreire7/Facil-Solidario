@@ -2,7 +2,7 @@ require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
 
 function index (req, res){
-    res.json('hello world!');
+    res.render('index');
 }
 
 function store (req, res){
