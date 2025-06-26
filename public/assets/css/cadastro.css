@@ -1,0 +1,223 @@
+
+@import url(index.css);
+
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.text-for-cadastros{
+    width: 55vw;
+    height: 100vh;
+    color: var(--branco);
+    display: flex;
+    justify-content: flex-start;
+    gap: 3vw;
+    flex-direction: column;
+}
+
+.text-for-cadastros span{
+    font-size: 3em;
+    width: 55vw;
+    margin-left: 2vw;
+    margin-top: 2vw;
+}
+
+.text-for-cadastros p{
+    font-size: 2.3em;
+    width: 45vw;
+    margin-left: 2vw;
+}
+
+
+.section-forms-cadastro{
+    height: 100vh;
+    width: 45vw;
+    background-color: var(--amarelo-requeijao);
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
+}
+
+
+.btn-voltar{
+    width: 50px;
+    height: 50px;
+    border: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--amarelo-requeijao);
+}
+.btn-voltar:hover{
+    cursor: pointer;
+}
+
+.section-forms-cadastro img{
+    width: 12vw;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 5vh;
+
+}
+
+form{
+    /* background-color: red; */
+
+    width: 35vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    flex-direction: column;
+    margin-bottom: 5vh;
+}
+
+form input{
+    width: 30vw;    
+    height: 7vh;
+    border: none;
+    background-color: #D9D9D9;
+    color: black;
+    margin-bottom: 3vh;
+    border-radius: 10px;
+    font-size: 1.1em;
+    padding-left: 5px;
+}
+
+form input:focus{
+    border: 1px solid black;
+    color:black;
+}
+form input::placeholder{
+    color: black;
+    padding-left: 12px;
+}
+form input:focus::placeholder{
+    opacity: 0;
+}
+
+form span{
+    width: 30vw;
+    font-size: 1em;
+}
+
+form button{
+    background-color: var(--laranja-ababora);
+    border: none;
+    color: var(--amarelo-requeijao);
+    width: 15vw;
+    height: 8vh;
+    font-size: 1.3em;
+    margin-top: 3vh;
+    border-radius: 13px;
+}
+
+form p{
+    margin-top: 3vh;
+}
+form p a{
+    font-style: italic;
+    color: black;
+}
+
+.requerimentos-senha{
+    /* background-color: yellowgreen; */
+    color:red;
+}
+
+.requerimentos-senha ul{
+    margin-left: 2vw;
+}
+
+@media screen and (max-width: 800px) {
+    body{
+        overflow-x: none;
+    }
+    main{
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 90vh;
+    }
+
+    .text-for-cadastros{
+        width: 100vw;
+        height: auto;
+        gap: 1vh;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+        z-index: 2;
+    }
+    .text-for-cadastros span{
+        font-size: 1.5em;
+        width: auto;
+    }
+
+    .text-for-cadastros p{
+        font-size: .9em;
+        width: auto;
+    }
+
+    .section-forms-cadastro{
+        width: 80vw;
+        height: 70vh;
+        z-index: 1;
+        margin-bottom: 0;
+        justify-content: flex-start;
+        border-radius: 10px;
+    }
+
+    .section-forms-cadastro img{
+        width: 26vw;
+        margin-top: 4vh;
+        margin-bottom: 1vh;
+        src: url(/img/logo-header-preto.svg);
+    }
+
+    form{
+        /* background-color: blue; */
+        z-index: 1;
+        width: 70vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    form span{
+        width: auto;
+        margin-top: 3vh;
+        /* background-color: red; */
+        width: 50vw;
+    }
+
+    form input{
+        width: 50vw;
+        height: 5vh;
+        margin-bottom: 0;
+    }
+    form button{
+        width: 40vw;
+        height: 5vh;
+    }
+
+    .requerimentos-senha{
+        width:auto;
+        margin-left: 7vw;
+        font-size: 1em;
+    }
+}
