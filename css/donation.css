@@ -1,0 +1,167 @@
+@import url(index.css);
+
+body {
+  background-color: var(--amarelo-requeijao);
+  background-image: url(../img/svg-quemsomos.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.btn-voltar {
+  width: 50px;
+  height: 50px;
+  border: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--verde-musgo);
+  color: var(--branco);
+  cursor: pointer;
+}
+
+.textbox-container {
+  width: 35vw;
+  height: 100vh;
+  color: var(--branco);
+  background-color: var(--verde-musgo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3vw;
+  flex-direction: column;
+}
+
+.textbox-container img {
+  width: 10vw;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+.textbox-container span {
+  font-size: 3em;
+  width: 30vw;
+}
+
+.textbox-container p {
+  font-size: 2.3em;
+  width: 30vw;
+}
+
+.textbox-container span:nth-child(1) {
+  font-size: 2.3rem;
+  border-bottom: 5px solid var(--laranja-ababora);
+}
+
+.donation-form {
+  width: 40vw;
+  margin-left: 18vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.donation-form span {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 3vw;
+}
+
+.donation-form p {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.5vw;
+}
+
+.donation-form form {
+  width: 40vw;
+  height: 30vh;
+  margin-bottom: 20vh;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.donation-form select {
+  width: 25vw;
+  height: 5vh;
+  border-radius: 10px;
+  font-family: "poppins";
+  background-color: var(--cinza);
+  border: 0;
+  padding-left: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
+}
+
+.donation-form .btn-add {
+  width: 3vw;
+  height: 5vh;
+  font-size: 1.2rem;
+  background-color: var(--laranja-ababora);
+  border: 0;
+  border-radius: 10px;
+  margin-left: 2vw;
+  cursor: pointer;
+  box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
+}
+
+.form-container {
+  width: 30vw;
+  height: 30vh;
+  margin-top: 0.5vw;
+  background-color: var(--cinza);
+  border-radius: 10px;
+  box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
+}
+
+.items{
+    width: 30vw;
+    height: 6vh;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    background-color: #D2D0D0;
+    margin-bottom: 0.5vw;
+}
+
+.items span{
+     font-size: 1.2rem;
+     font-weight: 500;
+     display: flex;
+     margin-bottom: 0;
+}
+
+ .items  span:nth-child(1){
+    margin-left: 1.5vw;
+    font-weight: bold;
+}
+ .items span:nth-child(2){
+    margin-left: 8vw;
+    margin-right: 1vw;
+}
+
+.donation-form .form-container .items input{
+    width: 3vw;
+    height: 4vh;
+    font-family: 'poppins';
+    font-size: 1.2rem;
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+     box-shadow: 2px 0px 20px 1px rgba(0, 0, 0, 0.493);
+}
+
+
+

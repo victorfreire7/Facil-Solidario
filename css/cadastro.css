@@ -62,9 +62,9 @@ main{
 .btn-voltar:hover{
     cursor: pointer;
 }
-.btn-voltar:active{
+/* .btn-voltar:active{
 
-}
+} */
 
 .section-forms-cadastro img{
     width: 12vw;

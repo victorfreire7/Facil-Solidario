@@ -30,6 +30,7 @@ main {
   align-items: center;
   justify-content: center;
   background-color: var(--branco);
+  cursor: pointer;
 }
 
 main img {
@@ -51,15 +52,8 @@ main img {
   box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
 }
 
-.main-content form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 form {
-  width: 35vw;
+  width: 30vw;
   height: auto;
   display: flex;
   align-items: center;
@@ -107,6 +101,7 @@ form button {
   font-size: 1.3em;
   margin-top: 3vh;
   border-radius: 13px;
+  cursor: pointer;
 }
 
 main p {
