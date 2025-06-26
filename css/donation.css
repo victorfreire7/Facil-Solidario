@@ -143,6 +143,9 @@ main {
   background-color: var(--cinza);
   border-radius: 10px;
   box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
+  overflow: auto;
+  overflow-x: hidden;
+  
 }
 
 .items {
