@@ -1,5 +1,5 @@
 function index (req, res){
-    res.json('termos-de-politica');
+    res.render('politicas');
 }
 
 module.exports = { index };
