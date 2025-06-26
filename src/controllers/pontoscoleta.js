@@ -1,5 +1,5 @@
 function index (req, res){
-    res.json('pontos-de-coleta');
+    res.render('pontoscoleta');
 }
 
 module.exports = { index };
