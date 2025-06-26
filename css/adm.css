@@ -119,20 +119,28 @@ main p a {
   main {
     flex-direction: column;
     justify-content: center;
-    height: 90vh;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
   }
 
   main img {
-    width: 18vw;
+    width: 30vw;
+    object-fit: contain;
+    object-position: center;
   }
   .main-content {
-    width: 60vw;
+    width: 70vw;
     height: 40vh;
+    margin-bottom: 13vh;
+    /* background-color: green; */
   }
 
   form {
-    width: 50vw;
+    width: 70vw;
     height: auto;
+    /* background-color: red; */
   }
 
   form input {
@@ -141,11 +149,17 @@ main p a {
 
   form span {
     width: 50vw;
+    /* background-color: red; */
     position: relative;
+    font-size: 1.2em;
     padding-left: 0vw;
   }
 
   main button {
     width: 22vw;
+  }
+  form input{
+    width: 60vw;
+    height: 5vh;
   }
 }
