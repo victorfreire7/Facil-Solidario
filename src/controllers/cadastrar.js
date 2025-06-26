@@ -8,7 +8,7 @@ const authCode = randomStringGenerator(6);
 
 
 function index (req, res){
-    res.json('sign up'); // aqui seria a renderização do EJS
+    res.render('cadastro'); // aqui seria a renderização do EJS
 }
 
 async function store (req, res){
@@ -40,7 +40,7 @@ async function store (req, res){
         res.json('renderizo a página de confirmação de email');    
     }
     catch (error){
-        res.json(error)
+        res.redirect('/confirmacao');
     }
 }
 
@@ -62,7 +62,7 @@ function indexConfirmacao(req, res) {
         };
         sgMail.send(msg);
     
-    res.json(userInfo);
+    res.render('cadastroconfirm');
 }
 
 

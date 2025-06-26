@@ -1,6 +1,6 @@
 module.exports = (req, res, next) => {
     if(!req.session.firstStep){
-        res.json("renderizo a pag 404");
+        res.status(404).render('404');
     } else {
         next();
     }
