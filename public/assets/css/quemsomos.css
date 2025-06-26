@@ -98,10 +98,6 @@ main{
     /* background-color: green; */
 }
 
-.section-for-text .text{
-    /* background-color: yellow; */
-}
-
 .section-for-text div.text span{
     color: var(--laranja-ababora);
     display: flex;
@@ -532,9 +528,6 @@ main{
         width: 80vw;
     }
 
-    .photocard .descricao{
-    }
-    
     .tituloequipe{
         font-size: 1.5em;
     }
