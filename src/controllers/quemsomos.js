@@ -1,5 +1,5 @@
 function index (req, res){
-    res.json('quem-somos');
+    res.render('quemsomos');
 }
 
 module.exports = { index };
