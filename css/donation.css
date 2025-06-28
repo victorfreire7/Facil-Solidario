@@ -18,10 +18,8 @@ main {
   width: 12vw;
   height: 6vh;
   position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-right: 16vw;
-  margin-bottom: 6vw;
+  bottom: 6vw;
+  right: 16vw;
   border-radius: 15px;
   background-color: var(--laranja-ababora);
   color: var(--branco);
@@ -145,7 +143,6 @@ main {
   box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
   overflow: auto;
   overflow-x: hidden;
-  
 }
 
 .items {
@@ -182,5 +179,78 @@ main {
   border: 0;
   border-radius: 5px;
   text-align: center;
+  background-color: var(--cinza);
   box-shadow: 2px 0px 20px 1px rgba(0, 0, 0, 0.493);
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    background-color: var(--verde-musgo);
+  }
+
+  main {
+    display: flex;
+    justify-content: center;
+  }
+
+  .textbox-container {
+    display: none;
+  }
+
+  .donation-form {
+    width: auto;
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    color: var(--branco);
+    text-align: center;
+    margin-top: 25%;
+  }
+
+  .subtitle {
+    color: var(--branco);
+    display: flex;
+    left: 0;
+    margin-bottom: 1.25vw;
+  }
+
+  .donation-form select {
+    width: 40vw;
+    margin-bottom: 0.5vw;
+  }
+
+  .donation-form .btn-add {
+    width: 8vw;
+  }
+
+  .form-container {
+    width: 65vw;
+    height: 35vh;
+  }
+
+  .donation-form form {
+    width: 65vw;
+    height: auto;
+  }
+
+  form .add-btn-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .items {
+    width: auto;
+    margin-bottom: 1vw;
+  }
+
+  .donation-form .form-container .items input {
+    width: 5vw;
+    height: 4vh;
+    font-size: 1rem;
+  }
 }
