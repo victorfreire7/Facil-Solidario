@@ -159,11 +159,11 @@ main {
 .items span {
   font-size: 1.2rem;
   font-weight: 500;
-  display: flex;
   margin-bottom: 0;
 }
 
 .items span:nth-child(1) {
+  width: 1vw;
   margin-left: 1.5vw;
   font-weight: bold;
 }
@@ -298,6 +298,14 @@ main {
     margin-bottom: 1vw;
   }
 
+.items span:nth-child(1){
+  margin-left: 5vw;
+}
+
+.items span:nth-child(2){
+  margin-left: 25vw;
+}
+
   .donation-form .form-container .items input {
     width: 5vw;
     height: 4vh;
@@ -341,7 +349,7 @@ main {
   }
 
   .donation-form .form-container .items .amount-input{
-    margin-left: 10vw;
+    margin-left: 25vw;
     margin-right: 2vw;
   }
 
