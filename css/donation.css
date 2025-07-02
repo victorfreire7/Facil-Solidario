@@ -56,6 +56,7 @@ main {
   align-items: center;
   gap: 3vw;
   flex-direction: column;
+  word-wrap: break-word;
 }
 
 .textbox-container img {
@@ -183,6 +184,63 @@ main {
   box-shadow: 2px 0px 20px 1px rgba(0, 0, 0, 0.493);
 }
 
+@media screen and (max-width: 1024px){
+  .textbox-container img{
+    width: 12vw;
+  }
+
+  .textbox-container span{
+    font-size: 2.3em;
+     width: 20vw;
+     text-align: center;
+  }
+
+  .textbox-container p{
+    font-size: 2em;
+    text-align: left;
+  }
+
+  .textbox-container span:nth-child(1){
+    font-size: 1em;
+  }
+
+  .donation-form{
+    width: auto;
+    margin-left: 10vw;
+  }
+
+  .donation-form select{
+    width: 30vw;
+  }
+
+  .donation-form .btn-add{
+    width: 5vw;
+  }
+
+  .donation-form form{
+    height: auto;
+  }
+
+  .form-container{
+    width: auto;
+    height: 30vh;
+    margin-top: 1.5vh;
+  }
+
+  .form-container .items{
+    width: auto;
+    margin-bottom: 1.5vh;
+  }
+
+ .donation-form .form-container .items input{
+  width: 4vw;
+ }
+
+ .btn-confirma{
+  width: 15vw;
+ }
+}
+
 @media screen and (max-width: 800px) {
   body {
     background-color: var(--verde-musgo);
@@ -213,13 +271,11 @@ main {
 
   .subtitle {
     color: var(--branco);
-    display: flex;
-    left: 0;
     margin-bottom: 1.25vw;
   }
 
   .donation-form select {
-    width: 40vw;
+    width: 50vw;
     margin-bottom: 0.5vw;
   }
 
@@ -237,12 +293,6 @@ main {
     height: auto;
   }
 
-  form .add-btn-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-
   .items {
     width: auto;
     margin-bottom: 1vw;
@@ -252,5 +302,52 @@ main {
     width: 5vw;
     height: 4vh;
     font-size: 1rem;
+  }
+
+  .btn-confirma{
+    bottom: 5vh;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .donation-form .subtitle{
+    margin-bottom: 2vh;
+  }
+  
+  .donation-form select{
+    width: 65vw;
+  }
+
+  .donation-form .btn-add{
+    width: 12vw;
+    font-weight: 800;
+  }
+
+  .donation-form form{
+    width: auto;
+  }
+
+  .form-container{
+    width: 80vw;
+    margin-top: 1vh;
+  }
+
+  .donation-form .form-container .items input  {
+    width: 10vw;
+  }
+
+  .donation-form .form-container .items .type-input{
+    margin-left: 5vw;
+  }
+
+  .donation-form .form-container .items .amount-input{
+    margin-left: 10vw;
+    margin-right: 2vw;
+  }
+
+  .btn-confirma{
+    width: 25vw;
+    right: 8vw;
+    bottom: 8vh;
   }
 }
