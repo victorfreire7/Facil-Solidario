@@ -59,6 +59,8 @@ main{
     align-items: center;
     justify-content: center;
     background-color: var(--amarelo-requeijao);
+    color: black;
+    text-decoration: none;
 }
 .btn-voltar:hover{
     cursor: pointer;

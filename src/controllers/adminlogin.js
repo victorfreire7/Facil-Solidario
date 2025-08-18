@@ -45,7 +45,7 @@ async function index(req, res) {
     };
     sgMail.send(msg); // envio no E-mail, o login e a senha do dia para acesso do admin
 
-    res.json('login do admin');
+    res.render('admin');
 }
 
 async function store(req, res) {

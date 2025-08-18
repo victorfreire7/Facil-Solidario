@@ -6,8 +6,10 @@ const firstStepMiddleware = require('../middlewares/secStepLoginRequired');
 router.get('/', cadastrarController.index);
 router.post('/', cadastrarController.store);
 
-router.get('/confirmacao', firstStepMiddleware, cadastrarController.indexConfirmacao);
-router.post('/confirmacao', firstStepMiddleware, cadastrarController.storeConfirmacao);
+router.get('/confirmacao', cadastrarController.indexConfirm);
+
+// router.get('/confirmacao', /*firstStepMiddleware, TEMPORARIO REMOVIDO*/ cadastrarController.indexConfirmacao);
+// router.post('/confirmacao', /*firstStepMiddleware,*/ cadastrarController.storeConfirmacao);
 
 
 module.exports = router;

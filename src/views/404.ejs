@@ -1,57 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facil Solidário</title>
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/404.css">
-    <style>
-      .logo-header{
-        margin-top: 0;
-      }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facil Solidário</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/404.css">
+  <style>
+    .logo-header{
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <input type="checkbox" id="menu-checkbox" class="menu-checkbox">
-        <label for="menu-checkbox" class="menu-label">&#9776;</label>
-      
-        
-      
-        <section class="info-header">
-          <div>
-            <span>Telefone: 11 95249-4032</span>
-            <span>Email: facil_solidario@hotmail.com</span>
-          </div>
-          <div>
-            <button class="languages"></button>
-            <button class="languages"></button>
-            <button class="languages"></button>
-          </div>
-        </section>
-      
-        <section class="header-content">
-          <img src="assets/img/logo-header.svg" alt="logo" class="logo-header">
-          <nav class="links-header">
-            <ul>
-              <li><a href="#">SOBRE NÓS</a></li>
-              <li><a href="#">COMO DOAR</a></li>
-              <li><a href="#">SEJA DOADOR</a></li>
-              <li><a href="#">DOE</a></li>
-              <li><a href="#"><img src="assets/img/PERFIL.svg" alt="Suas doações"><span>Suas Doações</span></a></li>
-            </ul>
-          </nav>
-        </section>
-      </header>
+
+  <%-include('./includes/header')%>
+  
       <main>
         <div class="space"></div>
-        <img src="assets/img/LOGO.png" alt="logo-img">
+        <img src="../assets/img/LOGO.png" alt="logo-img">
         <h1>404</h1>
         <span>Página não encontrada</span>
         <span>Não conseguimos encontrar a página requisitada!</span>
         <button>Voltar</button>
       </main>
-    
 </body>
 </html>
