@@ -1,4 +1,4 @@
-var ip = '192.168.137.1';
+var ip = '192.168.56.1';
 var porta = 3636;
 
 
@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
 
   // Se a URL for '/', serve o arquivo index.html por padrão
   if (filePath == './') {
-    filePath = './home.html';
+    filePath = './index.html';
   }
 
   // Pega a extensão do arquivo para definir o tipo MIME correto
@@ -70,5 +70,5 @@ const server = http.createServer((req, res) => {
 
 // Inicia o servidor escutando na porta e hostname definidos
 server.listen(port, hostname, () => {
-  console.log(`Servidor rodando em http://${hostname}:${port}/home.html`);
+  console.log(`Servidor rodando em http://${hostname}:${port}/index.html`);
 });

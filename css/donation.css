@@ -52,28 +52,44 @@ main {
   color: var(--branco);
   background-color: var(--verde-musgo);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 3vw;
   flex-direction: column;
-  word-wrap: break-word;
+  text-align: center;
+  
 }
 
 .textbox-container img {
   width: 10vw;
   height: auto;
+  margin-top: 5vh;
   object-fit: contain;
   object-position: center;
 }
 
 .textbox-container span {
-  font-size: 3em;
-  width: 30vw;
+  font-size: 2.3em;
+  width: auto;
+  height: auto;
+  margin-top: 2vh;
+  margin-bottom: 8vh;
+  /* background-color: yellow; */
 }
 
 .textbox-container p {
-  font-size: 2.3em;
+  font-size: 1.5em;
   width: 30vw;
+  text-align: center;
+  /* width: 30vw; */
+  /* background-color: red; */
+  line-height: 80px;
+}
+
+.textbox-container p span.repons{
+  margin-top: 5vh;
+  font-size: 1.8em;
+  /* background-color: blue; */
+  text-align: center;
 }
 
 .textbox-container span:nth-child(1) {
@@ -92,7 +108,7 @@ main {
 .donation-form span {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 3vw;
+  /* margin-bottom: 3vw; */
 }
 
 .donation-form p {
@@ -129,14 +145,14 @@ main {
   background-color: var(--laranja-ababora);
   border: 0;
   border-radius: 10px;
-  margin-left: 2vw;
+  margin-left: 1vw;
   cursor: pointer;
   box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
   transition: 0.2s linear;
 }
 
 .form-container {
-  width: 30vw;
+  width: 35vw;
   height: 30vh;
   margin-top: 0.5vw;
   background-color: var(--cinza);
@@ -144,25 +160,53 @@ main {
   box-shadow: 2px 0px 50px 1px rgba(0, 0, 0, 0.493);
   overflow: auto;
   overflow-x: hidden;
+  z-index: 10;
+}
+
+/* largura da barra  */
+.form-container::-webkit-scrollbar{
+  width: 10px;
+}
+/* Fundo da barra */
+.form-container::-webkit-scrollbar-track{
+  background-color: #8da47c9a;
+  border-radius: 10px;
+}
+
+/* "Polegar" da barra (parte que você arrasta) */
+.form-container::-webkit-scrollbar-thumb{
+  background-color: #8fb078;
+  border-radius: 10px;
+  border: 3px solid none;
+  transition: .2s linear;
+}
+.form-container::-webkit-scrollbar:hover{
+  background-color: #657a56;
 }
 
 .items {
-  width: 30vw;
+  width: 100%;
   height: 6vh;
   border-radius: 10px;
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   background-color: #d2d0d0;
   margin-bottom: 0.5vw;
 }
 
+.items:nth-child(1){
+  margin-top: 2vh;
+}
+
 .items span {
   font-size: 1.2rem;
   font-weight: 500;
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
 }
 
-.items span:nth-child(1) {
+/* .items span:nth-child(1) {
   width: 1vw;
   margin-left: 1.5vw;
   font-weight: bold;
@@ -170,7 +214,7 @@ main {
 .items span:nth-child(2) {
   margin-left: 8vw;
   margin-right: 1vw;
-}
+} */
 
 .donation-form .form-container .items input {
   width: 3vw;
@@ -182,6 +226,40 @@ main {
   text-align: center;
   background-color: var(--cinza);
   box-shadow: 2px 0px 20px 1px rgba(0, 0, 0, 0.493);
+}
+
+.add-btn-container{
+  display: flex;
+  flex-direction: row;
+  z-index: 2;
+  /* background-color: rebeccapurple; */
+}
+
+.qtd-alimen{
+  width: 3vw;
+  font-family: "poppins"; 
+  font-size: 1.2rem;
+  margin-left: 1vw;
+  border:0;
+  border-radius: 5px;
+  text-align: center;
+  background-color: var(--cinza);
+  box-shadow: 2px 0px 20px 1px rgba(0, 0, 0, 0.493);
+
+}
+
+input.qtd-alimen:focus{
+  border: 1px solid black;
+}
+
+.id-item{
+  text-align: center;
+  margin-left: 20px;
+  font-family: 'poppins';
+}
+
+.amount-input{
+  margin-left: 1vw;
 }
 
 @media screen and (max-width: 1024px){
@@ -239,6 +317,9 @@ main {
  .btn-confirma{
   width: 15vw;
  }
+ .qtd-alimen{
+  width: 5vw;
+}
 }
 
 @media screen and (max-width: 800px) {
@@ -271,12 +352,10 @@ main {
 
   .subtitle {
     color: var(--branco);
-    margin-bottom: 1.25vw;
   }
 
   .donation-form select {
     width: 50vw;
-    margin-bottom: 0.5vw;
   }
 
   .donation-form .btn-add {
@@ -295,15 +374,14 @@ main {
 
   .items {
     width: auto;
-    margin-bottom: 1vw;
   }
 
 .items span:nth-child(1){
-  margin-left: 5vw;
+  /* margin-left: 5vw; */
 }
 
 .items span:nth-child(2){
-  margin-left: 25vw;
+  /* margin-left: 25vw; */
 }
 
   .donation-form .form-container .items input {
@@ -315,6 +393,9 @@ main {
   .btn-confirma{
     bottom: 5vh;
   }
+  .qtd-alimen{
+  width: 8vw;
+}
 }
 
 @media screen and (max-width: 480px){
@@ -349,8 +430,9 @@ main {
   }
 
   .donation-form .form-container .items .amount-input{
-    margin-left: 25vw;
-    margin-right: 2vw;
+    margin-left: 5vw;
+    font-size: 1em;
+    /* background-color: red; */
   }
 
   .btn-confirma{

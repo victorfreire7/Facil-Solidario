@@ -14,16 +14,17 @@
       <section class="textbox-container">
         <img src="img/logo-branca.png" alt="facil-solidario-logo" />
         <span>Formulário de doação</span>
-        <p>Faça parte da nossa causa, seja um doador!</p>
-        <p>Doe com <span>responsabilidade!</span></p>
+        <p>Faça parte da nossa causa, seja um doador! Doe com <span class="repons">responsabilidade!!</span></p>
+        
+        
       </section>
       <section class="donation-form">
         <span class="title">Registre sua doação</span>
-        <p class="subtitle">Quais alimentos serão doados?</p>
-        <form action="" method="post" id="form">
-          <div class=".add-btn-container">
+        <p class="subtitle">Selecione o tipo e quantida de alimentos a serem doados</p>
+        <form action="" method="" id="form">
+          <div class="add-btn-container">
           <select name="options" id="options">
-            <option disabled selected>Tipo</option>
+            <option value="0" disabled selected>Tipo</option>
             <option value="Cereais">Cereais</option>
             <option value="Grãos">Grãos</option>
             <option value="Enlatados">Enlatados</option>
@@ -34,6 +35,7 @@
             <option value="Massas">Massas</option>
             <option value="Leite em pó">Leite em pó</option>
           </select>
+          <input type="number" class="qtd-alimen">
           <button class="btn-add" type="submit">+</button>
           </div>
           <div class="form-container">
