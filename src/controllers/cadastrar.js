@@ -3,7 +3,7 @@ const randomStringGenerator = require('random-string-generator');
 const UsuarioRepository = require('../models/usuario');
 const sgMail = require('@sendgrid/mail');
 const validator = require('validator');
-let userInfo = {};
+// let userInfo = {};
 const authCode = randomStringGenerator(6);
 
 
@@ -14,25 +14,33 @@ function index (req, res){
 async function store (req, res){
     try {
 
-        const result = await UsuarioRepository.findOne({ //executo um método que procura um valor no BD e retorna um dado BOOLEAN
+        await UsuarioRepository.findOne({ //executo um método que procura um valor no BD e retorna um dado BOOLEAN
             where: {
                 email: req.body.email // envio como argumento o input de email
             }
+        }).then((result) => { 
+            if(result){
+                return res.json('e-mail j autilizado!!!!');
+            }   
         });
-
-        if(result){
-            return res.json('e-mail j autilizado!!!!');
-        }
 
         if(!validator.isEmail(req.body.email)){ // crio uma verificação de caso o e-mail seja valido.
             return res.send('Por favor, digite um E-mail válido!');
-        }        
+        }       
         
-        res.redirect('/sign-up/confirmacao');
-        
+        if(!validator.isMobilePhone(req.body.telefone, 'pt-BR')){ // crio uma verificação de caso o telefone celular seja valido.
+            return res.send('Por favor, digite um Telefone válido!!!')
+        }
+
+        req.session.firstStep = true; // seto uma sessao na nuvem para identificar se o primeiro passo(no caso, a validaçao) foi concluido ou nao
+        req.session.user = req.body; // salvo em uma sessão todas informaçoes enviadas pelo usuario.
+        req.session.save();
+
+        res.redirect('/sign-up/confirmacao'); //caso passe por todas verificações, prossegue pra proxima página
     }
     catch (error){  
-        res.send(error);
+        console.error('Erro capturado:', error);
+        return res.status(500).json({ message: error.message || 'Erro desconhecido' });
     }
 }
 
@@ -40,6 +48,9 @@ function indexConfirm(req, res) {
     res.render('cadastroConfirm')
 }
 
+function storeConfirm(req, res) {
+    
+}
 
 
 // function indexConfirmacao(req, res) {
