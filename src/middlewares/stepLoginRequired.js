@@ -6,4 +6,12 @@ function first (req, res, next){
     }
 }
 
-module.exports = { first }
+function second (req, res, next){
+    if(!req.session.secondStep){
+        res.status(404).render('404');
+    } else {
+        next();
+    }
+}
+
+module.exports = { first, second }
