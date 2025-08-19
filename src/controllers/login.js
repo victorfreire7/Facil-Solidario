@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs');
 require("dotenv").config();
 
 function index (req, res){
-    res.json('login');
+    res.render('login');
 }
 
 async function store (req, res){
