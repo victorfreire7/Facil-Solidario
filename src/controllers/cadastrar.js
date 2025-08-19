@@ -1,10 +1,9 @@
 require('dotenv').config();
 const randomStringGenerator = require('random-string-generator');
 const UsuarioRepository = require('../models/usuario');
-const sgMail = require('@sendgrid/mail');
+
 const validator = require('validator');
 // let userInfo = {};
-const authCode = randomStringGenerator(6);
 
 
 function index (req, res){
@@ -33,10 +32,10 @@ async function store (req, res){
         }
 
         req.session.firstStep = true; // seto uma sessao na nuvem para identificar se o primeiro passo(no caso, a validaçao) foi concluido ou nao
-        req.session.user = req.body; // salvo em uma sessão todas informaçoes enviadas pelo usuario.
+        req.session.userInfo = req.body; // salvo em uma sessão todas informaçoes enviadas pelo usuario.
         req.session.save();
 
-        res.redirect('/sign-up/confirmacao'); //caso passe por todas verificações, prossegue pra proxima página
+        res.redirect('/sign-up/code'); //caso passe por todas verificações, prossegue pra proxima página
     }
     catch (error){  
         console.error('Erro capturado:', error);
@@ -49,27 +48,55 @@ function indexConfirm(req, res) {
 }
 
 function storeConfirm(req, res) {
+
+}
+
+async function sendCode(req, res) {
+    const authCode = randomStringGenerator(6); // crio um código de 6 caracteres
+    req.session.code = authCode; // salvo esse codigo em uma sessao
+
+    const sgMail = require('@sendgrid/mail');
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+        to: req.session.userInfo.nome,
+        from: 'solidariofacil@gmail.com',
+        subject: `CÓDIGO DE VERIFICAÇÃO FÁCIL SOLIDÁRIO`,
+        text: 
+        `
+            Seu código de verificação é: 
     
+            \n \n \n
+    
+            <strong>${req.session.code}</strong>   
+            `
+    };
+    try {
+        await sgMail.send(msg); 
+    } catch (error) {
+        res.send(error)
+    }
+
+    res.redirect('/sign-up/confirmacao')  
 }
 
 
 // function indexConfirmacao(req, res) {
-//     // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-//     //     const msg = {
-//     //         to: userInfo.email,
-//     //         from: 'solidariofacil@gmail.com',
-//     //         subject: `CÓDIGO DE VERIFICAÇÃO FÁCIL SOLIDÁRIO`,
-//     //         text: 
-//     //         `
-//     //             Seu código de verificação é: 
+//     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+//         const msg = {
+//             to: userInfo.email,
+//             from: 'solidariofacil@gmail.com',
+//             subject: `CÓDIGO DE VERIFICAÇÃO FÁCIL SOLIDÁRIO`,
+//             text: 
+//             `
+//                 Seu código de verificação é: 
     
-//     //             \n \n \n
+//                 \n \n \n
     
-//     //             <strong>${authCode}</strong>   
+//                 <strong>${authCode}</strong>   
 
-//     //         `
-//     //     };
-//     //     sgMail.send(msg); TEMPORARIO REMOVIDO
+//             `
+//         };
+//         sgMail.send(msg); 
     
 //     res.render('cadastroConfirm');
 // }
@@ -99,4 +126,4 @@ function storeConfirm(req, res) {
 //     // colocar um req.session.firstStep = false; no final
 // }
 
-module.exports = { index, store, indexConfirm };
+module.exports = { index, store, sendCode, indexConfirm };
