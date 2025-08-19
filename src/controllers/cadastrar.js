@@ -1,7 +1,6 @@
 require('dotenv').config();
 const randomStringGenerator = require('random-string-generator');
 const UsuarioRepository = require('../models/usuario');
-
 const validator = require('validator');
 // let userInfo = {};
 
@@ -43,14 +42,6 @@ async function store (req, res){
     }
 }
 
-function indexConfirm(req, res) {
-    res.render('cadastroConfirm')
-}
-
-function storeConfirm(req, res) {
-
-}
-
 async function sendCode(req, res) {
     const authCode = randomStringGenerator(6); // crio um código de 6 caracteres
     req.session.code = authCode; // salvo esse codigo em uma sessao
@@ -58,7 +49,7 @@ async function sendCode(req, res) {
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
-        to: req.session.userInfo.nome,
+        to: req.session.userInfo.email,
         from: 'solidariofacil@gmail.com',
         subject: `CÓDIGO DE VERIFICAÇÃO FÁCIL SOLIDÁRIO`,
         text: 
@@ -73,11 +64,53 @@ async function sendCode(req, res) {
     try {
         await sgMail.send(msg); 
     } catch (error) {
-        res.send(error)
+        res.send(error);
     }
 
-    res.redirect('/sign-up/confirmacao')  
+    res.redirect('/sign-up/confirmacao')  ;
 }
+
+function indexConfirm(req, res) {
+    res.render('cadastroConfirm');
+}
+
+function storeConfirm(req, res) {
+    if(req.body.code != req.session.code){
+        return res.status(401)
+        .send('código incorreto!');
+    }
+
+    req.session.secondStep = true;
+    res.redirect('/sign-up/password'); //<--------------------------------
+}
+
+function indexPassword(req, res) {
+    res.render('cadastroPassword');
+}
+
+async function storePassword(req, res) {
+    try {
+        
+        await UsuarioRepository.create({
+            nome: req.body.nome ,
+            email: req.body.email,
+            telefone: req.body.telefone,
+            senha: req.body.senha
+        }).then(() => {
+
+            req.session.firstStep = false;
+            req.session.secondStep = false;
+            
+            res.redirect('/sign-in');
+            //adicionar flash message de conta criada
+        })
+
+    } catch (error) {
+        
+    }
+}
+
+module.exports = { index, store, sendCode, indexConfirm, storeConfirm,  indexPassword, storePassword };
 
 
 // function indexConfirmacao(req, res) {
@@ -126,4 +159,3 @@ async function sendCode(req, res) {
 //     // colocar um req.session.firstStep = false; no final
 // }
 
-module.exports = { index, store, sendCode, indexConfirm };
