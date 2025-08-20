@@ -24,7 +24,17 @@
           <div></div>
           <span>A mudança começa por você! Faça parte da  nossa causa</span>
         </div>
-          <button onclick="">Seja um Doador</button>
+
+        <%if(user) { %>
+          <a href="/formulario-doacao">
+            <button>Doe aqui!</button>
+          </a>
+        <%} else {%>
+          <a href="/sign-up">
+            <button>Seja um Doador</button>
+          </a>
+        <%}%>
+
         </div>
         <img src="./assets/img/svg-home.svg" alt="home-svg">
       </div>
@@ -54,7 +64,9 @@
           <span>Para onde vai a <br> minha doação?</span>
           <p>Fique informado sobre a nossa rotina de coleta e distribuição</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt ac eros ac facilisis. Donec cursus.</p>
-          <button>Lorem Ipsum</button>
+          <a href="/pontos-de-coleta">
+            <button style="cursor: pointer;">Lorem Ipsum</button>
+          </a>
         </section>
         <section class="section-div-val-doacoes">
           <div>
