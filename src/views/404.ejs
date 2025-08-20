@@ -6,7 +6,7 @@
   <title>Facil Solidário</title>
   <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/404.css">
-  <link rel="shortcut icon" href="./assets/img/LOGO-BRANCA.svg">
+  <link rel="shortcut icon" href="/assets/img/LOGO-BRANCA.svg">
   <style>
     .logo-header{
       margin-top: 0;
@@ -15,7 +15,37 @@
 </head>
 <body>
 
-  <%-include('./includes/header')%>
+  <header>
+    <input type="checkbox" id="menu-checkbox" class="menu-checkbox">
+    <label for="menu-checkbox" class="menu-label">&#9776;</label>
+  
+    
+  
+    <section class="info-header">
+      <div>
+        <span>Telefone: 11 95249-4032</span>
+        <span>Email: facil_solidario@hotmail.com</span>
+      </div>
+      <div class="section-button-languages">
+        <button class="languages"></button>
+        <button class="languages"></button>
+        <button class="languages"></button>
+      </div>
+    </section>
+  
+    <section class="header-content">
+      <img src="../assets/img/logo-header.svg" alt="logo" class="logo-header">
+      <nav class="links-header">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/quem-somos">Sobre nós</a></li>
+          <li><a href="#">Como doar</a></li>
+          <li><a href="/sign-up">Seja doador</a></li>
+          <li><a href="/sign-up"><img src="../assets/img/PERFIL.svg" alt="Suas doações"><span>Suas Doações</span></a></li>
+        </ul>
+      </nav>
+    </section>
+  </header>
   
       <main>
         <div class="space"></div>
@@ -23,7 +53,9 @@
         <h1>404</h1>
         <span>Página não encontrada</span>
         <span>Não conseguimos encontrar a página requisitada!</span>
-        <button>Voltar</button>
+        <a href="/">
+          <button>Voltar</button>
+        </a>
       </main>
 </body>
 </html>
