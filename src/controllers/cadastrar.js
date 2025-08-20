@@ -2,8 +2,6 @@ require('dotenv').config();
 const randomStringGenerator = require('random-string-generator');
 const UsuarioRepository = require('../models/usuario');
 const validator = require('validator');
-// let userInfo = {};
-
 
 function index (req, res){
     res.render('cadastro'); // aqui seria a renderização do EJS
@@ -18,7 +16,7 @@ async function store (req, res){
             }
         }).then((result) => { 
             if(result){
-                return res.json('e-mail j autilizado!!!!');
+                return res.json('e-mail ja utilizado!!!!');
             }   
         });
 
@@ -90,23 +88,22 @@ function indexPassword(req, res) {
 
 async function storePassword(req, res) {
     try {
-        
         await UsuarioRepository.create({
-            nome: req.body.nome ,
-            email: req.body.email,
-            telefone: req.body.telefone,
+            nome: req.session.userInfo.nome ,
+            email: req.session.userInfo.email,
+            telefone: req.session.userInfo.telefone,
             senha: req.body.senha
         }).then(() => {
-
             req.session.firstStep = false;
             req.session.secondStep = false;
+            req.session.userInfo = false;
             
-            res.redirect('/sign-in');
+            res.redirect('/sign-in'); 
             //adicionar flash message de conta criada
         })
 
     } catch (error) {
-        
+        res.json(error.message);
     }
 }
 
