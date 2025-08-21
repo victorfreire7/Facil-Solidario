@@ -26,7 +26,7 @@ async function store (req, res){
         .then((result) => {
             if (result) {
                 req.session.user = user;
-                res.json('login realizado!');
+                res.redirect('/'); //ADICIONAR FLASH MESSAGES AVISANDO QUE O LOGIN FOI REALIZADO
             } else {
                 return res.status(500).json('login invalido!');
             }
