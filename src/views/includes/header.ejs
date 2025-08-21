@@ -6,8 +6,8 @@
   
     <section class="info-header">
       <div>
-        <span>Telefone: 11 95249-4032</span>
-        <span>Email: facil_solidario@hotmail.com</span>
+        <span>Telefone: 11 95249-1055</span>
+        <span>Email: solidariofacil@gmail.com</span>
       </div>
       <div class="section-button-languages">
         <button class="languages"></button>
@@ -23,8 +23,12 @@
           <li><a href="/">Home</a></li>
           <li><a href="/quem-somos">Sobre nós</a></li>
           <li><a href="/pontos-de-coleta">Como doar</a></li>
-          <li><a href="/sign-up">Seja doador</a></li>
-          <li><a href="/sign-up"><img src="./assets/img/PERFIL.svg" alt="Suas doações"><span>Suas Doações</span></a></li>
+
+          <%if(!user){%>
+            <li><a href="/sign-up">Seja doador</a></li>
+            <li><a href="/sign-up"><img src="./assets/img/PERFIL.svg" alt="Suas doações"><span>Suas Doações</span></a></li>
+          <%}%>
+
         </ul>
       </nav>
     </section>
