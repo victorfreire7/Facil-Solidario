@@ -1,6 +1,6 @@
 function index (req, res){
     req.session.destroy();
-    res.json('sessao destruida!');
+    res.redirect('/'); // FLASH MESSAGE AVISANDO QUE O LOGOUT FOI REALIZADO
 }
 
 module.exports = { index }
