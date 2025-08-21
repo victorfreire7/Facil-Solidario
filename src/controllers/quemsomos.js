@@ -1,5 +1,5 @@
 function index (req, res){
-    res.render('quemsomos');
+    res.render('quemsomos', { user: req.session.user });
 }
 
 module.exports = { index };
