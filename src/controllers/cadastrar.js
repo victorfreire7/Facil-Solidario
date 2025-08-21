@@ -16,16 +16,16 @@ async function store (req, res){
             }
         }).then((result) => { 
             if(result){
-                return res.json('e-mail ja utilizado!!!!');
+                return res.json('e-mail ja utilizado!!!!'); // ADICIONAR FLASH MESSAGES 
             }   
         });
 
         if(!validator.isEmail(req.body.email)){ // crio uma verificação de caso o e-mail seja valido.
-            return res.send('Por favor, digite um E-mail válido!');
+            return res.send('Por favor, digite um E-mail válido!'); // ADICIONAR FLASH MESSAGES
         }       
         
         if(!validator.isMobilePhone(req.body.telefone, 'pt-BR')){ // crio uma verificação de caso o telefone celular seja valido.
-            return res.send('Por favor, digite um Telefone válido!!!')
+            return res.send('Por favor, digite um Telefone válido!!!'); // ADICIONAR FLASH MESSAGES
         }
 
         req.session.firstStep = true; // seto uma sessao na nuvem para identificar se o primeiro passo(no caso, a validaçao) foi concluido ou nao
@@ -48,7 +48,7 @@ async function sendCode(req, res) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
         to: req.session.userInfo.email,
-        from: 'solidariofacil@gmail.com',
+        from: 'victr.hf@gmail.com',
         subject: `CÓDIGO DE VERIFICAÇÃO FÁCIL SOLIDÁRIO`,
         text: 
         `
@@ -75,11 +75,11 @@ function indexConfirm(req, res) {
 function storeConfirm(req, res) {
     if(req.body.code != req.session.code){
         return res.status(401)
-        .send('código incorreto!');
+        .redirect('/sign-up/confirmacao'); // ENVIAR FLASH MESSAGE DE CODIGO INCORRETO 
     }
 
     req.session.secondStep = true;
-    res.redirect('/sign-up/password'); //<--------------------------------
+    res.redirect('/sign-up/password'); 
 }
 
 function indexPassword(req, res) {
