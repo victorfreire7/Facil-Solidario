@@ -78,7 +78,11 @@
 
       <div class="container4">
         
-        <section class="section-1-lore"><p>Quem somos?</p> <button>Saiba mais</button></section>
+        <section class="section-1-lore"><p>Quem somos?</p> 
+          <a href="/pontos-de-coleta">
+            <button style="cursor: pointer;" >Saiba mais</button>
+          </a>
+        </section>
         <section class="section-2-lore">
           <div class="cards-lore">
             <span>Lorem Ipsum</span>
@@ -102,9 +106,9 @@
         </section>
         <section class="content-container-5">
         <form method="POST" action="/">
-          <input type="text" name="nome" id="nome" class="input-forms-feedback" placeholder="Nome...">
-          <input type="text" name="email" id="email" class="input-forms-feedback" placeholder="E-mail...">
-          <textarea type="text" name="texto" id="texto" rows="8"  class="input-forms-feedback" placeholder="Texto..."></textarea>
+          <input type="text" name="nome" id="nome" class="input-forms-feedback" placeholder="Nome..." required>
+          <input type="text" name="email" id="email" class="input-forms-feedback" placeholder="E-mail..." required>
+          <textarea type="text" name="texto" id="texto" rows="8"  class="input-forms-feedback" placeholder="Texto..." required></textarea>
           <button>Enviar</button>
         </form>
         <div class="svg-forms"><img src="./assets/img/feedback-forms-svg.svg" alt=""></div>
