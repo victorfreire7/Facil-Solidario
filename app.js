@@ -3,6 +3,8 @@ const express = require('express');
 const session = require('express-session');
 const homeRoute = require('./src/routes/home');
 
+const helmet = require('helmet');
+
 const cookieParser = require('cookie-parser');
 const csrf = require('csurf');
 const bodyParser = require('body-parser');
@@ -37,7 +39,8 @@ class App {
         this.app.use(express.urlencoded({ extended: true }));
         this.app.set('views', './src/views');
         this.app.set('view engine', 'ejs');
-        this.app.use(express.json());
+        this.app.use(express.json({ limit: '10kb'})); // caso o usuario tente enviar dados maiores do que 10kb, sera retornado um erro.
+        this.app.use(helmet()); // habilito a biblioteca helmet, protegendo o cabeçalho do HTML
 
         this.app.use(bodyParser.urlencoded({ extended: false })); // permite a analise de dados STRING e ARRAY em formularios
         this.app.use(cookieParser());
