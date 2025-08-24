@@ -69,7 +69,7 @@ async function sendCode(req, res) {
 }
 
 function indexConfirm(req, res) {
-    res.render('cadastroConfirm');
+    res.render('cadastroConfirm', { userInfo: req.session.userInfo });
 }
 
 function storeConfirm(req, res) {
