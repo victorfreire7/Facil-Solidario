@@ -4,7 +4,7 @@ const UsuarioRepository = require('../models/usuario');
 const validator = require('validator');
 
 function index (req, res){
-    res.render('cadastro'); // aqui seria a renderização do EJS
+    res.render('cadastro', { csrfToken: req.csrfToken() }); // aqui seria a renderização do EJS
 }
 
 async function store (req, res){
