@@ -2,6 +2,11 @@ require("dotenv").config();
 const express = require('express');
 const session = require('express-session');
 const homeRoute = require('./src/routes/home');
+
+const cookieParser = require('cookie-parser');
+const csrf = require('csurf');
+const bodyParser = require('body-parser');
+
 const quemsomosRoute = require('./src/routes/quemsomos');
 const pontoscoletaRoute = require('./src/routes/pontoscoleta');
 const politicasRoute = require('./src/routes/politicas');
@@ -32,6 +37,11 @@ class App {
         this.app.set('views', './src/views');
         this.app.set('view engine', 'ejs');
         this.app.use(express.json());
+
+        this.app.use(bodyParser.urlencoded({ extended: false }))
+        this.app.use(cookieParser());
+        this.app.use(csrf({ cookie: true }))
+        
         this.app.use(session({
             secret: process.env.SESSION_SECRET,
             resave: false,
