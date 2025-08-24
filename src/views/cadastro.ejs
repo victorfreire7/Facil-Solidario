@@ -31,8 +31,7 @@
             <img src="assets/img/logo-sem-txt.svg" alt="">
 
             <form method="POST">
-                <input type="hidden" name="_csrf" value=" <%= csrfToken %> ">
-                <% console.log( csrfToken ) %>
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                 <span>Nome Completo</span>
                 <input type="text" name="nome" id="nome" required>
