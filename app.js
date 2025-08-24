@@ -20,7 +20,7 @@ const adminRoute = require('./src/routes/admin');
 
 const loginRequired = require('./src/middlewares/loginRequired');
 const adminloginRequired = require('./src/middlewares/adminloginRequired');
-const csrfMiddlewares = require('./src/middlewares/csrfMiddlewares');
+const csrfMiddleware = require('./src/middlewares/csrfMiddleware');
 
 const db = require('./src/db');
 
@@ -39,12 +39,10 @@ class App {
         this.app.set('view engine', 'ejs');
         this.app.use(express.json());
 
-        this.app.use(bodyParser.urlencoded({ extended: false }))
+        this.app.use(bodyParser.urlencoded({ extended: false })); // permite a analise de dados STRING e ARRAY em formularios
         this.app.use(cookieParser());
         this.app.use(csrf({ cookie: true }));
-
-        // this.app.use(csrfMiddlewares.csrfMiddlewarer());
-        // this.app.use(csrfMiddlewares.checkCsrfError());
+        this.app.use(csrfMiddleware) // MIDDLEWARE QUE VERIFICA SE O CSRFTOKEN É O CORRETO.
 
         
         this.app.use(session({
