@@ -11,10 +11,13 @@
   </head>
   <body>
     <main>
-      <button class="btn-voltar"><</button>
+      <a href="/">
+        <button class="btn-voltar"><</button>
+      </a>
       <img src="./assets/img/logo-sem-txt.svg" alt="" />
       <section class="main-content">
         <form action="" method="post">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <span>ID</span>
           <input type="text" required />
 

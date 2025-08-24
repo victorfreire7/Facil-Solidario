@@ -1,7 +1,7 @@
 const doacaoModel = require('../models/doacao');
 
 function index (req, res){
-    res.json('formulario');
+    res.json('formulario', { csrfToken: req.csrfToken() });
 }
 
 async function store (req, res){

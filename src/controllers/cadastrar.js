@@ -42,7 +42,7 @@ async function store (req, res){
 
 async function sendCode(req, res) {
     const authCode = randomStringGenerator(6); // crio um código de 6 caracteres
-    req.session.code = authCode; // salvo esse codigo em uma sessao
+    req.session.code = authCode.toUpperCase(); // salvo esse codigo em uma sessao
 
     const sgMail = require('@sendgrid/mail');
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -69,7 +69,7 @@ async function sendCode(req, res) {
 }
 
 function indexConfirm(req, res) {
-    res.render('cadastroConfirm', { userInfo: req.session.userInfo });
+    res.render('cadastroConfirm', { userInfo: req.session.userInfo, csrfToken: req.csrfToken()  });
 }
 
 function storeConfirm(req, res) {
@@ -83,7 +83,7 @@ function storeConfirm(req, res) {
 }
 
 function indexPassword(req, res) {
-    res.render('cadastroPassword');
+    res.render('cadastroPassword', { csrfToken: req.csrfToken() });
 }
 
 async function storePassword(req, res) {

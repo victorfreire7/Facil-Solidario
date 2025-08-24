@@ -3,7 +3,7 @@ const bcryptjs = require('bcryptjs');
 require("dotenv").config();
 
 function index (req, res){
-    res.render('login');
+    res.render('login', { csrfToken: req.csrfToken() });
 }
 
 async function store (req, res){

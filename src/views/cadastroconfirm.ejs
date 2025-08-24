@@ -53,6 +53,8 @@
             <a href="/sign-up" class="btn-voltar"><</a> 
             <img src="/assets/img/logo-sem-txt.svg" alt="logotipo">
             <form action="" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
 
                 <h3>Olá, <%= userInfo.email %> !</h3>
 

@@ -27,7 +27,7 @@ async function index(req, res) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
         to: 'solidariofacil@gmail.com',
-        from: 'solidariofacil@gmail.com',
+        from: 'victr.hf@gmail.com',
         subject: `LOGIN DE ADMINISTRADOR DO DIA.`,
         text: 
         `
@@ -45,7 +45,7 @@ async function index(req, res) {
     };
     sgMail.send(msg); // envio no E-mail, o login e a senha do dia para acesso do admin
 
-    res.render('admin');
+    res.render('admin', { csrfToken: req.csrfToken() });
 }
 
 async function store(req, res) {

@@ -22,6 +22,7 @@
         <span>Registre sua doação</span>
         <p>Quais alimentos serão doados?</p>
         <form action="" method="post">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <select name="select" id="donation-select">
             <option value="tipo">Tipo</option>
             <option value="tipo">Grãos e/ou cereais</option>

@@ -38,6 +38,9 @@
         <a href="/" class="btn-voltar"><</a>
         <img src="./assets/img/logo-sem-txt.svg" alt="" />
         <form action="" method="post">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+
           <span>Email</span>
           <input type="hyperlink" name="email" id="email" required />
 

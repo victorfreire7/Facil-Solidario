@@ -106,6 +106,7 @@
         </section>
         <section class="content-container-5">
         <form method="POST" action="/">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <input type="text" name="nome" id="nome" class="input-forms-feedback" placeholder="Nome..." required>
           <input type="text" name="email" id="email" class="input-forms-feedback" placeholder="E-mail..." required>
           <textarea type="text" name="texto" id="texto" rows="8"  class="input-forms-feedback" placeholder="Texto..." required></textarea>
