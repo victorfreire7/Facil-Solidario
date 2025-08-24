@@ -20,6 +20,7 @@ const adminRoute = require('./src/routes/admin');
 
 const loginRequired = require('./src/middlewares/loginRequired');
 const adminloginRequired = require('./src/middlewares/adminloginRequired');
+const csrfMiddlewares = require('./src/middlewares/csrfMiddlewares');
 
 const db = require('./src/db');
 
@@ -40,7 +41,11 @@ class App {
 
         this.app.use(bodyParser.urlencoded({ extended: false }))
         this.app.use(cookieParser());
-        this.app.use(csrf({ cookie: true }))
+        this.app.use(csrf({ cookie: true }));
+
+        // this.app.use(csrfMiddlewares.csrfMiddlewarer());
+        // this.app.use(csrfMiddlewares.checkCsrfError());
+
         
         this.app.use(session({
             secret: process.env.SESSION_SECRET,
