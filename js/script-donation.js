@@ -56,8 +56,6 @@ form.addEventListener("submit", function (e) {
 
       id_item_num++;
     
-      option = 0;
-      input = 0;
 
     }
     createItems();
@@ -71,24 +69,32 @@ form.addEventListener("submit", function (e) {
   btnProx.addEventListener("click", addForm)
 
  function addForm(){
-      const formConfir = document.querySelector(".form-confirm")
-      const formConItensBox = document.querySelector(".itens-box")
-      const items = document.querySelectorAll(".items");
-      
-      if(items.length <= 0){
-        alert("Insira algum alimento antes de proseguir")
-        return;
-      }
+  const formConfir = document.querySelector(".form-confirm");
+  const formConItensBox = document.querySelector(".itens-box");
+  const items = document.querySelectorAll(".items");
 
-      formConfir.style = "display:flex";
-      
-      items.forEach(items => {
-        formConItensBox.appendChild(items);
-        
-        items.classList.replace('items', 'itens-confirm')
-      })
-   document.querySelector(".form-container").innerHTML = '';
+  if (items.length <= 0) {
+    alert("Insira algum alimento antes de proseguir");
+    return;
+  }
+
+  formConfir.style = "display:flex";
+
+  items.forEach(item => {
+    // Remove botão X de cada item
+    const btnRemove = item.querySelector(".btn-remove-item");
+    if (btnRemove) {
+      btnRemove.remove();
     }
+
+    formConItensBox.appendChild(item);
+    item.classList.replace('items', 'itens-confirm');
+  });
+
+  // Limpar container original
+  document.querySelector(".form-container").innerHTML = '';
+}
+
 
     const btnCancelForm = document.querySelector(".cancel-form");
     btnCancelForm.addEventListener("click", limparForm)
@@ -120,16 +126,30 @@ form.addEventListener("submit", function (e) {
 
       // console.log(el)
 
-      if(el.classList.contains("btn-remove-item")){
-        let formu = document.querySelector('.form-container');
-        let items = formu.querySelectorAll('.items');
+     if (el.classList.contains("btn-remove-item")) {
+    const itemToRemove = el.closest('.items'); // ou .itens-confirm se já estiver confirmado
+    if (itemToRemove) {
+      itemToRemove.remove();
+       // Após remover, atualizar os números dos IDs
+      atualizarIds();
+    }
 
-        for (let val of items) {
-          formu.removeChild(val);
-        }
-      }
-
+  }
     } )
+
+    function atualizarIds() {
+  const todosItens = document.querySelectorAll('.items, .itens-confirm');
+  id_item_num = 1; // Resetar contador
+
+  todosItens.forEach(item => {
+    const idTag = item.querySelector('.id-item');
+    if (idTag) {
+      idTag.innerText = id_item_num;
+      id_item_num++;
+    }
+  });
+}
+
 
 
 
