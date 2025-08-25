@@ -1,0 +1,44 @@
+@import url(index.css);
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.container-para-menu{
+    width: 20vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: var(--verde-musgo);
+}
+
+
+.container-para-menu .img-container{
+    width: 18vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+    border-bottom: 1px solid white;
+}
+.container-para-menu .img-container img{
+    width: 7vw;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+.container-donations{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+}

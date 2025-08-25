@@ -508,13 +508,7 @@ input.qtd-alimen:focus{
     width: auto;
   }
 
-.items span:nth-child(1){
-  /* margin-left: 5vw; */
-}
 
-.items span:nth-child(2){
-  /* margin-left: 25vw; */
-}
 
   .donation-form .form-container .items input {
     width: 5vw;
