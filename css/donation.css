@@ -13,7 +13,9 @@ main {
   height: 100vh;
   display: flex;
 }
-
+button{transition: .2 linear;}
+button:hover{transition: .2 linear;transform: translateY(-1px);}
+button:active{transition: .2 linear;transform: translateY(2px);}
 .btn-confirma {
   width: 12vw;
   height: 6vh;
@@ -194,6 +196,7 @@ main {
   align-items: center;
   background-color: #d2d0d0;
   margin-bottom: 0.5vw;
+  position: relative;
 }
 
 .items:nth-child(1){
@@ -252,15 +255,130 @@ input.qtd-alimen:focus{
   border: 1px solid black;
 }
 
+.btn-remove-item{
+  position: absolute;
+  top: -10%;
+  left: 95%;
+  width: 2vw;
+  height: 2vw;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'poppins';
+  font-size: 1em;
+  background-color: var(--laranja-ababora);
+  color: var(--branco);
+  border: none;
+
+}
+
 .id-item{
   text-align: center;
-  margin-left: 20px;
+  margin-left: 0vw;
   font-family: 'poppins';
 }
 
 .amount-input{
   margin-left: 1vw;
 }
+
+.form-confirm{
+  width: 40vw;
+  height: 70vh;
+  background-color: rgba(255, 255, 255, 0.639);
+  position: absolute;
+  border-radius: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  transition: .3s linear;
+}
+
+.itens-box{
+  /* background-color: rgba(255, 255, 255); */
+  width: 38vw;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  
+  border-radius: 10px;
+  
+  transition: .3s linear;
+}
+
+
+/* largura da barra  */
+.itens-box::-webkit-scrollbar{
+  width: 5px;
+}
+/* Fundo da barra */
+.itens-box::-webkit-scrollbar-track{
+  background-color: #8da47c9a;
+  border-radius: 10px;
+}
+
+/* "Polegar" da barra (parte que você arrasta) */
+.itens-box::-webkit-scrollbar-thumb{
+  background-color: #8fb078;
+  border-radius: 10px;
+  border: 3px solid none;
+  transition: .2s linear;
+}
+.itens-box::-webkit-scrollbar:hover{
+  background-color: #657a56;
+}
+
+
+.itens-confirm{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  width: 35vw;
+  min-height: 10vh;
+  margin-bottom: 5vh;
+  background-color: #9fc783;
+  font-size: 1.3em;
+  margin-left: 1vw;
+}
+
+.itens-confirm:nth-child(1){
+  margin-top: 2vh;
+}
+
+.section-button-confirm-form{
+  width: 40vw;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+
+.form-confirm button{
+  width: 10vw;
+  height: 6vh;
+  border-radius: 15px;
+  background-color: var(--laranja-ababora);
+  color: var(--branco);
+  border: none;
+  font-size: 1.2rem;
+  box-shadow: 0px 2px 15px 1px rgba(0, 0, 0, 0.258);
+  transition: 0.2s linear;
+  cursor: pointer;
+  
+}
+
 
 @media screen and (max-width: 1024px){
   .textbox-container img{
@@ -344,14 +462,22 @@ input.qtd-alimen:focus{
     align-items: center;
   }
 
+  .donation-form p{
+    margin: 3vh;
+  }
+  
+
   .title {
     color: var(--branco);
     text-align: center;
-    margin-top: 25%;
+    margin-top: 18vh;
   }
+
 
   .subtitle {
     color: var(--branco);
+    text-align: center;
+    margin-bottom: 10vh;
   }
 
   .donation-form select {
@@ -364,8 +490,14 @@ input.qtd-alimen:focus{
 
   .form-container {
     width: 65vw;
+    min-width: 65vw;
     height: 35vh;
   }
+
+  /* largura da barra  */
+.form-container::-webkit-scrollbar{
+  width: 4px;
+}
 
   .donation-form form {
     width: 65vw;
@@ -392,10 +524,69 @@ input.qtd-alimen:focus{
 
   .btn-confirma{
     bottom: 5vh;
+    width: 20vw;
   }
   .qtd-alimen{
   width: 8vw;
+} 
+
+.btn-remove-item{
+  width: 3vw;
+  height: 3vw;
 }
+
+.form-confirm{
+  width: 60vw;
+  height: 80vh;
+}
+
+.itens-box{
+  min-width: 58vw
+}
+
+
+/* largura da barra  */
+.itens-box::-webkit-scrollbar{
+  width: 2px;
+}
+/* Fundo da barra */
+.itens-box::-webkit-scrollbar-track{
+  background-color: #8da47c9a;
+  border-radius: 10px;
+}
+
+/* "Polegar" da barra (parte que você arrasta) */
+.itens-box::-webkit-scrollbar-thumb{
+  background-color: #8fb078;
+  border-radius: 10px;
+  border: 3px solid none;
+  transition: .2s linear;
+}
+.itens-box::-webkit-scrollbar:hover{
+  background-color: #657a56;
+}
+
+
+.itens-confirm{
+  width: 55vw;
+  margin-left: 0;
+  font-size: 1em;
+}
+
+.id-item{
+  margin-left: 0;
+}
+
+.section-button-confirm-form{
+  width: 55vw;
+}
+.form-confirm button{
+  width: 20vw;
+  height: 8vh;
+  font-size: 1em; 
+  /* justify-content: space-around; */
+}
+
 }
 
 @media screen and (max-width: 480px){

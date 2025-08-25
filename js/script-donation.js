@@ -3,12 +3,13 @@ const form = document.querySelector("#form");
  var id_item_num = 1;
 
 
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const btnAdd = e.target.querySelector(".btn-add");
-  btnAdd.addEventListener("click", getOptions());
+  btnAdd.addEventListener("click", getOptions()); 
 
-   
+  
 
   function getOptions() {
     const selector = document.querySelector("#options");
@@ -36,10 +37,14 @@ form.addEventListener("submit", function (e) {
       const typeText = document.createTextNode(option);
       typeInput.appendChild(typeText);
 
+
       const amountInput = document.createElement("span");
       amountInput.classList.add("amount-input");
 
-      
+        const btnRemovItem = document.createElement("button");
+      btnRemovItem.type = "button"
+      btnRemovItem.classList.add("btn-remove-item");
+      btnRemovItem.innerHTML = 'x'
 
      
 
@@ -47,14 +52,96 @@ form.addEventListener("submit", function (e) {
       amountInput.appendChild(amountText);
 
       formContainer.appendChild(items);
-      items.append(id_item,typeInput, amountInput);
+      items.append(id_item,typeInput, amountInput, btnRemovItem);
 
       id_item_num++;
+    
+      option = 0;
+      input = 0;
 
     }
     createItems();
+
+   
   }
 });
 
 
+  const btnProx =  document.querySelector(".btn-confirma")
+  btnProx.addEventListener("click", addForm)
+
+ function addForm(){
+      const formConfir = document.querySelector(".form-confirm")
+      const formConItensBox = document.querySelector(".itens-box")
+      const items = document.querySelectorAll(".items");
+      
+      if(items.length <= 0){
+        alert("Insira algum alimento antes de proseguir")
+        return;
+      }
+
+      formConfir.style = "display:flex";
+      
+      items.forEach(items => {
+        formConItensBox.appendChild(items);
+        
+        items.classList.replace('items', 'itens-confirm')
+      })
+   document.querySelector(".form-container").innerHTML = '';
+    }
+
+    const btnCancelForm = document.querySelector(".cancel-form");
+    btnCancelForm.addEventListener("click", limparForm)
+
+    function limparForm(){
+
+
+      const formConfir = document.querySelector(".form-confirm")
+      const formConItensBox = document.querySelector(".itens-box")
+
+      const items = document.querySelectorAll(".items");
+      
+      items.forEach(items => {
+        items.remove()
+      })
+      formConItensBox.innerHTML = '';
+      formConfir.style = "display:none";
+      id_item_num = 1;
+    }
+
+    
+    /// Remover item adicionado ao form antes da confirmação
+
+    // const btnRemovItem = document.querySelectorAll(".btn-remove-item")
+    // btnRemovItem.addEventListener("click", delItem);
+
+    document.addEventListener('click', (e) => {
+      let el = e.target;
+
+      // console.log(el)
+
+      if(el.classList.contains("btn-remove-item")){
+        let formu = document.querySelector('.form-container');
+        let items = formu.querySelectorAll('.items');
+
+        for (let val of items) {
+          formu.removeChild(val);
+        }
+      }
+
+    } )
+
+
+
+    // function delItem(){
+    //   // btnRemovItem = document.querySelector(".btn-remove-item");
+    //   const btn = document.querySelectorAll('.btn-remove-item');
+    //   console.log(btn)
+    //   // const formu =  document.querySelector(".form-container");
+    //   // const item = document.querySelector(".items");
+
+    //   // formu.removeChild(item);
+    //   // alert("sim");
+    // }
+    
 // btn-confirma
