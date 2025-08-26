@@ -1,0 +1,167 @@
+const form = document.querySelector("#form");
+
+ var id_item_num = 1;
+
+
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const btnAdd = e.target.querySelector(".btn-add");
+  btnAdd.addEventListener("click", getOptions()); 
+
+  
+
+  function getOptions() {
+    const selector = document.querySelector("#options");
+    const option = selector.value;
+    const input = document.querySelector(".qtd-alimen").value;
+    
+    if (option === "0" || input <= 0 ){
+      alert("Escolha um alimento e insira uma quantidade válida");
+      return;
+    }
+
+    function createItems() {
+      const formContainer = document.querySelector(".form-container");
+
+      const id_item = document.createElement("p");
+      id_item.classList.add("id-item");
+      id_item.innerText = id_item_num;
+
+      const items = document.createElement("div");
+      items.className = "items";
+
+      const typeInput = document.createElement("span");
+      typeInput.classList.add("type-input");
+
+      const typeText = document.createTextNode(option);
+      typeInput.appendChild(typeText);
+
+
+      const amountInput = document.createElement("span");
+      amountInput.classList.add("amount-input");
+
+        const btnRemovItem = document.createElement("button");
+      btnRemovItem.type = "button"
+      btnRemovItem.classList.add("btn-remove-item");
+      btnRemovItem.innerHTML = 'x'
+
+     
+
+      const amountText = document.createTextNode(`Quantidade:   ${input}`);
+      amountInput.appendChild(amountText);
+
+      formContainer.appendChild(items);
+      items.append(id_item,typeInput, amountInput, btnRemovItem);
+
+      id_item_num++;
+    
+
+    }
+    createItems();
+
+   
+  }
+});
+
+
+  const btnProx =  document.querySelector(".btn-confirma")
+  btnProx.addEventListener("click", addForm)
+
+ function addForm(){
+  const formConfir = document.querySelector(".form-confirm");
+  const formConItensBox = document.querySelector(".itens-box");
+  const items = document.querySelectorAll(".items");
+
+  if (items.length <= 0) {
+    alert("Insira algum alimento antes de proseguir");
+    return;
+  }
+
+  formConfir.style = "display:flex";
+
+  items.forEach(item => {
+    // Remove botão X de cada item
+    const btnRemove = item.querySelector(".btn-remove-item");
+    if (btnRemove) {
+      btnRemove.remove();
+    }
+
+    formConItensBox.appendChild(item);
+    item.classList.replace('items', 'itens-confirm');
+  });
+
+  // Limpar container original
+  document.querySelector(".form-container").innerHTML = '';
+}
+
+
+    const btnCancelForm = document.querySelector(".cancel-form");
+    btnCancelForm.addEventListener("click", limparForm)
+
+    function limparForm(){
+
+
+      const formConfir = document.querySelector(".form-confirm")
+      const formConItensBox = document.querySelector(".itens-box")
+
+      const items = document.querySelectorAll(".items");
+      
+      items.forEach(items => {
+        items.remove()
+      })
+      formConItensBox.innerHTML = '';
+      formConfir.style = "display:none";
+      id_item_num = 1;
+    }
+
+    
+    /// Remover item adicionado ao form antes da confirmação
+
+    // const btnRemovItem = document.querySelectorAll(".btn-remove-item")
+    // btnRemovItem.addEventListener("click", delItem);
+
+    document.addEventListener('click', (e) => {
+      let el = e.target;
+
+      // console.log(el)
+
+     if (el.classList.contains("btn-remove-item")) {
+    const itemToRemove = el.closest('.items'); // ou .itens-confirm se já estiver confirmado
+    if (itemToRemove) {
+      itemToRemove.remove();
+       // Após remover, atualizar os números dos IDs
+      atualizarIds();
+    }
+
+  }
+    } )
+
+    function atualizarIds() {
+  const todosItens = document.querySelectorAll('.items, .itens-confirm');
+  id_item_num = 1; // Resetar contador
+
+  todosItens.forEach(item => {
+    const idTag = item.querySelector('.id-item');
+    if (idTag) {
+      idTag.innerText = id_item_num;
+      id_item_num++;
+    }
+  });
+}
+
+
+
+
+    // function delItem(){
+    //   // btnRemovItem = document.querySelector(".btn-remove-item");
+    //   const btn = document.querySelectorAll('.btn-remove-item');
+    //   console.log(btn)
+    //   // const formu =  document.querySelector(".form-container");
+    //   // const item = document.querySelector(".items");
+
+    //   // formu.removeChild(item);
+    //   // alert("sim");
+    // }
+    
+// btn-confirma
