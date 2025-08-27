@@ -1,23 +1,21 @@
 require('dotenv').config();
 const UsuarioRepository = require('../models/usuario');
 const validator = require('validator');
-const randomStringGenerator = require('random-string-generator');
 const sgMail = require('@sendgrid/mail');
+const randomStringGenerator = require('random-string-generator');
 const bcryptjs = require('bcryptjs');
-let userInfo = {};
 
 function index(req, res) {
-    res.json('render first step forget password');
+    res.render('esquecisenha', { csrfToken: req.csrfToken() });
 }
 
 async function store(req, res) {
     try {
         if(!validator.isEmail(req.body.email)){ // crio uma verificação de caso o e-mail seja valido.
-            req.session.save();
             return res.json('Por favor, digite um E-mail válido!');
         }
 
-        await UsuarioRepository.findOne({
+        await UsuarioRepository.findOne({ // vejo se existe realmente um cadastro com o email enviado.
             where: {
                 email: req.body.email
             }
@@ -27,14 +25,23 @@ async function store(req, res) {
                 return res.json('E-mail não encontrado no banco de dados!');
             }
         });
-        
-        userInfo.email = req.body.email; // adiciono na variavel local o ultimo email enviado;
-        req.session.forgetPasswordAuthCode = randomStringGenerator(6);
+
+        req.session.email = req.body.email
+        res.redirect('/forget-password/code')
+
+    } catch (error) {
+        res.json(error);
+    }
+}
+
+function sendCode(req, res) {   
+    try {
+        req.session.authCode = randomStringGenerator(6).toUpperCase(); // gero o codigo e adiciono em uma sessao 
 
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-        const msg = {
-            to: req.body.email,
-            from: 'solidariofacil@gmail.com',
+        sgMail.send({
+            to: req.session.email,
+            from: 'victr.hf@gmail.com',
             subject: `CÓDIGO PARA ALTERAR SENHA FÁCIL SOLIDÁRIO`,
             text: 
                 `
@@ -42,52 +49,52 @@ async function store(req, res) {
         
                 \n \n \n
         
-                <strong>${req.session.forgetPasswordAuthCode}</strong>   
-    
-            `
-        };
-        sgMail.send(msg);
+                <strong>${req.session.authCode}</strong>   
+                `
+        });
 
-        res.json('segunda pag');
-
+        res.redirect('/forget-password/change-password');
     } catch (error) {
-        res.json(error)
+        res.json(error);
     }
 }
 
-function authCodeIndex(req, res) {
-    res.json('//renderizo a pag etc'); 
+
+/* 
+    essa página vai receber 2 requisiçoes,
+    codigo
+    senha
+*/
+function changePassIndex(req, res) { 
+    res.render('esquecisenhaChange', { csrfToken: req.csrfToken() });
 }
 
-async function authCodeStore(req, res) {
-    if(req.body.code != req.session.forgetPasswordAuthCode){
-        return res.json('ops! código incorreto.'); //futuramente adiciono uma flash message (???)
-    }       
-    
-    req.session.authCodeSucces = true;
-    res.json('aqui eu redireciono para /change-password');
-}
-
-function updatePasswordIndex(req, res){
-    res.json('renderizo a pag.')
-}
-
-async function updatePasswordUpdate(req, res) {
+async function changePassUpdate(req, res) {
     try {
-        const usuario = await UsuarioRepository.findOne({
+
+        if(req.body.code != req.session.authCode){
+            return res.json('código incorreto');
+        }
+
+        const user = await UsuarioRepository.findOne({
             where: {
-                email: userInfo.email
+                email: req.session.email
             }
-        });
-    
-        await usuario.update({
+        })
+        await user.update({
             senha_hash: await bcryptjs.hash(req.body.senha, 8)
-        }). then((result) => {
-            res.json(result);
-        });
+        })
+        .then(() => {
+
+            req.session.authCode = false;
+            req.session.email = false;
+
+            res.json('senha alterada!');
+        })
+
     } catch (error) {
-        res.json(error)
+        res.json('ERRO AQUI Ó' + error);
     }
 }
 
-module.exports = { index, store, authCodeIndex, authCodeStore, updatePasswordIndex, updatePasswordUpdate };
+module.exports = { index, store, sendCode, changePassIndex, changePassUpdate }
