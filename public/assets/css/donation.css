@@ -195,7 +195,7 @@ button:active{transition: .2 linear;transform: translateY(2px);}
   justify-content: space-around;
   align-items: center;
   background-color: #d2d0d0;
-  margin-bottom: 0.5vw;
+  margin-bottom: 3vh;
   position: relative;
 }
 
@@ -280,10 +280,47 @@ input.qtd-alimen:focus{
   font-family: 'poppins';
 }
 
+.donation-form select.input-type{
+  min-width: 10vw;
+  max-width: 15vw;
+  max-height: 5vh;
+  min-height: 5vh;
+  color: black;
+  /* font: 'poppins'; */
+  background-color: #8fb078;
+}
 .amount-input{
-  margin-left: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  /* background-color: red; */
 }
 
+.donation-form .form-container .items input{
+  text-align: center;
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: #d2d0d0;
+  width: 3vw;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: 2vw;
+  margin-left: 10px;
+}
+.form-confirm input{
+  text-align: center;
+  font-family: 'poppins';
+  font-size: 1.1em;
+  background-color: #9fc783;
+  border: none;
+  width: 4vw;
+  height: 8vh;
+}
 .form-confirm{
   width: 40vw;
   height: 70vh;
