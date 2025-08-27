@@ -36,13 +36,16 @@
         
         <section class="section-forms-cadastro"> 
 
-            <button class="btn-voltar"></button> 
+            <a href="/forget-password">
+                <button class="btn-voltar"><</button> 
+            </a>
+
             <img src="/assets/img/logo-sem-txt.svg" alt="">
-            <form action="" method="post">
+            <form action="" method="POST">
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                 <span>Código de Confirmação</span>
-                <input type="text" name="code" id="code" required>
+                <input type="text" name="code" id="code" autocomplete="off" required>
                 
                 <span>Senha</span>
                 <input type="password" name="senha" id="senha" required>
