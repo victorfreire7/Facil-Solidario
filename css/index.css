@@ -146,6 +146,7 @@ header {
     right: 1.5vw;
     position: absolute;
     z-index: 999;
+    transition: 5ms ease fa;
 }
 .header-content .dropdown-container::before{
     content: '';
