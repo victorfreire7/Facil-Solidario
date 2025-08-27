@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fácil Solidário</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/cadastro.css">
+    <link rel="shortcut icon" href="./assets/img/LOGO-BRANCA.svg">
+    <style>
+        body{
+            background-image: url(img/bg-cadastro-login.png);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+        }
+        @media screen and (max-width: 800px) {
+            main{
+                margin-bottom: 22vh;
+            }
+            .section-forms-cadastro{
+                height: 70vh;
+                padding-bottom: 5vh;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="text-for-cadastros">
+            <span>Alterar Senha</span>
+            <p>Crie sua nova senha para poder acessar sua conta.</p>
+        </section>
+        
+        <section class="section-forms-cadastro"> 
+
+            <button class="btn-voltar"></button> 
+            <img src="/assets/img/logo-sem-txt.svg" alt="">
+            <form action="" method="post">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                <span>Código de Confirmação</span>
+                <input type="text" name="code" id="code" required>
+                
+                <span>Senha</span>
+                <input type="password" name="senha" id="senha" required>
+
+                <span>Confirmar Senha</span>
+                <input type="password" required>
+
+                <span class="requerimentos-senha">
+                    A senha precisa conter: <br> 
+                    <ul>
+                        <li>Minímo de 8 caracteres</li>
+                        <li>Um ou mais caracter especial</li>
+                        <li>Uma ou mais letras maiúscula</li>
+                        <li>dois ou mais número</li>
+                    </ul>
+                </span>
+
+                <button>Alterar</button>
+            </form>   
+        </section>
+    </main>
+</body>
+</html>
