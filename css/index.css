@@ -131,7 +131,32 @@ header {
     height: 7vh;
     object-fit: contain;
     object-position: center;
-    margin-left: 1.5vw;
+    right: 2vw;
+    position: static;  
+}
+
+.header-content .dropdown-container{
+    width: 15vw;
+    height: 25vh;
+    border-radius: 10px;
+    background-color: rebeccapurple;
+    border: yellow 1px solid;
+    top: 15vh;
+    right: 1.5vw;
+    position: absolute;
+}
+.header-content .dropdown-container::before{
+    content: '';
+    position: absolute;
+    top: -1rem;
+    left: 80%;
+    width: 30px;
+    height: 30px;
+    transform: rotate(45deg);
+    border-left: yellow 1px solid;
+    border-top: yellow 1px solid;
+    background-color: rebeccapurple;
+    border-radius: 3px;
 }
 
 .header-content ul {
