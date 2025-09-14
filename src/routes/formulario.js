@@ -5,8 +5,4 @@ const formularioController = require('../controllers/formulario');
 router.get('/', formularioController.index);
 router.post('/', formularioController.store);
 
-router.get('/:donation', formularioController.indexDonation)
-router.post('/:donation', formularioController.store)
-
-
 module.exports = router;
