@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fácil Solidário</title>
     <link rel="shortcut icon" href="img/LOGO.png" type="image/x-icon" />
-    <link rel="stylesheet" href="./assets/css/index.css" />
-    <link rel="stylesheet" href="./assets/css/donation.css" />
-    <link rel="shortcut icon" href="./assets/img/LOGO-BRANCA.svg">
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/donation.css" />
+    <link rel="shortcut icon" href="/assets/img/LOGO-BRANCA.svg">
   </head>
   <body>
     <main>
@@ -25,10 +25,7 @@
         <span class="title">Registre sua doação</span>
         <p class="subtitle">Selecione o tipo e quantida de alimentos a serem doados</p>
 
-        <form action="" method="POST" id="form">
-          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-
-
+        <form id="form">
           <div class="add-btn-container">
           <select name="options" id="options">
             <option value="0" disabled selected>Tipo</option>
@@ -39,7 +36,7 @@
             <option value="açúcar">Açúcar</option>
             <option value="café">Café</option>
             <option value="oleos">Óleos</option>
-            <option value="nmassas">Massas</option>
+            <option value="massas">Massas</option>
             <option value="leite-em-po">Leite em pó</option>
           </select>
           
@@ -47,20 +44,19 @@
 
           <button class="btn-add" type="submit">+</button>
 
-          </div>
-            <div class="form-container">
-              <%- if(item == true) {%>
-                <p><%= item %></p>
-              <% } %>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             </div>
-          </div>
+              <div class="form-container">   
+              </div>
+            </div>
+          </form>
           
+        </section>
+        <form class="hiddenForm" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <button class="btn-confirma">Próximo</button>
         </form>
-
-      </section>
-      <button class="btn-confirma">Próximo</button>
-
-      <% if(true) {%>
+        
 
       <!-- <form action="/formulario-doacao" method="POST" class="form-confirm">
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
@@ -73,9 +69,10 @@
         </div>
       </form> -->
 
-      <% } %>
     </main>
 
-    <!-- <script src="./assets/js/script-donation.js"></script> -->
+    
+
+    <script src="./assets/js/script-donation.js"></script>
   </body>
 </html>
