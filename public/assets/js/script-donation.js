@@ -13,10 +13,11 @@ form.addEventListener("submit", function (e) {
 
   function getOptions() {
     const selector = document.querySelector("#options");
-    const option = selector.value;
-    const input = document.querySelector(".qtd-alimen").value;
+    const optionValue = selector.value;
+    const optionText = selector.options[selector.selectedIndex].text
+    var input = document.querySelector(".qtd-alimen").value;
     
-    if (option === "0" || input <= 0 ){
+    if (optionValue === "0" || input <= 0 ){
       alert("Escolha um alimento e insira uma quantidade válida");
       return;
     }
@@ -34,25 +35,41 @@ form.addEventListener("submit", function (e) {
       const typeInput = document.createElement("span");
       typeInput.classList.add("type-input");
 
-      const typeText = document.createTextNode(option);
+      const typeText = document.createElement("select");
+      typeText.classList.add("input-type");
+      typeText.disabled = true;
+
+      // Criar a option com valor selecionado
+      const option = document.createElement("option");
+      option.value = optionValue;
+      option.innerText = optionText;
+      option.selected = true;
+
+      typeText.appendChild(option);
       typeInput.appendChild(typeText);
 
+      const amountSpanInput = document.createElement("span");
+      amountSpanInput.classList.add("amount-input");
 
-      const amountInput = document.createElement("span");
-      amountInput.classList.add("amount-input");
+      const amountInput = document.createElement("input");
+      amountInput.classList.add("number-input-form")
+      amountInput.type = "number"; 
+      amountInput.readOnly = true;
+      amountInput.value = input;
 
-        const btnRemovItem = document.createElement("button");
+      const btnRemovItem = document.createElement("button");
       btnRemovItem.type = "button"
       btnRemovItem.classList.add("btn-remove-item");
       btnRemovItem.innerHTML = 'x'
 
      
 
-      const amountText = document.createTextNode(`Quantidade:   ${input}`);
-      amountInput.appendChild(amountText);
+      const amountText = document.createTextNode(`Quantidade:`);
+      amountSpanInput.appendChild(amountText);
+      amountSpanInput.appendChild(amountInput);
 
       formContainer.appendChild(items);
-      items.append(id_item,typeInput, amountInput, btnRemovItem);
+      items.append(id_item,typeInput, amountSpanInput, btnRemovItem);
 
       id_item_num++;
     
