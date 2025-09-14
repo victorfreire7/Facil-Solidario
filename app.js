@@ -68,7 +68,7 @@ class App {
         this.app.use('/sign-in', loginRoute);
         this.app.use('/logout', logoutRoute);
         this.app.use('/forget-password', esquecisenhaRoute); // nao to conseguindo renderizar esta rota no localhost
-        this.app.use('/formulario-doacao', loginRequired, formularioRoute);
+        this.app.use('/formulario-doacao', /*loginRequired,*/ formularioRoute);
         
         this.app.use('/admin-login', adminloginRoute);
         this.app.use('/admin', adminloginRequired, adminRoute);
