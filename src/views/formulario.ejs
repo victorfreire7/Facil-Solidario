@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="img/LOGO.png" type="image/x-icon" />
     <link rel="stylesheet" href="./assets/css/index.css" />
     <link rel="stylesheet" href="./assets/css/donation.css" />
+    <link rel="shortcut icon" href="./assets/img/LOGO-BRANCA.svg">
   </head>
   <body>
     <main>
@@ -23,31 +24,46 @@
       <section class="donation-form">
         <span class="title">Registre sua doação</span>
         <p class="subtitle">Selecione o tipo e quantida de alimentos a serem doados</p>
-        <form action="" method="" id="form">
+
+        <form action="" method="POST" id="form">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+
           <div class="add-btn-container">
           <select name="options" id="options">
             <option value="0" disabled selected>Tipo</option>
-            <option value="Cereais">Cereais</option>
-            <option value="Grãos">Grãos</option>
-            <option value="Enlatados">Enlatados</option>
-            <option value="Sal">Sal</option>
-            <option value="Açúcar">Açúcar</option>
-            <option value="Café">Café</option>
-            <option value="Óleos">Óleos</option>
-            <option value="Massas">Massas</option>
-            <option value="Leite em pó">Leite em pó</option>
+            <option value="cereais">Cereais</option>
+            <option value="graos">Grãos</option>
+            <option value="enlatados">Enlatados</option>
+            <option value="sal">Sal</option>
+            <option value="açúcar">Açúcar</option>
+            <option value="café">Café</option>
+            <option value="oleos">Óleos</option>
+            <option value="nmassas">Massas</option>
+            <option value="leite-em-po">Leite em pó</option>
           </select>
-          <input type="number" class="qtd-alimen">
+          
+          <input type="number" class="qtd-alimen" name="quantidade" id="quantidade">
+
           <button class="btn-add" type="submit">+</button>
+
           </div>
-          <div class="form-container">
+            <div class="form-container">
+              <%- if(item == true) {%>
+                <p><%= item %></p>
+              <% } %>
             </div>
           </div>
+          
         </form>
+
       </section>
       <button class="btn-confirma">Próximo</button>
 
-      <form action="POST" method="/formulario-doacao" class="form-confirm">
+      <% if(true) {%>
+
+      <!-- <form action="/formulario-doacao" method="POST" class="form-confirm">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         <div class="itens-box"></div>
         <div class="section-button-confirm-form">
         
@@ -55,9 +71,11 @@
           <button type="button" class="cancel-form">Cancelar</button>
           
         </div>
-      </form>
+      </form> -->
+
+      <% } %>
     </main>
 
-    <script src="./assets/js/script-donation.js"></script>
+    <!-- <script src="./assets/js/script-donation.js"></script> -->
   </body>
 </html>
