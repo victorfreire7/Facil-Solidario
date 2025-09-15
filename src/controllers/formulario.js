@@ -1,29 +1,41 @@
 const doacaoModel = require('../models/doacao');
 
-//faço a separação dos itens que estao no URL, retornando somente o valor deles
-
 function index (req, res){
     res.render('formulario', { csrfToken: req.csrfToken() });
 }
 
-function store (req, res) {
-    res.json(req.body);
-    // res.redirect(`/formulario-doacao/option=${req.body.options}%20quantidade=${req.body.quantidade}`);   
-}
-
-    // async function store (req, res){
-    //     try {
-    //         doacaoModel.create({
-    //             tipo: req.body.tipo,
-    //             quantidade: req.body.quantidade,
-    //             usuarioIdUsuario: req.session.user.id_usuario
-    //         });
+async function store (req, res) {
+    try { 
+        const convertion = JSON.parse(req.body.allValues); // estou buscando isso no input hidden do ejs que armazena todos itens que foram enviados.
     
-    //         res.json('form enviado');
-            
-    //     } catch (error) {
-    //         return res.json(error)
-    //     }
-    // }
+        for (const d of convertion) {// armazena todos os itens que podem ser doados, para fazer uma validação se o front e backend batem.
+            if(
+                d.item === 'cereais' ||
+                d.item === 'graos' ||
+                d.item === 'enlatados' ||
+                d.item === 'sal' ||
+                d.item === 'acucar' ||
+                d.item === 'cafe' ||
+                d.item === 'oleos' ||
+                d.item === 'massas' ||
+                d.item === 'leiteempo' 
+            ){
+                    await doacaoModel.create({
+                        tipo: d.item,
+                        quantidade: d.quantidade,
+                        usuarioIdUsuario: req.session.user.id_usuario
+                    });
+            } else if(d == "") { // como foi programado pra, ao excluir um indice, esse indice ficar nulo; essa validação prossegue o laço de repetição
+                continue;
+            } else {
+                return res.send('erro na validação')
+            }
+        }
+    
+        res.send('tudo certo');
+    } catch (error) {
+        res.send(error)
+    }
+}
 
 module.exports = { index, store };
