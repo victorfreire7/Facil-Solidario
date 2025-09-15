@@ -439,3 +439,10 @@ footer {
     height: 50vh;
     background-color: red;
   }
+
+  .successMessage{
+    z-index: 1000000001;
+    background-color: green;
+    color: white;
+    position: fixed;
+  }
