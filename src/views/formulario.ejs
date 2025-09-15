@@ -44,31 +44,18 @@
 
           <button class="btn-add" type="submit">+</button>
 
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          </div>
+            <div class="form-container">   
             </div>
-              <div class="form-container">   
-              </div>
-            </div>
-          </form>
-          
-        </section>
-        <form class="hiddenForm" method="POST">
-          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <button class="btn-confirma">Próximo</button>
+          </div>
         </form>
+      </section>
         
-
-      <!-- <form action="/formulario-doacao" method="POST" class="form-confirm">
-        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-        <div class="itens-box"></div>
-        <div class="section-button-confirm-form">
-        
-          <button>Confirmar</button>
-          <button type="button" class="cancel-form">Cancelar</button>
-          
-        </div>
-      </form> -->
-
+      <form action="" method="POST">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>"> <!-- Validação contra CSRF -->
+        <input type="hidden" name="allValues" id="allValues"> <!-- esse INPUT HIDDEN guarda tudo oque estiver no formulario, para ser utilizado no BACKEND -->
+        <button class="btn-confirma">Próximo</button>
+      </form>        
     </main>
 
     
