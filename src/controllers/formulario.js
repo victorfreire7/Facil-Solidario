@@ -1,7 +1,13 @@
 const doacaoModel = require('../models/doacao');
 
 function index (req, res){
-    res.render('formulario', { csrfToken: req.csrfToken() });
+    res.render('formulario', 
+        { 
+            csrfToken: req.csrfToken(), 
+            successMessage: req.flash('successMessage'),
+            errorMessage: req.flash('errorMessage')
+        }
+    );
 }
 
 async function store (req, res) {
@@ -31,8 +37,9 @@ async function store (req, res) {
                 return res.send('erro na validação')
             }
         }
-    
-        res.send('tudo certo');
+        
+        req.flash('successMessage', ['Formulário enviado com sucesso!']);
+        res.redirect('/formulario-doacao');
     } catch (error) {
         res.send(error)
     }

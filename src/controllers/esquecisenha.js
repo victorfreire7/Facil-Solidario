@@ -6,13 +6,20 @@ const randomStringGenerator = require('random-string-generator');
 const bcryptjs = require('bcryptjs');
 
 function index(req, res) {
-    res.render('esquecisenha', { csrfToken: req.csrfToken() });
+    res.render('esquecisenha', 
+        { 
+            csrfToken: req.csrfToken(), 
+            successMessage: req.flash('successMessage'),
+            errorMessage: req.flash('errorMessage')
+        }
+    );
 }
 
 async function store(req, res) {
     try {
         if(!validator.isEmail(req.body.email)){ // crio uma verificação de caso o e-mail seja valido.
-            return res.json('Por favor, digite um E-mail válido!');
+            req.flash('errorMessage', ['Por favor, digite um E-mail válido!']);
+            return res.redirect('/forget-password'); 
         }
 
         await UsuarioRepository.findOne({ // vejo se existe realmente um cadastro com o email enviado.
@@ -22,7 +29,8 @@ async function store(req, res) {
         })
         .then((result) => {
             if(!result) {
-                return res.json('E-mail não encontrado no banco de dados!');
+                req.flash('errorMessage', ['E-mail não encontrado!']);
+                return res.redirect('/forget-password'); 
             }
         });
 
@@ -53,9 +61,11 @@ function sendCode(req, res) {
                 `
         });
 
-        res.redirect('/forget-password/change-password');
+        req.flash('successMessage', ['Código enviado! Verifique sua caixa de spam.']);
+        return res.redirect('/forget-password/change-password');
     } catch (error) {
-        res.json(error);
+        req.flash('errorMessage', ['Ocorreu um erro ao enviar o E-mail! tente novamente mais tarde.']);
+        return res.redirect('/forget-password');
     }
 }
 
@@ -66,14 +76,21 @@ function sendCode(req, res) {
     senha
 */
 function changePassIndex(req, res) { 
-    res.render('esquecisenhaChange', { csrfToken: req.csrfToken() });
+    res.render('esquecisenhaChange', 
+        { 
+            csrfToken: req.csrfToken(), 
+            successMessage: req.flash('successMessage'),
+            errorMessage: req.flash('errorMessage')
+        }
+    );
 }
 
 async function changePassUpdate(req, res) {
     try {
 
         if(req.body.code != req.session.authCode){
-            return res.json('código incorreto');
+            req.flash('errorMessage', ['Código incorreto!']);
+            return res.redirect('/forget-password');
         }
 
         const user = await UsuarioRepository.findOne({
@@ -89,11 +106,13 @@ async function changePassUpdate(req, res) {
             req.session.authCode = false;
             req.session.email = false;
 
-            res.json('senha alterada!');
+            req.flash('successMessage', ['Senha alterada com sucesso!']);
+            return res.redirect('/sign-in');
         })
 
     } catch (error) {
-        res.json('ERRO AQUI Ó' + error);
+        req.flash('errorMessage', ['Um erro inesperado aconteceu. Tente novamente mais tarde.']);
+        return res.redirect('/forget-password');
     }
 }
 

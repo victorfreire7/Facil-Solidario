@@ -2,7 +2,13 @@ require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
 
 function index (req, res){
-    res.render('index', { user: req.session.user, csrfToken: req.csrfToken(), successMessage: req.flash('loginSucess') });
+    res.render('index', 
+        { 
+            user: req.session.user, 
+            csrfToken: req.csrfToken(), 
+            successMessage: req.flash('successMessage'), 
+            errorMessage: req.flash('errorMessage') 
+        });
 }
 
 function store (req, res){
@@ -15,6 +21,7 @@ function store (req, res){
             text: req.body.texto,
         };
         sgMail.send(msg).then(() => {
+            req.flash('successMessage', ['E-mail enviado com sucesso!'])
             res.redirect('/'); // FLASH MESSAGES AQUI... 
         });
     } catch (error) {

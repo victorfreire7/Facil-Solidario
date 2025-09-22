@@ -4,39 +4,53 @@ const UsuarioRepository = require('../models/usuario');
 const validator = require('validator');
 
 function index (req, res){
-    res.render('cadastro', { csrfToken: req.csrfToken() }); // aqui seria a renderização do EJS
+    res.render('cadastro', 
+        { 
+            csrfToken: req.csrfToken(), 
+            successMessage: req.flash('successMessage'), 
+            errorMessage: req.flash('errorMessage') 
+        }
+    ); // aqui seria a renderização do EJS
 }
 
 async function store (req, res){
     try {
-
         await UsuarioRepository.findOne({ //executo um método que procura um valor no BD e retorna um dado BOOLEAN
             where: {
                 email: req.body.email // envio como argumento o input de email
             }
         }).then((result) => { 
-            if(result){
-                return res.json('e-mail ja utilizado!!!!'); // ADICIONAR FLASH MESSAGES 
-            }   
+            if(result)
+            {
+                req.flash('errorMessage', ['E-mail já utilizado!']);
+                return res.redirect('/sign-up'); 
+            }  
+            else 
+            {
+                if(!validator.isEmail(req.body.email))
+                { // crio uma verificação de caso o e-mail seja valido.
+                    req.flash('errorMessage', ['Por favor, digite um E-mail válido!']);
+                    return res.redirect('/sign-up');
+                } 
+                else if(!validator.isMobilePhone(req.body.telefone, 'pt-BR'))
+                { // crio uma verificação de caso o telefone celular seja valido.
+                    req.flash('errorMessage', ['Por favor, digite um Telefone válido!!!']);
+                    return res.redirect('/sign-up');// TA DANDO ERRO AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+                }
+                else {   
+                    req.session.firstStep = true; // seto uma sessao na nuvem para identificar se o primeiro passo(no caso, a validaçao) foi concluido ou nao
+                    req.session.userInfo = req.body; // salvo em uma sessão todas informaçoes enviadas pelo usuario.
+                    req.session.save();
+                    
+                    return res.redirect('/sign-up/code'); //caso passe por todas verificações, prossegue pra proxima página
+                }
+            }
         });
 
-        if(!validator.isEmail(req.body.email)){ // crio uma verificação de caso o e-mail seja valido.
-            return res.send('Por favor, digite um E-mail válido!'); // ADICIONAR FLASH MESSAGES
-        }       
-        
-        if(!validator.isMobilePhone(req.body.telefone, 'pt-BR')){ // crio uma verificação de caso o telefone celular seja valido.
-            return res.send('Por favor, digite um Telefone válido!!!'); // ADICIONAR FLASH MESSAGES
-        }
-
-        req.session.firstStep = true; // seto uma sessao na nuvem para identificar se o primeiro passo(no caso, a validaçao) foi concluido ou nao
-        req.session.userInfo = req.body; // salvo em uma sessão todas informaçoes enviadas pelo usuario.
-        req.session.save();
-
-        res.redirect('/sign-up/code'); //caso passe por todas verificações, prossegue pra proxima página
     }
-    catch (error){  
-        console.error('Erro capturado:', error);
-        return res.status(500).json({ message: error.message || 'Erro desconhecido' });
+    catch (error){        
+        req.flash('errorMessage', ['Erro inesperado! Tente novamente mais tarde.']);
+        return res.redirect('/sign-up');
     }
 }
 
@@ -60,30 +74,46 @@ async function sendCode(req, res) {
             `
     };
     try {
-        await sgMail.send(msg); 
+        await sgMail.send(msg);
     } catch (error) {
-        res.send(error);
+        req.flash('errorMessage', ['Erro Inesperado! Tente novamente mais tarde.']);
+        return res.redirect('/sign-up');
     }
 
-    res.redirect('/sign-up/confirmacao')  ;
+    req.flash('sucessMessage', ['E-mail enviado! Verifique sua caixa de spam.']); //NAO TO CONSEGUINDO ENVIAR O REQ.FLASH PRO SIGN/CONFIRMACAO
+    return res.redirect('/sign-up/confirmacao')  ;
 }
 
 function indexConfirm(req, res) {
-    res.render('cadastroConfirm', { userInfo: req.session.userInfo, csrfToken: req.csrfToken()  });
+    res.render('cadastroConfirm', 
+        { 
+            csrfToken: req.csrfToken(), 
+            userInfo: req.session.userInfo,
+            successMessage: req.flash('successMessage'), 
+            errorMessage: req.flash('errorMessage') 
+        }
+    );
 }
 
 function storeConfirm(req, res) {
     if(req.body.code != req.session.code){
-        return res.status(401)
-        .redirect('/sign-up/confirmacao'); // ENVIAR FLASH MESSAGE DE CODIGO INCORRETO 
+        req.flash('errorMessage', ['Código incorreto!']);
+        return res.redirect('/sign-up/confirmacao'); 
     }
 
     req.session.secondStep = true;
-    res.redirect('/sign-up/password'); 
+    req.flash('successMessage', ['Código correto!']);
+    return res.redirect('/sign-up/password'); 
 }
 
 function indexPassword(req, res) {
-    res.render('cadastroPassword', { csrfToken: req.csrfToken() });
+    res.render('cadastroPassword', 
+        { 
+            csrfToken: req.csrfToken(), 
+            successMessage: req.flash('successMessage'), 
+            errorMessage: req.flash('errorMessage') 
+        }
+    );
 }
 
 async function storePassword(req, res) {
@@ -98,12 +128,18 @@ async function storePassword(req, res) {
             req.session.secondStep = false;
             req.session.userInfo = false;
             
-            res.redirect('/sign-in'); 
-            //adicionar flash message de conta criada
+            req.flash('successMessage', ['Conta criada com sucesso! Faça login para prosseguir.']);
+            return res.redirect('/sign-in'); 
         })
 
     } catch (error) {
-        res.json(error.message);
+        if(error.message == "Validation error"){
+            req.flash('errorMessage', ['insira um E-mail e/ou Telefone válidos']);
+            return res.redirect('/sign-up');
+        } else {
+            req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
+            return res.redirect('/sign-up/confirmacao/password');
+        }
     }
 }
 
