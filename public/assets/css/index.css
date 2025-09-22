@@ -446,3 +446,9 @@ footer {
     color: white;
     position: fixed;
   }
+  .errorMessage{
+    z-index: 1000000001;
+    background-color: red;
+    color: white;
+    position: fixed;
+  }
