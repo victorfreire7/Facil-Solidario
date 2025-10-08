@@ -1,5 +1,6 @@
-var ip = '192.168.56.1';
+var ip = '192.168.1.2';
 var porta = 3636;
+
 
 
 // Importa o módulo http para criar o servidor

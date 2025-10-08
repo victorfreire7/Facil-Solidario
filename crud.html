@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/crud.css"/>
   </head>
 
-<body>
+<body> 
     <main>
         <div class="menu">
 
@@ -35,6 +35,24 @@
             <div class="section-for-serch-bar">
                 <input type="search" id="searchItens" placeholder="Busque o usuário por E-mail..." >
                 <!-- <i class="serch-icon"><img src="img/lupa-pesquisa-icon.png" alt=""></i> -->
+            </div>
+
+            <div class="doacao-box">
+                <div class="section-doador-info">
+                    <p>Nome do doador</p> <button class="refresh-donations-button">Atualizar</button>
+                </div>
+
+                <div class="section-donation">
+                    <section>
+                        <p>Item: <span id="tipo-de-item"></span></p>
+                        <p>Quantidade: <span id="num-quantidade"></span></p>
+
+                    </section>
+                    <section>
+                        <button class="confirm-donation" id="ok">✓</button><button class="confirm-donation" id="notOk">X</button>
+                    </section>
+                </div>
+                
             </div>
             
         </div>
