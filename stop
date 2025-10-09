@@ -1,0 +1,108 @@
+[33m79b32d3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain-front[m[33m, [m[1;31morigin/main-front[m[33m)[m finalizando crud-page
+[33m7de3413[m inicio crud adm pag
+[33m8537155[m fix logic
+[33mdebb880[m started toggle menu logic
+[33mffa43fc[m init flash message container
+[33m1386ab0[m finish-donation-form-page
+[33m0e0b568[m inicio-pag-adm
+[33m97f570e[m fixing-donation-form-and-add-pop-up
+[33m79b98e8[m Ajustando-form-doacao
+[33m100aeb4[m add donation script and some functions
+[33m0d6eade[m add new breakpoints
+[33m342e988[m add responsiveness on donation page
+[33m83575e7[m some-fix-adm-page-responsivity
+[33m89d01ab[m add overflow-y auto on donations div
+[33m132c7ec[m add botão
+[33m0abc019[m add pág de formulário de doação
+[33m8f91e36[m add responsividade
+[33ma54a8ac[m add adm page and some stuff
+[33m5344852[m arrumei o texto ae
+[33me422d40[m add infos corretas e correção de alguns valores
+[33m70af19d[m creating-login-page
+[33m5163047[m Add files via upload
+[33me435d50[m Add files via upload
+[33m8f89c1b[m Add files via upload
+[33mff058a3[m Add files via upload
+[33mc968c29[m Add files via upload
+[33m355c17d[m Add files via upload
+[33m919a78b[m Add files via upload
+[33mcdcb7ee[m Add files via upload
+[33m22d5cde[m Add files via upload
+[33m1ed5d90[m Add files via upload
+[33mda988f8[m Add files via upload
+[33m54d055f[m Add files via upload
+[33m546f998[m Add files via upload
+[33mde3e081[m Add files via upload
+[33m0005590[m Add files via upload
+[33md98b94a[m Add files via upload
+[33m25e8a2d[m finish-pc-and-mobile-creators-page
+[33m8949e4c[m Add files via upload
+[33mb670d84[m Add files via upload
+[33mdf7f957[m add-login-pages-and-responsivity
+[33m17f63d7[m responsivity-for-cadastro-page
+[33md3a53ab[m add-cadastro-pag
+[33m6dc39ce[m Add files via upload
+[33md581729[m Add files via upload
+[33mc65b5c3[m Add files via upload
+[33mad4c7d2[m Add files via upload
+[33mdeaef49[m Add files via upload
+[33m6335020[m creating-creators-page-and-carrossel
+[33mf744805[m minor-fix-in-home-page
+[33mc5f05aa[m finish-pol-priv-page-responsive
+[33m761d586[m pol-priv-page-construindo
+[33m18eb5b0[m responsivity-ponto-de-atuacao
+[33m7d7e195[m create-pag-local-atuacao
+[33mcd4ba8b[m responsive-feedback-section-and-fisnish-home-page
+[33me5b891e[m fisinh-feedback-section
+[33m23747dd[m forms-feedback-inicio
+[33m0de2785[m finish-responsivity-lore-section
+[33m293082b[m finish-lore-section
+[33m2e4613a[m responsivity-section-num-doacoes
+[33mbdc8706[m button-languages-semi-responsivity
+[33ma3b8dd1[m lore-section-continuidade
+[33m5760bbf[m finish-doacoes-num-section-and-inicio-lore-section
+[33ma480e14[m inicio-container-num-doacoes
+[33m84106f6[m Merge branch 'main-front' of https://github.com/victorfreire7/Facil-Solidario into main-front
+[33mcc83907[m att-git-ignore
+[33mb77e258[m Create README.md
+[33mc0707c2[m cards-finish-responsevi-finish
+[33m142d728[m inicio-container-cards
+[33m1f371a7[m finish-pag-404-and-responsivity
+[33md813c3a[m inicio-pag-404
+[33m471cad2[m add-responsive-container1
+[33mcd172b6[m criando-primeiro-container
+[33m9fef3df[m footer-responsivo-1.0
+[33m1487eae[m inicio-construcao-footer
+[33m78b6ab7[m add-server-for-debug
+[33m0b6e1dd[m mexendo-arquivos
+[33m20191c1[m add html-css
+[33me669cb5[m add formulario route
+[33m575b59b[m first commit
+[33mb9c4dcc[m minimal detail
+[33mf600634[m add sign-in route
+[33mdd48103[m first commit
+[33md369555[m minimal detail
+[33m7b48355[m add sign-up route
+[33m1472548[m first commit
+[33mfbc18d7[m add politicas route
+[33m26f7076[m first commit
+[33mab71e94[m rename
+[33mfe6c481[m first commit
+[33m89475aa[m add pontos-de-coleta route
+[33m40d043a[m first commit
+[33m13510f4[m quem-somos route adjustment
+[33ma57837c[m remove unnecessary post method
+[33m447d409[m add server middlewares
+[33m8435a8b[m add post method
+[33m3561414[m add post method
+[33mb764706[m first commit
+[33m9404e9a[m first commit
+[33mca0b7d9[m mudança na porta de escuta
+[33mbd74b65[m route separation
+[33m92368d5[m first commit
+[33mdabae7d[m add nodemon
+[33ma479f5e[m add package-lock
+[33maa810e3[m add express
+[33m2ed4b0e[m first commit
+[33mef4d778[m first commit
+[33m04d7345[m first commit

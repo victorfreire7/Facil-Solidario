@@ -6,12 +6,14 @@ main{
 
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: row;
 
     overflow-y: hidden;
     overflow-x: hidden;
     background-color: white;
+
+    position: relative;
 }
 
 .menu{
@@ -24,6 +26,8 @@ main{
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+
+    /* position: ; */
 }
 
 .section-logo{
@@ -111,6 +115,9 @@ main{
     width: 75vw;
     height: 100vh;
 
+    overflow-y: scroll;
+    overflow-x: auto;
+
     background-image: url(../img/BGSTYLE.png);
     background-position: center;
     background-size:  200%;
@@ -121,13 +128,33 @@ main{
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+
+    position: relative;
+}
+.content::-webkit-scrollbar {
+  width: 10px; /* largura da barra */
 }
 
+.content::-webkit-scrollbar-track {
+  background: var(--verde-musgo); /* fundo do trilho */
+  border-radius: 5px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: var(--laranja-ababora);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+  background: var(--laranja-ababora);
+  transition: .2s linear;
+}
 .section-for-search-bar{
     width: 40vw;
     height: auto;
-    position: relative;
 }
+
 
 .serch-icon{
     width: auto;
@@ -161,10 +188,14 @@ main{
 
     padding: 5px;
     margin-top: 20px;
+    top: 10%;
 
     font-family: 'poppins', sans-serif;
 
     transition: .2s linear;
+
+    
+    position: sticky;
 }
 
 #searchItens:hover{
@@ -184,12 +215,12 @@ main{
     transition: .2s linear;
     opacity: 0;
 }
+
 .doacao-box{
     width: 55vw;
     height: auto;
-    max-height: 55vh;
-
-    overflow-x: auto;
+    max-height: auto;
+    
 
     margin-top: 5vh;
 
@@ -203,6 +234,8 @@ main{
     background-color: #D9D9D9;
 
     position: relative;
+
+    border: 2px solid var(--laranja-ababora);
 }
 
 
@@ -226,7 +259,11 @@ main{
   background: var(--laranja-ababora);
   transition: .2s linear;
 }
-
+/* 
+.doacao-box:hover{
+    overflow-y: scroll;
+    background-color: red;
+} */
 
 .section-doador-info{
     width: 45vw;
@@ -241,7 +278,7 @@ main{
     justify-content: space-between;
     flex-direction: row;
 
-    position: sticky;
+    /* position: sticky; */
     top: 0px;
 
     background-color: #D9D9D9;
