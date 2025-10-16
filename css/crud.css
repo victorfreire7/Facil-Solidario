@@ -116,7 +116,7 @@ main{
     height: 100vh;
 
     overflow-y: scroll;
-    overflow-x: auto;
+    overflow-x: hidden;
 
     background-image: url(../img/BGSTYLE.png);
     background-position: center;
@@ -219,7 +219,7 @@ main{
 .doacao-box{
     width: 55vw;
     height: auto;
-    max-height: auto;
+
     
 
     margin-top: 5vh;
@@ -227,7 +227,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    flex-direction: column;
+    flex-direction: column ;
 
     border-radius: 10px;
 
