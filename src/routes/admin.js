@@ -7,6 +7,6 @@ router.get("/", adminController.index);
 router.get("/:id", adminController.show);
 
 router.get("/:id/:doacao", adminController.showDoacao)
-router.put("/:id/:doacao", adminController.update);
+router.post("/:id/:doacao", adminController.update);
 
 module.exports = router;
