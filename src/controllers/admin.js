@@ -14,7 +14,7 @@ async function index(req, res){
     res.render('admin', 
         { 
             csrfToken: req.csrfToken(), 
-            users: users, 
+            users: users, // guarda todos os usuarios, para ser mostrado
             doacao: false
         }
     )
@@ -32,8 +32,8 @@ async function show(req, res){
     res.render('admin', 
         { 
             csrfToken: req.csrfToken(), 
-            users:  [users],
-            doacao: false
+            users:  [users], // guarda apenas o usuario desejado, mas mantem ele em um ARRAY para ser lido no EJS
+            doacao: false 
         }
     )
 }
@@ -44,6 +44,7 @@ async function showDoacao(req, res) {
     res.render('admin', 
         { 
             csrfToken: req.csrfToken(), 
+            users:  false,
             doacao: doacao 
         }
     )
@@ -56,13 +57,8 @@ async function update(req, res){
         tipo: req.body.tipo,
         quantidade: req.body.quantidade,
         entregue: req.body.entregue
-    }).then((result) => {
-        res.render('admin', 
-            { 
-                csrfToken: req.csrfToken(), 
-                doacao: doacao 
-            }
-        )
+    }).then(() => {
+        res.redirect('/admin')
     })
 }
 
