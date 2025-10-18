@@ -3,8 +3,7 @@ const adminRepository = require('../models/admin');
 
 module.exports = async function (req, res, next) {
     if(!req.session.admin){
-        res.json('login necessario');
-        res.redirect('/');
+        res.status(404).render('404');
     }
 
     await adminRepository.findOne()
