@@ -7,7 +7,12 @@ const bcryptjs = require('bcryptjs');
 
 
 async function index(req, res) {
-    res.render('adminlogin', { csrfToken: req.csrfToken() });
+    res.render('adminlogin', 
+    { 
+        successMessage: req.flash('successMessage'), 
+        errorMessage: req.flash('errorMessage'), 
+        csrfToken: req.csrfToken() 
+    });
 }
 
 async function sendCode(req, res) {
@@ -36,7 +41,8 @@ async function sendCode(req, res) {
 
     storeAdmin(dayLogin, dayPassword); // adiciono as informações do ADMIN no BD
 
-    res.redirect('/admin-login');
+    req.flash('successMessage', ['Código enviado para solidariofacil@gmail.com']);
+    return res.redirect('/admin-login');
 
 }
 
@@ -74,7 +80,8 @@ async function login(req, res) {
             .then((result) => {
                  if (result) {
                     req.session.admin = admin;
-                    return res.json('redirectionando!');
+                    req.flash('successMessage', ['Seja Bem-vindo(a)!']);
+                    return res.redirect('/admin'); 
                 } else {
                     return res.json('senha inválida');
                 }
