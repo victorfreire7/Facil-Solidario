@@ -442,13 +442,21 @@ footer {
 
   .successMessage{
     z-index: 1000000001;
-    background-color: green;
+    background-color: #8DA47C;
     color: white;
     position: fixed;
   }
   .errorMessage{
     z-index: 1000000001;
-    background-color: red;
+    background-color: #C4514F;
     color: white;
     position: fixed;
+  }
+  .message{
+    top: 0;
+    right: 0;
+    padding: 0.5%;
+    margin: 0.5%;
+    border: solid #FFF4E4 2px;
+    border-radius: 5px;
   }
