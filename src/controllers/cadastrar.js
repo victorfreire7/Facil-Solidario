@@ -35,7 +35,7 @@ async function store (req, res){
                 else if(!validator.isMobilePhone(req.body.telefone, 'pt-BR'))
                 { // crio uma verificação de caso o telefone celular seja valido.
                     req.flash('errorMessage', ['Por favor, digite um Telefone válido!!!']);
-                    return res.redirect('/sign-up');// TA DANDO ERRO AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+                    return res.redirect('/sign-up');
                 }
                 else {   
                     req.session.firstStep = true; // seto uma sessao na nuvem para identificar se o primeiro passo(no caso, a validaçao) foi concluido ou nao
@@ -96,14 +96,19 @@ function indexConfirm(req, res) {
 }
 
 function storeConfirm(req, res) {
-    if(req.body.code.toUpperCase() != req.session.code){
-        req.flash('errorMessage', ['Código incorreto!']);
-        return res.redirect('/sign-up/confirmacao'); 
+    try {
+        if(req.body.code.toUpperCase() != req.session.code){
+            req.flash('errorMessage', ['Código incorreto!']);
+            return res.redirect('/sign-up/confirmacao'); 
+        }
+    
+        req.session.secondStep = true;
+        req.flash('successMessage', ['Código correto!']);
+        return res.redirect('/sign-up/password'); 
+    } catch (error) {
+        req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
+        return res.redirect('/sign-up');
     }
-
-    req.session.secondStep = true;
-    req.flash('successMessage', ['Código correto!']);
-    return res.redirect('/sign-up/password'); 
 }
 
 function indexPassword(req, res) {
