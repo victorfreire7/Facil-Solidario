@@ -23,7 +23,16 @@ async function index(req, res){
 }
 
 async function show(req, res){
-    const users = await userRepository.findByPk(req.params.id, {
+    // const users = await userRepository.findByPk(req.params.id, {
+    //     attributes: ['id_usuario', 'nome', 'email'],
+    //     include: [{
+    //         model: doacaoRepository,
+    //         attributes: ['id_doacao', 'tipo', 'quantidade', 'entregue']
+    //     }]
+    // });
+
+    const users = await userRepository.findOne({
+        where: { email: req.params.email },
         attributes: ['id_usuario', 'nome', 'email'],
         include: [{
             model: doacaoRepository,
