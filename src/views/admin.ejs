@@ -31,16 +31,11 @@
     <main>  
         <div class="content">
             <%if(doacao){%>
-                <!-- <h1><%=doacao.tipo%></h1>
-                <h1><%=doacao.quantidade%></h1>
-                <h1><%=doacao.entregue%></h1>
-                <h1><%=doacao.createdAt%></h1> -->
-
                 <form action="" method="post">
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <label for="tipo">TIPO:</label>
                     <select name="options" id="options">
-                        <option value="0" disabled selected>Tipo</option>
+                        <option value="<%=doacao.tipo%>"><%=doacao.tipo%></option>
                         <option value="cereais">Cereais</option>
                         <option value="graos">Grãos</option>
                         <option value="enlatados">Enlatados</option>
@@ -57,8 +52,13 @@
 
                       <label for="entregue">Entregue:</label>
                       <select name="entregue" id="entregue">
-                        <option value=false>false</option>
-                        <option value=true>true</option>
+                        <%if(doacao.entregue){%>
+                            <option value=false>false</option>
+                            <option value=true selected>true</option>
+                        <%} else {%>
+                            <option value=false selected>false</option>
+                            <option value=true>true</option>
+                        <%}%>
                       </select>
 
                       <button type="submit">Alterar</button>
