@@ -4,9 +4,9 @@ const adminController = require('../controllers/admin');
 
 router.get("/", adminController.index);
 
-router.get("/:id", adminController.show);
+router.get("/:email", adminController.show);
 
-router.get("/:id/:doacao", adminController.showDoacao)
-router.post("/:id/:doacao", adminController.update);
+router.get("/:email/:doacao", adminController.showDoacao)
+router.post("/:email/:doacao", adminController.update);
 
 module.exports = router;
