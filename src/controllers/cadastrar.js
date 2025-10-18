@@ -96,7 +96,7 @@ function indexConfirm(req, res) {
 }
 
 function storeConfirm(req, res) {
-    if(req.body.code != req.session.code){
+    if(req.body.code.toUpperCase() != req.session.code){
         req.flash('errorMessage', ['Código incorreto!']);
         return res.redirect('/sign-up/confirmacao'); 
     }
@@ -138,57 +138,9 @@ async function storePassword(req, res) {
             return res.redirect('/sign-up');
         } else {
             req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
-            return res.redirect('/sign-up/confirmacao/password');
+            return res.redirect('/sign-up');
         }
     }
 }
 
 module.exports = { index, store, sendCode, indexConfirm, storeConfirm,  indexPassword, storePassword };
-
-
-// function indexConfirmacao(req, res) {
-//     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-//         const msg = {
-//             to: userInfo.email,
-//             from: 'solidariofacil@gmail.com',
-//             subject: `CÓDIGO DE VERIFICAÇÃO FÁCIL SOLIDÁRIO`,
-//             text: 
-//             `
-//                 Seu código de verificação é: 
-    
-//                 \n \n \n
-    
-//                 <strong>${authCode}</strong>   
-
-//             `
-//         };
-//         sgMail.send(msg); 
-    
-//     res.render('cadastroConfirm');
-// }
-
-
-
-
-// async function storeConfirmacao(req, res){
-//     if(req.body.codigo != authCode){
-//         return res.json('código incorreto!!');
-//     }
-
-//     try {
-//         await UsuarioRepository.create({
-//             nome: userInfo.nome,
-//             email: userInfo.email,
-//             telefone: userInfo.telefone,
-//             senha: userInfo.senha
-//         }).then(() => {
-//             res.json("conta criada!!"); 
-//             req.session.firstStep = false;
-//             // res.redirect('/sign-in'); 
-//         });
-//     } catch (error) {
-//         res.json(error)
-//     }
-//     // colocar um req.session.firstStep = false; no final
-// }
-
