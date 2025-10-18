@@ -70,6 +70,7 @@
             <%} else {%>
                 <div class="section-for-serch-bar">
                     <input type="search" id="searchItens" placeholder="Busque o usuário por E-mail..." >
+                    <button class="searchItens-btn" >PROCURAR</button>
                     <!-- <i class="serch-icon"><img src="img/lupa-pesquisa-icon.png" alt=""></i> -->
                 </div>
 
@@ -79,7 +80,7 @@
                             <p><%=user.nome%></p> 
                             <p><%=user.email%></p> 
 
-                            <form action="/admin/<%=user.id_usuario%>" method="get">
+                            <form action="/admin/<%=user.email%>" method="get">
                                 <button class="info-button" id="ok">Informações</button>
                             </form>
                             
@@ -127,5 +128,8 @@
             </div>
         </div>
     </main>
+
+    <script src="/assets/js/search-item.js"></script>
 </body>
 </html>
+
