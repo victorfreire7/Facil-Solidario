@@ -74,7 +74,8 @@ async function login(req, res) {
         )
         
         if(!admin){
-            return res.json('login nao achado');
+            req.flash('errorMessage', ['Senha ou ID incorreto.']);
+            return res.redirect('/admin-login');
         } else {
             await bcryptjs.compare(req.body.senha, admin.senha_hash)
             .then((result) => {
@@ -83,13 +84,15 @@ async function login(req, res) {
                     req.flash('successMessage', ['Seja Bem-vindo(a)!']);
                     return res.redirect('/admin'); 
                 } else {
-                    return res.json('senha inválida');
+                    req.flash('errorMessage', ['Senha ou ID incorreto.']);
+                    return res.redirect('/admin-login');
                 }
             });
         }
 
     } catch (error) {
-        res.send(error + "deu erro ai");
+        req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
+        return res.redirect('/admin-login');
     }
 }
 
