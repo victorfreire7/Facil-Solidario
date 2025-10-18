@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facil Solidário</title>
+    <link rel="shortcut icon" href="/assets/img/LOGO.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/index.css"/>
+    <link rel="stylesheet" href="/assets/css/crud.css"/>
+  </head>
+
+<body> 
+      <header class="menu">
+    
+            <div class="section-logo">
+                <img src="/assets/img/logo-branca.png" alt="logo Facíl Solidário">
+            </div>
+
+            <div class="section-menu-filters">
+                <p><img src="/assets/img/mini-logo-branca.svg" alt="mini-logo-branca"> Doações</p>
+                <ul>
+                    <li><a href="">Abertas</a></li>
+                    <li><a href="">Aceitas</a></li>
+                </ul>
+            </div>
+            
+            <a href="" class="logout">Logout</a>
+
+        </header>
+    <main>  
+        <div class="content">
+            <%if(doacao){%>
+                <!-- <h1><%=doacao.tipo%></h1>
+                <h1><%=doacao.quantidade%></h1>
+                <h1><%=doacao.entregue%></h1>
+                <h1><%=doacao.createdAt%></h1> -->
+
+                <form action="" method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <label for="tipo">TIPO:</label>
+                    <select name="options" id="options">
+                        <option value="0" disabled selected>Tipo</option>
+                        <option value="cereais">Cereais</option>
+                        <option value="graos">Grãos</option>
+                        <option value="enlatados">Enlatados</option>
+                        <option value="sal">Sal</option>
+                        <option value="acucar">Açúcar</option>
+                        <option value="cafe">Café</option>
+                        <option value="oleos">Óleos</option>
+                        <option value="massas">Massas</option>
+                        <option value="leiteempo">Leite em pó</option>
+                      </select>
+
+                      <label for="quantidade">Quantidade:</label>
+                      <input type="number" class="qtd-alimen" name="quantidade" id="quantidade" value="<%=doacao.quantidade%>">
+
+                      <label for="entregue">Entregue:</label>
+                      <select name="entregue" id="entregue">
+                        <option value=false>false</option>
+                        <option value=true>true</option>
+                      </select>
+
+                      <button type="submit">Alterar</button>
+
+                </form>
+            <%} else {%>
+                <div class="section-for-serch-bar">
+                    <input type="search" id="searchItens" placeholder="Busque o usuário por E-mail..." >
+                    <!-- <i class="serch-icon"><img src="img/lupa-pesquisa-icon.png" alt=""></i> -->
+                </div>
+
+                <%for(let user of users){%>
+                    <div class="doacao-box">
+                        <div class="section-doador-info">
+                            <p><%=user.nome%></p> 
+                            <p><%=user.email%></p> 
+
+                            <form action="/admin/<%=user.id_usuario%>" method="get">
+                                <button class="info-button" id="ok">Informações</button>
+                            </form>
+                            
+                        </div>
+
+                        <%for(let don of user.doacaos){%>
+                            <%if(don.entregue === true){%>
+                                <div class="section-donation" style="opacity: 0.2;">
+                            <%} else {%>
+                                <div class="section-donation">
+                            <%}%>
+                                <section>
+                                    <p>Tipo:  
+                                        <span id="tipo-de-item">
+                                            <%=don.tipo%>
+                                        </span>
+                                    </p>
+
+                                    <p>Quantidade:  
+                                        <span id="num-quantidade">
+                                            <%=don.quantidade%>
+                                        </span>
+                                    </p>
+                                    <!-- <p>Entregue:  
+                                        <span id="num-quantidade">
+                                            <%=don.entregue%>
+                                        </span>
+                                    </p> -->
+
+                                </section>
+                                <section>
+                                    <form action="/admin/<%=user.id_usuario%>/<%=don.id_doacao%>" method="get">
+                                        <button class="info-button" id="ok">Informações</button>
+                                    </form>
+                                    
+                                    <!-- <button class="confirm-donation" id="ok">INFO.</button> -->
+                                    <!-- <button class="confirm-donation" id="notOk">X</button> -->
+                                </section>
+                            </div>
+                        <%}%>
+                        
+                    </div>
+                <%}%>
+            <%}%>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
