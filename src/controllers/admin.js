@@ -1,5 +1,6 @@
 const userRepository = require('../models/usuario');
 const doacaoRepository = require('../models/doacao');
+const doacao = require('../models/doacao');
 
 async function index(req, res){
     const users = await userRepository.findAll({
@@ -10,8 +11,13 @@ async function index(req, res){
         }]
     });
 
-    
-    res.json(users);
+    res.render('admin', 
+        { 
+            csrfToken: req.csrfToken(), 
+            users: users, 
+            doacao: false
+        }
+    )
 }
 
 async function show(req, res){
@@ -23,13 +29,24 @@ async function show(req, res){
         }]
     });
 
-    res.json(users)
+    res.render('admin', 
+        { 
+            csrfToken: req.csrfToken(), 
+            users:  [users],
+            doacao: false
+        }
+    )
 }
 
 async function showDoacao(req, res) {
     const doacao = await doacaoRepository.findByPk(req.params.doacao)
     
-    res.json({"render aqui": "", "doacao": doacao});
+    res.render('admin', 
+        { 
+            csrfToken: req.csrfToken(), 
+            doacao: doacao 
+        }
+    )
 }
 
 async function update(req, res){   
@@ -40,7 +57,12 @@ async function update(req, res){
         quantidade: req.body.quantidade,
         entregue: req.body.entregue
     }).then((result) => {
-        res.json(result);
+        res.render('admin', 
+            { 
+                csrfToken: req.csrfToken(), 
+                doacao: doacao 
+            }
+        )
     })
 }
 
