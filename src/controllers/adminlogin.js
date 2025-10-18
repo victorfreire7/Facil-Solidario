@@ -34,9 +34,9 @@ async function sendCode(req, res) {
         `
     }); // envio no E-mail, o login e a senha do dia para acesso do admin
 
-    storeAdmin(dayLogin, dayLogin); // adiciono as informações do ADMIN no BD
+    storeAdmin(dayLogin, dayPassword); // adiciono as informações do ADMIN no BD
 
-    res.redirect('adminlogin');
+    res.redirect('/admin-login');
 
 }
 
@@ -69,17 +69,17 @@ async function login(req, res) {
         
         if(!admin){
             return res.json('login nao achado');
+        } else {
+            await bcryptjs.compare(req.body.senha, admin.senha_hash)
+            .then((result) => {
+                 if (result) {
+                    req.session.admin = admin;
+                    return res.json('redirectionando!');
+                } else {
+                    return res.json('senha inválida');
+                }
+            });
         }
-
-        await bcryptjs.compare(req.body.senha, admin.senha_hash)
-        .then((result) => {
-             if (result) {
-                req.session.admin = admin;
-                return res.json('redirectionando!');
-            } else {
-                return res.json('senha inválida');
-            }
-        });
 
     } catch (error) {
         res.send(error + "deu erro ai");
