@@ -46,8 +46,7 @@ const User = db.define('usuario', {
     telefone: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: '',
-        unique: true
+        defaultValue: ''
     },
 
     senha_hash: {
