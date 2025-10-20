@@ -75,13 +75,14 @@ async function sendCode(req, res) {
     };
     try {
         await sgMail.send(msg);
+        req.flash('successMessage', ['E-mail enviado! Verifique sua caixa de spam.']); //NAO TO CONSEGUINDO ENVIAR O REQ.FLASH PRO SIGN/CONFIRMACAO
+        return res.redirect('/sign-up/confirmacao')  ;
     } catch (error) {
         req.flash('errorMessage', ['Erro Inesperado! Tente novamente mais tarde.']);
         return res.redirect('/sign-up');
     }
 
-    req.flash('sucessMessage', ['E-mail enviado! Verifique sua caixa de spam.']); //NAO TO CONSEGUINDO ENVIAR O REQ.FLASH PRO SIGN/CONFIRMACAO
-    return res.redirect('/sign-up/confirmacao')  ;
+    
 }
 
 function indexConfirm(req, res) {
