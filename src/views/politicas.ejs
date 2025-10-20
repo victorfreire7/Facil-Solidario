@@ -40,7 +40,51 @@
 
 <body>
 
-  <%-include('./includes/header')%>
+  <head>
+  <link rel="stylesheet" href="./assets/css/asb.css">
+</head>
+
+<header>
+    <input type="checkbox" id="menu-checkbox" class="menu-checkbox">
+    <label for="menu-checkbox" class="menu-label">&#9776;</label>
+  
+    
+  
+    <section class="info-header">
+      <div>
+        <span>Telefone: 11 95249-1055</span>
+        <span>Email: solidariofacil@gmail.com</span>
+      </div>
+      <div class="section-button-languages">
+        <button class="languages"></button>
+        <button class="languages"></button>
+        <button class="languages"></button>
+      </div>
+    </section>
+  
+    <section class="header-content">
+      <a href="/">
+        <img src="/assets/img/logo-header-preto.svg" alt="logo" class="logo-header">
+      </a>
+      <nav class="links-header">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/quem-somos">Sobre nós</a></li>
+          <li><a href="/pontos-de-coleta">Como doar</a></li>
+
+          <%if(!user){%>
+            <li><a href="/sign-up">Seja doador</a></li>
+            <li><a href="/sign-up"><img src="./assets/img/PERFIL.svg" alt="Suas doações"><span>Suas Doações</span></a></li>
+          <%}%>
+            
+          <%if(user){%>
+            <li><a href="/logout">Logout</a></li>
+          <%}%>
+
+        </ul>
+      </nav>
+    </section>
+  </header>
 
       <div class="space"></div>
       <main>
