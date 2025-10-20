@@ -74,6 +74,8 @@ class App {
         
         this.app.use('/admin-login', adminloginRoute);
         this.app.use('/admin', adminloginRequired, adminRoute);
+
+        this.app.use((req, res) => { res.status(404).render('404')})
     }
 
     db(){
