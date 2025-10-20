@@ -1,7 +1,8 @@
 module.exports = (err, req, res, next) => {
     if(err.code == 'EBADCSRFTOKEN') {
-        res.send('CSRF invalido')
+        req.flash('errorMessage', ['CSRF detectado.']);
+        return res.redirect('/');
     } else {
-           next();
+        next();
     }
 }
