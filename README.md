@@ -22,7 +22,7 @@ Para melhor controle e manipulação dos dados armazenados, o sistema consta tam
 - [Victor Hugo](https://github.com/victorfreire7) (Back-End completo do projeto, criação banco de dados SQL, integração com API, Design UI/UX do projeto, Criação do logotipo)
 - [Isabella Cardoso](https://github.com/isacardosods) (Monografia completa do projeto, JavaScript Front-End do projeto, idealização banco de dados SQL, Design UI/UX do projeto)
 - [Pietro Sousa](https://github.com/pietrooliveira17) (JavaScript Front-End do projeto, implementação da acessibilidade com SCSS, auxílio no Back-End)
-- [Ryan Santos](https://github.com/darkboat4) (Front-End completo do projeto, HTML e CSS do projeto)
+- [Ryan Santos](https://github.com/darkboat4) (Front-End completo do projeto, HTML e CSS do projeto, auxílio no gerenciamento do projeto)
 - [Mariana Mota](https://github.com/10121974) (Design UI/UX, desenvolvimento da campanha do projeto, desenvolvimento de imagens, conteúdo textual)
 - [Marcus Alberes](https://github.com/YoniAlice) (Auxílio na monografia do projeto, auxílio na abstração do banco de dados SQL, desenvolvimento de imagens, conteúdo textual)
 
