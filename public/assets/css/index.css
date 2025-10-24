@@ -309,6 +309,8 @@ footer {
     .logo-header {
       position: absolute;
       right: 5vw;
+      top: 50%;
+      transform: translate(-0%, -50%);
       width: 15vw;
       height: auto;
     }

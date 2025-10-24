@@ -14,7 +14,7 @@ main {
   display: flex;
 }
 button{transition: .2 linear;}
-button:hover{transition: .2 linear;transform: translateY(-1px);}
+button:hover{transition: .2 linear;transform: translateY(-1px); cursor: pointer;}
 button:active{transition: .2 linear;transform: translateY(2px);}
 .btn-confirma {
   width: 12vw;

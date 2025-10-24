@@ -398,20 +398,22 @@ main{
     font-family: 'poppins', sans-serif;
     color: var(--amarelo-requeijao);
     transition: .2s linear;
+    resize: none;   
+}
+
+/* ajustar texto no input text area */
+
+.input-forms-feedback:nth-child(4){
+    
+    padding-left: 5px;
+    padding-top: 10px;
 }
 .input-forms-feedback::placeholder{
     color: var(--amarelo-requeijao);
     transition: .2s linear;
-    text-align: justify;
+    text-align: left;
     padding-left: 10px;
 }
-.input-forms-feedback:nth-child(3)::placeholder{
-    padding-top: 10px;
-}
-.input-forms-feedback:nth-child(3){
-    height: auto;
-}
-
 .input-forms-feedback:focus::placeholder{
     opacity: 0;
     transition: .1s linear;
@@ -420,10 +422,11 @@ main{
     transition: .2s linear;
     border: none;
 }
-
 .input-forms-feedback:focus{
     transition: .2s linear;
     border: 1px solid var(--azul-cinza-escuro);
+    padding-left: 10px;
+    padding-top: 5px;
 }
 
 .content-container-5 form button{
@@ -600,10 +603,12 @@ main{
     .section-div-val-doacoes div.num-doacoe{
         margin-top: 0;
         
-        width: 150px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
         flex-direction: column;
         margin-top: 1%;
+        margin-right: 5vw;
+        margin-left: 5vw;
     }
     .section-div-val-doacoes p{
         font-size: .8em;
