@@ -7,7 +7,7 @@ document.addEventListener('click', (e) => {
     e.preventDefault()
     
     if(document.querySelector('#options').value == 0 || document.querySelector('.qtd-alimen').value == 0){
-      alert('pode não')
+      alert('Por favor, preencha o campo vazio.')
       return
     }
 
@@ -25,7 +25,7 @@ document.addEventListener('click', (e) => {
   if(el.classList.contains('btn-confirma')){
     if(document.querySelectorAll('.items').length == 0){
       e.preventDefault();
-      alert('pode nao');
+      alert('Por favor, preencha o campo vazio. doada.');
       return
     }
   }
