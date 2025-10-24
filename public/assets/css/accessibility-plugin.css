@@ -1,0 +1,242 @@
+.accessibility-panel {
+    position: fixed;
+    
+    right: 0;
+    bottom: 0;
+    margin: 2%;
+/* 
+    top: 20px;
+    right: 20px; */
+    z-index: 10000;
+    
+    font-family: Arial, sans-serif;
+    z-index: 999999999999999;
+}
+
+.icon-aces{
+    width: 3rem;
+    height: 3rem;
+}
+
+.accessibility-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.accessibility-toggle:hover {
+    background: #0056b3;
+    transform: scale(1.1);
+}
+
+.accessibility-toggle span {
+    color: white;
+    font-size: 24px;
+}
+
+.accessibility-content {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    transform: translateY(-20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid #e9ecef;
+}
+
+.accessibility-content.show {
+    transform: translateY(-90vh);
+    opacity: 1;
+    visibility: visible;
+}
+
+.accessibility-content h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.accessibility-group {
+    margin-bottom: 20px;
+}
+
+.accessibility-group h4 {
+    margin: 0 0 10px 0;
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.accessibility-btn {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    color: #495057;
+}
+
+.accessibility-btn:hover {
+    background: #e9ecef;
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.accessibility-btn.active {
+    background: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.reset-btn {
+    width: 100%;
+    background: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: white !important;
+    font-weight: bold;
+}
+
+.reset-btn:hover {
+    background: #c82333 !important;
+    border-color: #bd2130 !important;
+}
+
+
+
+/* Notificações */
+.accessibility-notification {
+    position: fixed;
+
+    top: 100px;
+    right: 20px; 
+    color: white;
+    bottom:0;
+    z-index: 999999999999999;
+    padding: 12px 20px;
+    border-radius: 6px;
+    z-index: 10001;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Modo Alto Contraste */
+body.high-contrast {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.high-contrast * {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast img {
+    filter: contrast(150%) brightness(120%);
+}
+
+body.high-contrast a {
+    color: #ffff00 !important;
+    text-decoration: underline !important;
+}
+
+body.high-contrast button,
+body.high-contrast .accessibility-btn {
+    background: #333 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+}
+
+body.high-contrast .accessibility-toggle {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+body.high-contrast .accessibility-content {
+    background: #000 !important;
+    border-color: #fff !important;
+}
+
+body.high-contrast .accessibility-content h3 {
+    border-color: #fff !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .accessibility-panel {
+        right: 0;
+        bottom: 0;
+        margin: 2%;
+    }
+    
+    .accessibility-toggle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .accessibility-toggle span {
+        font-size: 20px;
+    }
+    
+    .accessibility-content {
+        width: 250px;
+        padding: 15px;
+    }
+
+}
+    
+
+
+/* Melhorias de acessibilidade */
+.accessibility-btn:focus,
+.accessibility-toggle:focus{
+
+    outline: 3px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Animações suaves para mudanças de fonte */
+* {
+    transition: font-size 0.3s ease;
+}
+
+/* Cursor personalizado para modo de leitura */
+body.reading-mode {
+    cursor: crosshair;
+}
+
+body.reading-mode * {
+    cursor: crosshair;
+}
+
