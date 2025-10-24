@@ -23,6 +23,7 @@ const adminRoute = require('./src/routes/admin');
 
 const loginRequired = require('./src/middlewares/loginRequired');
 const adminloginRequired = require('./src/middlewares/adminloginRequired');
+const userAdminloginRequired = require('./src/middlewares/userAdminAuth');
 const csrfMiddleware = require('./src/middlewares/csrfMiddleware');
 
 const db = require('./src/db');
@@ -72,7 +73,7 @@ class App {
         this.app.use('/forget-password', esquecisenhaRoute); // nao to conseguindo renderizar esta rota no localhost
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
         
-        this.app.use('/admin-login', adminloginRoute);
+        this.app.use('/admin-login', userAdminloginRequired, adminloginRoute);
         this.app.use('/admin', adminloginRequired, adminRoute);
 
         this.app.use((req, res) => { res.status(404).render('404')})
