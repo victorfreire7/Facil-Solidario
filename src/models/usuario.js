@@ -63,6 +63,12 @@ const User = db.define('usuario', {
                 args: [8, 50]
             }
         }
+    },
+
+    admin: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: 0
     }
 });
 
