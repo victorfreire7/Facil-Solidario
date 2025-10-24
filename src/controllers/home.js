@@ -1,13 +1,20 @@
 require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
+const doacaoRepository = require('../models/doacao');
 
-function index (req, res){
+async function index (req, res){
+
+    let count = 0;
+    const allDonation = await doacaoRepository.findAll();    
+    allDonation.forEach(() => { count++ });
+
     res.render('index', 
         { 
             user: req.session.user, 
             csrfToken: req.csrfToken(), 
             successMessage: req.flash('successMessage'), 
-            errorMessage: req.flash('errorMessage') 
+            errorMessage: req.flash('errorMessage'),
+            donations: count 
         });
 }
 
