@@ -18,7 +18,7 @@ Para melhor controle e manipulação dos dados armazenados, o sistema consta tam
 
 # 💾 Diagrama do Banco de Dados
 
-<img src="./public/assets/img/readme/diagrama.jpeg">
+<img src="./public/assets/img/readme/diagrama.png">
 
 <br>
 <br>
