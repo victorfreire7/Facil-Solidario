@@ -65,7 +65,7 @@ async function showDoacao(req, res) {
                 doacao: doacao,
                 params: req.params
             }
-        )
+        );
     } catch {
         req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
         return res.redirect('/sign-up/password');
@@ -126,6 +126,42 @@ async function deleteDoacao(req, res) {
     }
 }
 
+function showCreateDonation(req, res) {
+    res.render('adminstoredonation', 
+            { 
+                successMessage: req.flash('successMessage'), 
+                errorMessage: req.flash('errorMessage'),
+                csrfToken: req.csrfToken()
+            }
+        )
+}
+
+async function storeDonation(req, res) {
+    try {
+        await userRepository.findOne(
+            {
+                where: {
+                    email: req.params.email
+                }
+            }
+        ).then((user) => {
+            doacaoRepository.create({
+                tipo: req.body.tipo,
+                quantidade: req.body.quantidade,
+                usuarioIdUsuario: user.id_usuario
+            });
+        })
+        .then(() => {
+            req.flash('successMessage', [`Doação criada no email ${req.params.email} com sucesso.`]);
+            return res.redirect('/admin');
+        })
+    } catch(e) {
+        console.log(e)
+        req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
+        return res.redirect('/admin');
+
+    }
+}
 
 
-module.exports = { index, show, showDoacao, update, deleteUser, deleteDoacao }
+module.exports = { index, show, showDoacao, update, deleteUser, deleteDoacao, storeDonation, showCreateDonation }
