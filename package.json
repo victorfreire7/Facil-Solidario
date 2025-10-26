@@ -15,18 +15,19 @@
     "body-parser": "^2.2.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.7",
-    "csurf": "^1.2.2",
-    "dotenv": "^16.5.0",
+    "csurf": "^1.11.0",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "express-session": "^1.18.1",
+    "express-session": "^1.18.2",
     "helmet": "^8.1.0",
-    "mysql2": "^3.14.1",
+    "mysql2": "^3.15.3",
     "sequelize": "^6.37.7",
-    "validator": "^13.15.0"
+    "validator": "^13.15.20"
   },
   "devDependencies": {
-    "@sendgrid/mail": "^8.1.5",
+    "@sendgrid/mail": "^8.1.6",
+    "node-cron": "^4.2.1",
     "nodemon": "^3.1.10",
     "random-string-generator": "^1.0.7"
   }
