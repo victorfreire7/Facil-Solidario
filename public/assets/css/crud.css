@@ -379,6 +379,13 @@ button.confirm-donation:nth-child(1){background-color: #899E78;}
 
 button.confirm-donation:nth-child(2){background-color: #C4514F;}
 
+#notOk{
+    background-color: #C4514F;
+    width: 10%;
+    align-self: flex-end;
+    margin: 1%;
+}
+
 @media screen and (max-width: 800px) {
     
 }
