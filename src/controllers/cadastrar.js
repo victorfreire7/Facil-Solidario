@@ -194,7 +194,6 @@ async function storePassword(req, res) {
             req.flash('errorMessage', ['insira um E-mail e/ou Telefone válidos']);
             return res.redirect('/sign-up');
         } else {
-            console.log(error)
             req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
             return res.redirect('/sign-up/password');
         }
