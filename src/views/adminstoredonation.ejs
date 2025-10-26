@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facil Solidário</title>
+  <link rel="shortcut icon" href="/assets/img/LOGO.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/assets/css/index.css" />
+  <link rel="stylesheet" href="/assets/css/crud.css" />
+  <link rel="stylesheet" href="/assets/css/accessibility-plugin.css" />
+</head>
+
+<body>
+  <%- include('./includes/messages') %>
+
+  <header class="menu">
+    <div class="section-logo">
+      <img src="/assets/img/logo-branca.png" alt="logo Facíl Solidário">
+    </div>
+
+    <div class="section-menu-filters">
+      <p><img src="/assets/img/mini-logo-branca.svg" alt="mini-logo-branca"> Doações</p>
+      <ul>
+        <li><a href="">Abertas</a></li>
+        <li><a href="">Aceitas</a></li>
+      </ul>
+    </div>
+
+    <a href="/logout" class="logout">Logout</a>
+  </header>
+
+  <main>
+    <div class="content">
+        <form action="" method="post">
+          <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+
+          <label for="tipo">TIPO:</label>
+          <select name="tipo" id="tipo">
+            <option value="0" disabled selected>Tipo</option>
+            <option value="cereais">Cereais</option>
+            <option value="graos">Grãos</option>
+            <option value="enlatados">Enlatados</option>
+            <option value="sal">Sal</option>
+            <option value="acucar">Açúcar</option>
+            <option value="cafe">Café</option>
+            <option value="oleos">Óleos</option>
+            <option value="massas">Massas</option>
+            <option value="leiteempo">Leite em pó</option>
+          </select>
+
+          <label for="quantidade">Quantidade:</label>
+          <input type="number" class="qtd-alimen" name="quantidade" id="quantidade"
+          >
+          <button type="submit">Criar</button>
+        </form>
+    </div>
+  </main>
+
+  <script src="/assets/js/accessibility-plugin.js"></script>
+</body>
+</html>
