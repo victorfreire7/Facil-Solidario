@@ -2,17 +2,17 @@ require("dotenv").config();
 const express = require('express');
 const session = require('express-session');
 const homeRoute = require('./src/routes/home');
+const adminRepository = require('./src/models/admin');
+const sgMail = require('@sendgrid/mail');
 
 const helmet = require('helmet');
 const flash = require('connect-flash');
-
 const cookieParser = require('cookie-parser');
 const csrf = require('csurf');
 const bodyParser = require('body-parser');
-const sgMail = require('@sendgrid/mail');
 const randomStringGenerator = require('random-string-generator');
 const bcryptjs = require('bcryptjs');
-const adminRepository = require('./src/models/admin');
+const cron = require('node-cron');
 
 const quemsomosRoute = require('./src/routes/quemsomos');
 const pontoscoletaRoute = require('./src/routes/pontoscoleta');
@@ -35,7 +35,7 @@ class App {
     constructor(){
         this.app = express();
         this.db();
-        this.sendAdminCode();
+        this.cronAdminCode();
         this.middlewares();
         this.routes();
     }
@@ -81,6 +81,12 @@ class App {
         this.app.use('/admin', adminloginRequired, adminRoute);
 
         this.app.use((req, res) => { res.status(404).render('404')})
+    }
+
+    cronAdminCode(){
+        cron.schedule('0 0 * * *', () => {
+            this.sendAdminCode();
+        })
     }
 
     sendAdminCode(){
