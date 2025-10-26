@@ -108,15 +108,18 @@
                     </section>
 
                     <section>
-                      <form action="/admin/<%= user.id_usuario %>/<%= don.id_doacao %>" method="get">
+                      <form action="/admin/<%= user.email %>/<%= don.id_doacao %>" method="get">
                         <button class="info-button" id="ok">Informações</button>
                       </form>
                     </section>
                   </div>
               <% } %>
 
+              <form action="/admin/<%= user.email %>/create" method="get">
+                <button class="confirm-donation">Adicionar Doação</button>
+              </form>
               <form action="/admin/<%= user.email %>/delete" method="get">
-                <button class="confirm-donation" id="notOk">DELETAR USUÁRIO</button>
+                <button class="confirm-donation" id="notOk">Deletar Usuário</button>
               </form>
             </div>
           <% } %>
