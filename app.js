@@ -9,6 +9,10 @@ const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const csrf = require('csurf');
 const bodyParser = require('body-parser');
+const sgMail = require('@sendgrid/mail');
+const randomStringGenerator = require('random-string-generator');
+const bcryptjs = require('bcryptjs');
+const adminRepository = require('./src/models/admin');
 
 const quemsomosRoute = require('./src/routes/quemsomos');
 const pontoscoletaRoute = require('./src/routes/pontoscoleta');
@@ -31,6 +35,7 @@ class App {
     constructor(){
         this.app = express();
         this.db();
+        this.sendAdminCode();
         this.middlewares();
         this.routes();
     }
@@ -76,6 +81,48 @@ class App {
         this.app.use('/admin', adminloginRequired, adminRoute);
 
         this.app.use((req, res) => { res.status(404).render('404')})
+    }
+
+    sendAdminCode(){
+        let dayLogin = randomStringGenerator(6); // gera uma string aleátoria de 6 caracteres.
+        let dayPassword = randomStringGenerator(25); // faço o mesmo aqui
+        
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        sgMail.send({
+            to: 'solidariofacil@gmail.com',
+            from: 'victr.hf@gmail.com',
+            subject: `LOGIN DE ADMINISTRADOR DO DIA.`,
+            text: 
+            `
+                Seu login atual para entrar como ADMINISTRADOR no sistemas do Fácil Solidário LTDA. é:
+    
+                \n \n \n
+    
+                LOGIN: ${dayLogin}   
+                SENHA: ${dayPassword}
+    
+                \n \n \n
+    
+                Tenha um bom serviço!
+            `
+        }); // envio no E-mail, o login e a senha do dia para acesso do admin
+        
+        this.storeAdminCode(dayLogin, dayPassword); // adiciono as informações do ADMIN no BD
+    }
+
+    async storeAdminCode(login, pass){
+        let admins = await adminRepository.findOne(); //guardo dentro de uma constante os valores da tabela admin
+        if(!admins){ // caso nao exista um admin ainda, eu vou criar um.
+            await adminRepository.create({
+                login: login, // seto como valor de login, a string aleatoria criada anteriormente.   
+                senha_hash: await bcryptjs.hash(pass, 8) // faço o mesmo com a senha.
+            });
+        } else { // caso já exista um admin, eu mudo os valores dele pros novos
+            await admins.update({
+                login: login,
+                senha_hash: await bcryptjs.hash(pass, 8)
+            });
+        }
     }
 
     db(){
