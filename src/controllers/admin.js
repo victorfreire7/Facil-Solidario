@@ -92,6 +92,7 @@ async function update(req, res){
 
 async function deleteUser(req, res) {
     try {
+        if(!req.params.email) return res.status(404).render('404')
         await userRepository.destroy(
             {
                 where: {
@@ -101,8 +102,7 @@ async function deleteUser(req, res) {
         );
         req.flash('successMessage', ['Usuário deletado com sucesso.']);
         return res.redirect('/admin');
-    } catch(e) {
-        console.log(e)
+    } catch {
         req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
         return res.redirect('/admin');
     }
@@ -117,6 +117,7 @@ async function deleteDoacao(req, res) {
                 }
             }
         );
+
         req.flash('successMessage', ['Doação deletada com sucesso.']);
         return res.redirect('/admin');
     } catch {
