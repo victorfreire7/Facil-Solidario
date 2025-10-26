@@ -2,136 +2,131 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Facil Solidário</title>
-    <link rel="shortcut icon" href="/assets/img/LOGO.png" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/index.css"/>
-    <link rel="stylesheet" href="/assets/css/crud.css"/>
-    <link rel="stylesheet" href="/assets/css/accessibility-plugin.css">
-  </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facil Solidário</title>
+  <link rel="shortcut icon" href="/assets/img/LOGO.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/assets/css/index.css" />
+  <link rel="stylesheet" href="/assets/css/crud.css" />
+  <link rel="stylesheet" href="/assets/css/accessibility-plugin.css" />
+</head>
 
-<body> 
+<body>
+  <%- include('./includes/messages') %>
 
-    <%-include('./includes/messages')%>
+  <header class="menu">
+    <div class="section-logo">
+      <img src="/assets/img/logo-branca.png" alt="logo Facíl Solidário">
+    </div>
 
-      <header class="menu">
-    
-            <div class="section-logo">
-                <img src="/assets/img/logo-branca.png" alt="logo Facíl Solidário">
-            </div>
+    <div class="section-menu-filters">
+      <p><img src="/assets/img/mini-logo-branca.svg" alt="mini-logo-branca"> Doações</p>
+      <ul>
+        <li><a href="">Abertas</a></li>
+        <li><a href="">Aceitas</a></li>
+      </ul>
+    </div>
 
-            <div class="section-menu-filters">
-                <p><img src="/assets/img/mini-logo-branca.svg" alt="mini-logo-branca"> Doações</p>
-                <ul>
-                    <li><a href="">Abertas</a></li>
-                    <li><a href="">Aceitas</a></li>
-                </ul>
-            </div>
-            
-            <a href="/logout" class="logout">Logout</a>
+    <a href="/logout" class="logout">Logout</a>
+  </header>
 
-        </header>
-    <main>  
-        <div class="content">
-            <%if(doacao){%>
-                <form action="" method="post">
-                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                    <label for="tipo">TIPO:</label>
-                    <select name="options" id="options">
-                        <option value="<%=doacao.tipo%>"><%=doacao.tipo%></option>
-                        <option value="cereais">Cereais</option>
-                        <option value="graos">Grãos</option>
-                        <option value="enlatados">Enlatados</option>
-                        <option value="sal">Sal</option>
-                        <option value="acucar">Açúcar</option>
-                        <option value="cafe">Café</option>
-                        <option value="oleos">Óleos</option>
-                        <option value="massas">Massas</option>
-                        <option value="leiteempo">Leite em pó</option>
-                      </select>
+  <main>
+    <div class="content">
+      <% if (doacao) { %>
+        <form action="" method="post">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-                      <label for="quantidade">Quantidade:</label>
-                      <input type="number" class="qtd-alimen" name="quantidade" id="quantidade" value="<%=doacao.quantidade%>">
+          <label for="tipo">TIPO:</label>
+          <select name="tipo" id="tipo">
+            <option value="<%= doacao.tipo %>"><%= doacao.tipo %></option>
+            <option value="cereais">Cereais</option>
+            <option value="graos">Grãos</option>
+            <option value="enlatados">Enlatados</option>
+            <option value="sal">Sal</option>
+            <option value="acucar">Açúcar</option>
+            <option value="cafe">Café</option>
+            <option value="oleos">Óleos</option>
+            <option value="massas">Massas</option>
+            <option value="leiteempo">Leite em pó</option>
+          </select>
 
-                      <label for="entregue">Entregue:</label>
-                      <select name="entregue" id="entregue">
-                        <%if(doacao.entregue){%>
-                            <option value=false>false</option>
-                            <option value=true selected>true</option>
-                        <%} else {%>
-                            <option value=false selected>false</option>
-                            <option value=true>true</option>
-                        <%}%>
-                      </select>
+          <label for="quantidade">Quantidade:</label>
+          <input type="number" class="qtd-alimen" name="quantidade" id="quantidade" value="<%= doacao.quantidade %>">
 
-                      <button type="submit">Alterar</button>
+          <label for="entregue">Entregue:</label>
+          <select name="entregue" id="entregue">
+            <% if (doacao.entregue) { %>
+              <option value="false">false</option>
+              <option value="true" selected>true</option>
+            <% } else { %>
+              <option value="false" selected>false</option>
+              <option value="true">true</option>
+            <% } %>
+          </select>
 
-                </form>
-            <%} else {%>
-                <div class="section-for-serch-bar">
-                    <input type="search" id="searchItens" placeholder="Busque o usuário por E-mail..." >
-                    <button class="searchItens-btn" >PROCURAR</button>
-                    <!-- <i class="serch-icon"><img src="img/lupa-pesquisa-icon.png" alt=""></i> -->
-                </div>
+          <button type="submit">Alterar</button>
+        </form>
 
-                <%for(let user of users){%>
-                    <div class="doacao-box">
-                        <div class="section-doador-info">
-                            <p><%=user.nome%></p> 
-                            <p><%=user.email%></p> 
+        <% if (typeof params !== 'undefined') { %>
+          <form action="/admin/<%= params.email %>/<%= params.doacao %>/delete" method="get">
+            <button type="submit">Deletar Doação</button>
+          </form>
+        <% } %>
 
-                            <form action="/admin/<%=user.email%>" method="get">
-                                <button class="info-button" id="ok">Informações</button>
-                            </form>
-                            
-                        </div>
+      <% } else { %>
 
-                        <%for(let don of user.doacaos){%>
-                            <%if(don.entregue === true){%>
-                                <div class="section-donation" style="opacity: 0.2;">
-                            <%} else {%>
-                                <div class="section-donation">
-                            <%}%>
-                                <section>
-                                    <p>Tipo:  
-                                        <span id="tipo-de-item">
-                                            <%=don.tipo%>
-                                        </span>
-                                    </p>
-
-                                    <p>Quantidade:  
-                                        <span id="num-quantidade">
-                                            <%=don.quantidade%>
-                                        </span>
-                                    </p>
-                                    <!-- <p>Entregue:  
-                                        <span id="num-quantidade">
-                                            <%=don.entregue%>
-                                        </span>
-                                    </p> -->
-
-                                </section>
-                                <section>
-                                    <form action="/admin/<%=user.id_usuario%>/<%=don.id_doacao%>" method="get">
-                                        <button class="info-button" id="ok">Informações</button>
-                                    </form>
-                                    
-                                    <!-- <button class="confirm-donation" id="ok">INFO.</button> -->
-                                    <!-- <button class="confirm-donation" id="notOk">X</button> -->
-                                </section>
-                            </div>
-                        <%}%>
-                        
-                    </div>
-                <%}%>
-            <%}%>
-            </div>
+        <div class="section-for-serch-bar">
+          <input type="search" id="searchItens" placeholder="Busque o usuário por E-mail..." />
+          <button class="searchItens-btn">PROCURAR</button>
         </div>
-    </main>
 
-    <script src="/assets/js/accessibility-plugin.js"></script>
-    <script src="/assets/js/search-item.js"></script>
+        <% if (users && users.length > 0) { %>
+          <% for (let user of users) { %>
+            <div class="doacao-box">
+              <div class="section-doador-info">
+                <p><%= user.nome %></p>
+                <p><%= user.email %></p>
+
+                <form action="/admin/<%= user.email %>" method="get">
+                  <button class="info-button" id="ok">Informações</button>
+                </form>
+              </div>
+
+              <% for (let don of user.doacaos) { %>
+                <% if (don.entregue === true) { %>
+                  <div class="section-donation" style="opacity: 0.2;">
+                <% } else { %>
+                  <div class="section-donation">
+                <% } %>
+                    <section>
+                      <p>Tipo:
+                        <span id="tipo-de-item"><%= don.tipo %></span>
+                      </p>
+                      <p>Quantidade:
+                        <span id="num-quantidade"><%= don.quantidade %></span>
+                      </p>
+                    </section>
+
+                    <section>
+                      <form action="/admin/<%= user.id_usuario %>/<%= don.id_doacao %>" method="get">
+                        <button class="info-button" id="ok">Informações</button>
+                      </form>
+                    </section>
+                  </div>
+              <% } %>
+
+              <form action="/admin/<%= user.email %>/delete" method="get">
+                <button class="confirm-donation" id="notOk">DELETAR USUÁRIO</button>
+              </form>
+            </div>
+          <% } %>
+        <% } %>
+
+      <% } %>
+    </div>
+  </main>
+
+  <script src="/assets/js/accessibility-plugin.js"></script>
+  <script src="/assets/js/search-item.js"></script>
 </body>
 </html>
-
