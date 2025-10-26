@@ -33,7 +33,9 @@ async function show(req, res){
             attributes: ['id_usuario', 'nome', 'email'],
             include: [{
                 model: doacaoRepository,
-                attributes: ['id_doacao', 'tipo', 'quantidade', 'entregue']
+                attributes: ['id_doacao', 'tipo', 'quantidade', 'entregue'],
+                separate: true, //permite que eu ordene os resultados
+                order: [['entregue', 'ASC']] // primeiro retorno os valores false
             }]
         });
     
