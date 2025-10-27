@@ -56,6 +56,9 @@ main{
 .carrossel img:nth-child(1){
     margin-left: 10vh;
 }
+.carrossel img:nth-child(2){
+    object-position: top;
+}
 .indice {   
     margin-top: 2vh;
     display: flex;
