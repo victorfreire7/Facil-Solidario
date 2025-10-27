@@ -44,8 +44,8 @@ main{
 .carrossel img{
     height: auto;
     width: 60vw;
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
+    object-position: top;
      transition: transform 1s ease;
      border-radius: 20px;
      
