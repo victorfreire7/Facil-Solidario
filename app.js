@@ -97,7 +97,7 @@ class App {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         sgMail.send({
             to: 'solidariofacil@gmail.com',
-            from: 'victr.hf@gmail.com',
+            from: process.env.SENDGRID_API_EMAIL,
             subject: `LOGIN DE ADMINISTRADOR DO DIA.`,
             text: 
             `

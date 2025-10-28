@@ -62,7 +62,7 @@ async function sendCode(req, res) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
         to: req.session.userInfo.email,
-        from: 'victr.hf@gmail.com',
+        from: process.env.SENDGRID_API_EMAIL,
         subject: `CÓDIGO DE VERIFICAÇÃO FÁCIL SOLIDÁRIO`,
         text: 
         `

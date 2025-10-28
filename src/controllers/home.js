@@ -22,8 +22,8 @@ function store (req, res){
     try {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         const msg = {
-            from: 'victr.hf@gmail.com',
             to: 'solidariofacil@gmail.com',
+            from: process.env.SENDGRID_API_EMAIL,
             subject: `nome: ${req.body.nome} email: ${req.body.email}`,
             text: req.body.texto,
         };
