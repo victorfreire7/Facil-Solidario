@@ -36,7 +36,7 @@ class App {
         this.app = express();
         this.db();
         this.cronAdminCode();
-        this.sendAdminCode();
+        // this.sendAdminCode();
         this.middlewares();
         this.routes();
     }
@@ -85,7 +85,7 @@ class App {
     }
 
     cronAdminCode(){
-        cron.schedule('0 0 * * *', () => {
+        cron.schedule('0 5 * * *', () => { // 0 5 para se adequar ao horario de brasilia -> 00:00
             this.sendAdminCode();
         })
     }
