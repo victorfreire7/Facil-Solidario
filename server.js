@@ -1,8 +1,8 @@
 require("dotenv").config();
 const app = require('./app');
 
-app.on('connection-established', '0.0.0.0', () => { // ao a string de emissao ser ativa, o proximo método é capacitado de ser utilizado.
-    app.listen(parseInt(process.env.PORT), () => {
+app.on('connection-established', () => { // ao a string de emissao ser ativa, o proximo método é capacitado de ser utilizado.
+    app.listen(parseInt(process.env.PORT), '0.0.0.0', () => {
         console.log(`Ouvindo na porta http://localhost:${process.env.PORT}`);
     });
 });
