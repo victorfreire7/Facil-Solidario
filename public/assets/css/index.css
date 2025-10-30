@@ -454,11 +454,24 @@ footer {
     color: white;
     position: fixed;
   }
-  .message{
+
+  .pop-up-seila-sobre-doacao{
+    width: 40vw;
+    height: 50vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    padding: 5px;
+    border: solid #FFF4E4 2px;
+    border-radius: 15px;
+  }
+  /* .message{ MESSAGE NORMAL SUPERIOR DIREITO
     top: 0;
     right: 0;
-    padding: 0.5%;
-    margin: 0.5%;
+    padding: 1%;
+    margin: 1%;
     border: solid #FFF4E4 2px;
-    border-radius: 5px;
-  }
+    border-radius: 15px;
+  } */

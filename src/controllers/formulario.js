@@ -38,8 +38,8 @@ async function store (req, res) {
             }
         }
         
-        req.flash('successMessage', ['Formulário enviado com sucesso!']);
-        res.redirect('/formulario-doacao');
+        req.flash('successMessage', ['Formulário enviado com sucesso! Leve sua doação para o ponto de coleta mais próximo.']);
+        res.redirect('/');
     } catch (error) {
         res.send(error)
     }
