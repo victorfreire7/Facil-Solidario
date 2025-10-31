@@ -1,5 +1,5 @@
 {
-  "name": "tccinfonet",
+  "name": "facil-solidario",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -7,8 +7,8 @@
     "dev": "npx nodemon server.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "victorfreire7",
+  "license": "Apache-2.0",
   "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
