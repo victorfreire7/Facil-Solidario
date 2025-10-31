@@ -13,8 +13,13 @@ function index (req, res){
 async function store (req, res) {
     try { 
         const convertion = JSON.parse(req.body.allValues); // estou buscando isso no input hidden do ejs que armazena todos itens que foram enviados.
-    
+
         for (const d of convertion) {// armazena todos os itens que podem ser doados, para fazer uma validação se o front e backend batem.
+            if(d.quantidade > 9){
+                req.flash('errorMessage', ['Por favor, digite quantidade menor do que 50.']);
+                return res.redirect('/formulario-doacao');
+            }
+           
             if(
                 d.item === 'cereais' ||
                 d.item === 'graos' ||
@@ -34,7 +39,8 @@ async function store (req, res) {
             } else if(d == "") { // como foi programado pra, ao excluir um indice, esse indice ficar nulo; essa validação prossegue o laço de repetição
                 continue;
             } else {
-                return res.send('erro na validação')
+                req.flash('errorMessage', ['Digite um item válido ou uma quantidade menor do que 50.']);
+                return res.redirect('/formulario-doacao');
             }
         }
         
