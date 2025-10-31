@@ -436,6 +436,8 @@ footer {
     font-family: 'poppins', sans-serif;
   }
 
+
+
   .img-text{
     width: 5vw;
     height: 50vh;
@@ -467,11 +469,11 @@ footer {
     border: solid #FFF4E4 2px;
     border-radius: 15px;
   }
-  /* .message{ MESSAGE NORMAL SUPERIOR DIREITO
+  .message{ 
     top: 0;
     right: 0;
     padding: 1%;
     margin: 1%;
     border: solid #FFF4E4 2px;
     border-radius: 15px;
-  } */
+  }

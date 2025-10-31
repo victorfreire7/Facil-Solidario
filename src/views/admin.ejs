@@ -114,13 +114,15 @@
                     </section>
                   </div>
               <% } %>
+              <section class="section-btn-confirm-doacao">
 
-              <form action="/admin/<%= user.email %>/create" method="get">
-                <button class="confirm-donation">Adicionar Doação</button>
-              </form>
-              <form action="/admin/<%= user.email %>/delete" method="get">
-                <button class="confirm-donation" id="notOk">Deletar Usuário</button>
-              </form>
+                <form action="/admin/<%= user.email %>/create" method="get">
+                  <button class="confirm-donation">Adicionar Doação</button>
+                </form>
+                <form action="/admin/<%= user.email %>/delete" method="get">
+                  <button class="confirm-donation" id="notOk">Deletar Usuário</button>
+                </form>
+                </section>
             </div>
           <% } %>
         <% } %>

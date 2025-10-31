@@ -150,11 +150,21 @@ main{
   background: var(--laranja-ababora);
   transition: .2s linear;
 }
+
 .section-for-search-bar{
     width: 40vw;
     height: auto;
 }
 
+.searchItens-btn{
+    width: 8vw;
+    height: 40px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: var(--laranja-ababora);
+}
 
 .serch-icon{
     width: auto;
@@ -352,8 +362,10 @@ main{
 }
 
 button.confirm-donation{
-    width: 50px;
-    height: 50px;
+    width: auto;
+    height: auto;
+
+    padding: 1%;
 
     font-size: 1em;
 
@@ -381,10 +393,23 @@ button.confirm-donation:nth-child(2){background-color: #C4514F;}
 
 #notOk{
     background-color: #C4514F;
-    width: 10%;
-    align-self: flex-end;
-    margin: 1%;
 }
+
+.section-btn-confirm-doacao{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-bottom: 2vh;
+    margin-top: 3vh;
+    /* background-color: red; */
+}
+/* /////////////////////////////////////////////////////////////// */
+/* ////////////////////////--- CSS da page de criacao de doacao do adm ---//////////////////// */
+
+
 
 @media screen and (max-width: 800px) {
     
