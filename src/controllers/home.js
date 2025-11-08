@@ -14,7 +14,8 @@ async function index (req, res){
             csrfToken: req.csrfToken(), 
             successMessage: req.flash('successMessage'), 
             errorMessage: req.flash('errorMessage'),
-            donations: count 
+            donations: count ,
+            popupMessage: false,
         });
 }
 

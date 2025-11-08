@@ -17,7 +17,8 @@ async function index(req, res){
                 errorMessage: req.flash('errorMessage'),
                 csrfToken: req.csrfToken(), 
                 users: users, // guarda todos os usuarios, para ser mostrado
-                doacao: false
+                doacao: false,
+                popupMessage: false
             }
         )
     } catch {

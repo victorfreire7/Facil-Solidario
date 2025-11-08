@@ -5,7 +5,8 @@ function index (req, res){
         { 
             csrfToken: req.csrfToken(), 
             successMessage: req.flash('successMessage'),
-            errorMessage: req.flash('errorMessage')
+            errorMessage: req.flash('errorMessage'),
+            popupMessage: req.flash('popupMessage')
         }
     );
 }
@@ -44,8 +45,8 @@ async function store (req, res) {
             }
         }
         
-        req.flash('successMessage', ['Formulário enviado com sucesso! Leve sua doação para o ponto de coleta mais próximo.']);
-        res.redirect('/');
+        req.flash('popupMessage', ['AAAAA']);
+        return res.redirect('/formulario-doacao');
     } catch (error) {
         res.send(error)
     }

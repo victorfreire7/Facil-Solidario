@@ -7,7 +7,8 @@ function index (req, res){
         { 
             csrfToken: req.csrfToken(), 
             successMessage: req.flash('successMessage'),
-            errorMessage: req.flash('errorMessage')
+            errorMessage: req.flash('errorMessage'),
+            popupMessage: false,
         });
 }
 

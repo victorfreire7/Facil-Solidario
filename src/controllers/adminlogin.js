@@ -10,7 +10,8 @@ async function index(req, res) {
     { 
         successMessage: req.flash('successMessage'), 
         errorMessage: req.flash('errorMessage'), 
-        csrfToken: req.csrfToken() 
+        csrfToken: req.csrfToken(),
+        popupMessage: false,
     });
 }
 

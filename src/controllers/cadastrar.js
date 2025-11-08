@@ -8,7 +8,8 @@ function index (req, res){
         { 
             csrfToken: req.csrfToken(), 
             successMessage: req.flash('successMessage'), 
-            errorMessage: req.flash('errorMessage') 
+            errorMessage: req.flash('errorMessage'),
+            popupMessage: false,
         }
     ); // aqui seria a renderização do EJS
 }
@@ -91,7 +92,8 @@ function indexConfirm(req, res) {
             csrfToken: req.csrfToken(), 
             userInfo: req.session.userInfo,
             successMessage: req.flash('successMessage'), 
-            errorMessage: req.flash('errorMessage') 
+            errorMessage: req.flash('errorMessage'),
+            popupMessage: false,
         }
     );
 }
@@ -117,7 +119,8 @@ function indexPassword(req, res) {
         { 
             csrfToken: req.csrfToken(), 
             successMessage: req.flash('successMessage'), 
-            errorMessage: req.flash('errorMessage') 
+            errorMessage: req.flash('errorMessage'),
+            popupMessage: false,
         }
     );
 }
