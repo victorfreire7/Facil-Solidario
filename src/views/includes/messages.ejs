@@ -9,3 +9,14 @@
 
     <script src="/assets/js/cron-flash-message.js"></script>
 <%}%> 
+
+<%if(popupMessage && popupMessage.length > 0){%>
+    <div class="popupMessage pop-up">
+        <div class="close"> x </div>
+        <h1>Doação enviada com sucesso!</h1>
+        <p>Agradecemos pela doação. Pedimos que agora você se redirecione a instituição ETEC Professor Adhemar Batista Heméritas mais próxima com a sua doação.</p>
+    </div>
+    
+    
+    <script src="/assets/js/close-popup.js"></script>
+<%}%>
