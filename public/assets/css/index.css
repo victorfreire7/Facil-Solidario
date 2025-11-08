@@ -457,7 +457,7 @@ footer {
     position: fixed;
   }
 
-  .pop-up-seila-sobre-doacao{
+  .pop-up{
     width: 40vw;
     height: 50vh;
     position: fixed;
@@ -468,7 +468,33 @@ footer {
     padding: 5px;
     border: solid #FFF4E4 2px;
     border-radius: 15px;
+    background-color: #8DA47C;
+    color: white;
+
+    z-index: 99999999999999999999999999999999;
   }
+
+  .pop-up h1{
+    padding: 2%;
+  }
+
+  .pop-up .close{
+    width: 99%;
+    height: 5%;
+    /* background-color: #C4514F; */
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  .pop-up p{
+    padding: 2%;
+    font-size: 1.2em;
+  }
+
   .message{ 
     top: 0;
     right: 0;
