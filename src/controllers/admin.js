@@ -44,6 +44,7 @@ async function show(req, res){
             { 
                 successMessage: req.flash('successMessage'), 
                 errorMessage: req.flash('errorMessage'),
+                popupMessage: false,
                 csrfToken: req.csrfToken(), 
                 users:  [users], // guarda apenas o usuario desejado, mas mantem ele em um ARRAY para ser lido no EJS
                 doacao: false 
@@ -63,6 +64,7 @@ async function showDoacao(req, res) {
             { 
                 successMessage: req.flash('successMessage'), 
                 errorMessage: req.flash('errorMessage'),
+                popupMessage: false,
                 csrfToken: req.csrfToken(), 
                 users:  false,
                 doacao: doacao,
@@ -134,6 +136,7 @@ function showCreateDonation(req, res) {
             { 
                 successMessage: req.flash('successMessage'), 
                 errorMessage: req.flash('errorMessage'),
+                popupMessage: false,
                 csrfToken: req.csrfToken()
             }
         )
