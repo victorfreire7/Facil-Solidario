@@ -97,14 +97,27 @@ async function update(req, res){
 
 async function deleteUser(req, res) {
     try {
-        if(!req.params.email) return res.status(404).render('404')
-        await userRepository.destroy(
-            {
+        if(!req.params.email) return res.status(404).render('404');
+
+        await userRepository.findOne({
+            where: { email: req.params.email }
+        }).then((user) => {
+            doacaoRepository.destroy({
                 where: {
-                    email: req.params.email
+                    usuarioIdUsuario: user.id_usuario
                 }
-            }
-        );
+            }).then(() => {
+                userRepository.destroy({
+                    where: {
+                        id_usuario: user.id_usuario
+                    }
+                });
+            })
+        })
+
+        
+        
+        
         req.flash('successMessage', ['Usuário deletado com sucesso.']);
         return res.redirect('/admin');
     } catch {
