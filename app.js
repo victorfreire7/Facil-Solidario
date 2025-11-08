@@ -79,7 +79,7 @@ class App {
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
         
         this.app.use('/admin-login', adminloginRoute);
-        this.app.use('/admin', /*adminloginRequired,*/ adminRoute);
+        this.app.use('/admin', adminloginRequired, adminRoute);
 
         this.app.use((req, res) => { res.status(404).render('404')})
     }
