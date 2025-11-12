@@ -52,13 +52,38 @@ function sendCode(req, res) {
             to: req.session.email,
             from: process.env.SENDGRID_API_EMAIL,
             subject: `CÓDIGO PARA ALTERAR SENHA FÁCIL SOLIDÁRIO`,
+            html: 
+            `
+                <!DOCTYPE html>
+                <html lang="pt-BR">
+                <head>
+                    <meta charset="UTF-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                    <title>Alterar Senha</title>
+                </head>
+                <body style="margin: 0; padding: 20px; background-color: #e5e5e5; font-family: Arial, sans-serif;">
+                    <div style="background-color: #8fa687; border-radius: 12px; color: #ffffff; text-align: center; padding: 40px 20px; max-width: 400px; margin: 0 auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
+                        <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 25px;">Alterar Senha</h2>
+                        
+                        <div style="margin-bottom: 25px;">
+                            <img src="http://localhost:3030/assets/img/logo-sem-txt.svg" alt="LOGOTIPO" style="width: 90px;" />
+                        </div>
+
+                        <div style="font-size: 28px; font-weight: bold; letter-spacing: 10px; background-color: #748e73; color: #ffffff; display: inline-block; padding: 12px 20px; border-radius: 8px; margin-bottom: 25px;">
+                            ${req.session.code}
+                        </div>
+
+                        <p style="font-size: 15px; color: #f1f1f1; line-height: 22px;">
+                            Obrigado pela confiança!<br />
+                            Insira o código acima para prosseguir na alteração de senha.
+                        </p>
+                    </div>
+                </body>
+                </html>
+            `,
             text: 
                 `
-                Seu código para alteração da sua senha é: 
-        
-                \n \n \n
-        
-                <strong>${req.session.authCode}</strong>   
+                Seu código para alteração da sua senha é: ${req.session.authCode}   
                 `
         });
 
