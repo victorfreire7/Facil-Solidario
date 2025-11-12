@@ -287,6 +287,11 @@ main{
 
 }
 
+
+.photocard img{
+    border-radius: 16px 16px 0 0;
+}
+
 .photocard{
     width: 20vw;
     height: auto;
