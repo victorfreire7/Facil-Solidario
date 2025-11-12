@@ -36,7 +36,7 @@ class App {
         this.app = express();
         this.db();
         this.cronAdminCode();
-        this.sendAdminCode();
+        // this.sendAdminCode();
         this.middlewares();
         this.routes();
     }
@@ -90,31 +90,64 @@ class App {
         })
     }
 
-    sendAdminCode(){
-        let dayLogin = randomStringGenerator(6); // gera uma string aleátoria de 6 caracteres.
-        let dayPassword = randomStringGenerator(25); // faço o mesmo aqui
+    sendAdminCode(req, res){
+        try {
+            let dayLogin = randomStringGenerator(6); // gera uma string aleátoria de 6 caracteres.
+            let dayPassword = randomStringGenerator(25); // faço o mesmo aqui
+            
+            sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+            sgMail.send({
+                to: 'solidariofacil@gmail.com',
+                from: process.env.SENDGRID_API_EMAIL,
+                html: 
+                `
+                    <!DOCTYPE html>
+                    <html lang="pt-BR">
+                    <head>
+                        <meta charset="UTF-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <title>Código de Cadastro</title>
+                    </head>
+                    <body style="margin: 0; padding: 20px; background-color: #e5e5e5; font-family: Arial, sans-serif;">
+                        <div style="background-color: #8fa687; border-radius: 12px; color: #ffffff; text-align: center; padding: 40px 20px; max-width: 400px; margin: 0 auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
+                            <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 25px;">Código de Cadastro</h2>
+                            
+                            <div style="margin-bottom: 25px;">
+                                <img src="http://localhost:3030/assets/img/logo-sem-txt.svg" alt="LOGOTIPO" style="width: 90px;" />
+                            </div>
+    
+                            <div style="font-size: 28px; font-weight: bold; letter-spacing: 10px; background-color: #748e73; color: #ffffff; display: inline-block; padding: 12px 20px; border-radius: 8px; margin-bottom: 25px;">
+                                LOGIN: ${dayLogin}   
+                                SENHA: ${dayPassword}
+                            </div>
+    
+                            <p style="font-size: 15px; color: #f1f1f1; line-height: 22px;">
+                                Bom serviço!
+                            </p>
+                        </div>
+                    </body>
+                    </html>
+                `,
+                subject: `LOGIN DE ADMINISTRADOR DO DIA.`,
+                text: 
+                `
+                    Seu login atual para entrar como ADMINISTRADOR no sistemas do Fácil Solidário LTDA. é:
         
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-        sgMail.send({
-            to: 'solidariofacil@gmail.com',
-            from: process.env.SENDGRID_API_EMAIL,
-            subject: `LOGIN DE ADMINISTRADOR DO DIA.`,
-            text: 
-            `
-                Seu login atual para entrar como ADMINISTRADOR no sistemas do Fácil Solidário LTDA. é:
-    
-                \n \n \n
-    
-                LOGIN: ${dayLogin}   
-                SENHA: ${dayPassword}
-    
-                \n \n \n
-    
-                Tenha um bom serviço!
-            `
-        }); // envio no E-mail, o login e a senha do dia para acesso do admin
+                    \n \n \n
         
-        this.storeAdminCode(dayLogin, dayPassword); // adiciono as informações do ADMIN no BD
+                    LOGIN: ${dayLogin}   
+                    SENHA: ${dayPassword}
+        
+                    \n \n \n
+        
+                    Tenha um bom serviço!
+                `
+            }); // envio no E-mail, o login e a senha do dia para acesso do admin
+
+            this.storeAdminCode(dayLogin, dayPassword); // adiciono as informações do ADMIN no BD
+        } catch {
+            this.app.use((req, res) => { res.status(404).render('404')})
+        }  
     }
 
     async storeAdminCode(login, pass){
