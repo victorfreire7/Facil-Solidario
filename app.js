@@ -117,7 +117,7 @@ class App {
                             </div>
     
                             <div style="font-size: 28px; font-weight: bold; letter-spacing: 10px; background-color: #748e73; color: #ffffff; display: inline-block; padding: 12px 20px; border-radius: 8px; margin-bottom: 25px;">
-                                LOGIN: ${dayLogin}   
+                                LOGIN: ${dayLogin}   <br>
                                 SENHA: ${dayPassword}
                             </div>
     
