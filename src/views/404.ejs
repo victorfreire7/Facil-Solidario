@@ -9,6 +9,93 @@
   <link rel="shortcut icon" href="/assets/img/LOGO-BRANCA.svg">
   <link rel="stylesheet" href="/assets/css/accessibility-plugin.css">
   <style>
+    @import url(index.css);
+    main{
+        width: 100vw;
+        height: 100vh;
+        background-image: url(../img/404-bg.svg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: var(--amarelo-requeijao);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    img{
+        margin-top: 2vw;
+        width: 13vw;
+        height: auto;
+        object-position: center;
+        object-fit: contain;
+    }
+    h1{
+        color: var(--verde-musgo);
+        font-size: 6em;
+    }
+    span:nth-child(4){
+        font-size: 2em;
+    }
+    span:nth-child(5){
+        color: rgba(18, 18, 18, 0.443);
+    }
+
+    button{
+        width: 10vw;
+        height: 8vh;
+        font-size: 1.5em;
+        border-radius: 10px;
+        color: white;
+        border: none;
+        background-color: var(--laranja-ababora);
+        margin-top: 2vw;
+        margin-bottom: 3vw;
+        transition: .2s linear;
+    }
+    button:hover{
+        cursor: pointer;
+    }
+
+    button:active{
+        transform: translateY(5px);
+        transition: .3s linear;
+    }
+
+    @media screen and (max-width: 800px) {
+        
+        body{
+            overflow: hidden;
+        }
+        main{
+            width: 100vw;
+            height: 90vh;
+            overflow: hidden;
+            
+        }
+        .space{
+            height: 0;
+        }
+        img{
+            width: 40vw;
+            margin: 0;
+        }
+
+        span:nth-child(4){
+            font-size: 1.8em;
+            text-align: center;
+        }
+        span:nth-child(5){
+            text-align: center;
+        }
+
+        button{
+            width: 30vw;
+            margin-top: 15vw;
+        }
+    }
     .logo-header{
       margin-top: 0;
     }
