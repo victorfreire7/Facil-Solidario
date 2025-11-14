@@ -107,21 +107,128 @@ class App {
                         <meta charset="UTF-8" />
                         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                         <title>Código de Cadastro</title>
-                    </head>
-                    <body style="margin: 0; padding: 20px; background-color: #e5e5e5; font-family: Arial, sans-serif;">
-                        <div style="background-color: #8fa687; border-radius: 12px; color: #ffffff; text-align: center; padding: 40px 20px; max-width: 400px; margin: 0 auto; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
-                            <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 25px;">Código de Cadastro</h2>
+                        <style>
                             
-                            <div style="margin-bottom: 25px;">
-                                <img src="http://localhost:3030/assets/img/logo-sem-txt.svg" alt="LOGOTIPO" style="width: 90px;" />
+                            :root {
+                                --primary-color: #8fa687;
+                                --secondary-color: #748e73;
+                                --text-color: #ffffff;
+                                --light-text: #f1f1f1;
+                                --background-color: #e5e5e5;
+                                --shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                            }
+                            
+                            * {
+                                margin: 0;
+                                padding: 0;
+                                box-sizing: border-box;
+                            }
+                            
+                            body {
+                                margin: 0;
+                                padding: 20px;
+                                background-color: var(--background-color);
+                                font-family: Arial, sans-serif;
+                                min-height: 100vh;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+                            
+                            .container {
+                                background-color: var(--primary-color);
+                                border-radius: 12px;
+                                color: var(--text-color);
+                                text-align: center;
+                                padding: 40px 20px;
+                                max-width: 400px;
+                                width: 100%;
+                                margin: 0 auto;
+                                box-shadow: var(--shadow);
+                            }
+                            
+                            h2 {
+                                font-size: 22px;
+                                font-weight: bold;
+                                margin-bottom: 25px;
+                            }
+                            
+                            .logo-container {
+                                margin-bottom: 25px;
+                            }
+                            
+                            .logo {
+                                width: 90px;
+                                max-width: 100%;
+                                height: auto;
+                            }
+                            
+                            .credentials {
+                                font-size: 28px;
+                                font-weight: bold;
+                                letter-spacing: 10px;
+                                background-color: var(--secondary-color);
+                                color: var(--text-color);
+                                display: inline-block;
+                                padding: 12px 20px;
+                                border-radius: 8px;
+                                margin-bottom: 25px;
+                                width: 100%;
+                                word-break: break-all;
+                            }
+                            
+                            .message {
+                                font-size: 15px;
+                                color: var(--light-text);
+                                line-height: 22px;
+                            }
+                            
+                            @media (max-width: 480px) {
+                                body {
+                                    padding: 10px;
+                                }
+                                
+                                .container {
+                                    padding: 30px 15px;
+                                }
+                                
+                                h2 {
+                                    font-size: 20px;
+                                }
+                                
+                                .credentials {
+                                    font-size: 20px;
+                                    letter-spacing: 5px;
+                                    padding: 10px 15px;
+                                }
+                                
+                                .message {
+                                    font-size: 14px;
+                                }
+                            }
+                            
+                            @media (max-width: 320px) {
+                                .credentials {
+                                    font-size: 18px;
+                                    letter-spacing: 3px;
+                                }
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <h2>Código de Cadastro</h2>
+                            
+                            <div class="logo-container">
+                                <img src="http://localhost:3030/assets/img/logo-sem-txt.svg" alt="LOGOTIPO" class="logo" />
                             </div>
-    
-                            <div style="font-size: 28px; font-weight: bold; letter-spacing: 10px; background-color: #748e73; color: #ffffff; display: inline-block; padding: 12px 20px; border-radius: 8px; margin-bottom: 25px;">
-                                LOGIN: ${dayLogin}   <br>
+
+                            <div class="credentials">
+                                LOGIN: ${dayLogin}<br>
                                 SENHA: ${dayPassword}
                             </div>
-    
-                            <p style="font-size: 15px; color: #f1f1f1; line-height: 22px;">
+
+                            <p class="message">
                                 Bom serviço!
                             </p>
                         </div>
