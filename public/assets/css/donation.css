@@ -58,7 +58,6 @@ button:active{transition: .2 linear;transform: translateY(2px);}
   align-items: center;
   flex-direction: column;
   text-align: center;
-  
 }
 
 .textbox-container img {
@@ -75,22 +74,18 @@ button:active{transition: .2 linear;transform: translateY(2px);}
   height: auto;
   margin-top: 2vh;
   margin-bottom: 8vh;
-  /* background-color: yellow; */
 }
 
 .textbox-container p {
   font-size: 1.5em;
   width: 30vw;
   text-align: center;
-  /* width: 30vw; */
-  /* background-color: red; */
   line-height: 80px;
 }
 
 .textbox-container p span.repons{
   margin-top: 5vh;
   font-size: 1.8em;
-  /* background-color: blue; */
   text-align: center;
 }
 
@@ -110,7 +105,6 @@ button:active{transition: .2 linear;transform: translateY(2px);}
 .donation-form span {
   font-size: 3rem;
   font-weight: bold;
-  /* margin-bottom: 3vw; */
 }
 
 .donation-form p {
@@ -165,17 +159,14 @@ button:active{transition: .2 linear;transform: translateY(2px);}
   z-index: 10;
 }
 
-/* largura da barra  */
 .form-container::-webkit-scrollbar{
   width: 10px;
 }
-/* Fundo da barra */
 .form-container::-webkit-scrollbar-track{
   background-color: #8da47c9a;
   border-radius: 10px;
 }
 
-/* "Polegar" da barra (parte que você arrasta) */
 .form-container::-webkit-scrollbar-thumb{
   background-color: #8fb078;
   border-radius: 10px;
@@ -206,18 +197,7 @@ button:active{transition: .2 linear;transform: translateY(2px);}
 .items span {
   font-size: 1.2rem;
   font-weight: 500;
-  /* margin-bottom: 0; */
 }
-
-/* .items span:nth-child(1) {
-  width: 1vw;
-  margin-left: 1.5vw;
-  font-weight: bold;
-}
-.items span:nth-child(2) {
-  margin-left: 8vw;
-  margin-right: 1vw;
-} */
 
 .donation-form .form-container .items input {
   width: 3vw;
@@ -607,7 +587,6 @@ input.qtd-alimen:focus{
   background-color: #657a56;
 }
 
-
 .itens-confirm{
   width: 55vw;
   margin-left: 0;
@@ -625,7 +604,6 @@ input.qtd-alimen:focus{
   width: 20vw;
   height: 8vh;
   font-size: 1em; 
-  /* justify-content: space-around; */
 }
 
 }
@@ -664,7 +642,6 @@ input.qtd-alimen:focus{
   .donation-form .form-container .items .amount-input{
     margin-left: 5vw;
     font-size: 1em;
-    /* background-color: red; */
   }
 
   .btn-confirma{

@@ -3,46 +3,34 @@
 main{
     width: 100vw;
     height: 100vh;
-
     display: flex;
     align-items: center;
     justify-content: flex-end;
     flex-direction: row;
-
     overflow-y: hidden;
     overflow-x: hidden;
     background-color: white;
-
     position: relative;
 }
 
 .menu{
     width: 25vw;
     height: 100vh;
-
     background-color: var(--verde-musgo);
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-
-    /* position: ; */
 }
 
 .section-logo{
     width: 70%;
     height: 15vh;
-
     margin-top: 3vh;
-
     border-bottom: 2px solid white;
-
     display: flex;
     align-items: center;
     justify-content: center;
-    
-    /* background-color: red; */
 }
 
 .section-logo img{
@@ -55,27 +43,20 @@ main{
 .section-menu-filters{
     width: 20vw;
     height: 10vh;
-
     margin-top: 8vh;
-
-    /* background-color: red; */
 }
 
 .section-menu-filters p{
     color: white;
-
     display: flex;
     align-items: center;
-
     font-size: 2em;
 }
 
 .section-menu-filters p img{
     margin-right: 20px;
-
     width: 4vw;
     height: auto;
-
     object-fit: contain;
 }
 
@@ -83,47 +64,34 @@ main{
 .section-menu-filters ul{
     width: 20vw;
     height: 10vh;
-
     margin-left: 2vw;
     margin-top: 10vh;
-
     font-size: 1.2em;
-
     color: white;
-    /* background-color: purple; */
-
-
-    /* background-color: blue; */
 }
 
  
 .section-menu-filters ul li a{
     color: white;
-    
 }
 
 .logout{
     color: white;
     margin-top: 50vh;
-    
     font-size: 1.5em;
-
     justify-self: flex-end;
 }
 
 .content{
     width: 75vw;
     height: 100vh;
-
     overflow-y: scroll;
     overflow-x: hidden;
-
     background-image: url(../img/BGSTYLE.png);
     background-position: center;
     background-size:  200%;
     background-repeat: no-repeat;
     background-color: white;
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -169,7 +137,6 @@ main{
 .serch-icon{
     width: auto;
     height: auto;
-
     position: absolute;
     top: 2vw;
     left: 79%;
@@ -178,7 +145,6 @@ main{
 .serch-icon img{
     width: 3vw;
     height: auto;
-    
     object-fit: contain;
     object-position: center;
 }
@@ -188,30 +154,21 @@ main{
 #searchItens{
     width: 60vw;
     height: auto;
-
     font-size: 1em;
-
     border-radius: 15px;
     border: 2px solid var(--laranja-ababora);
-
     background-color: white;
-
     padding: 5px;
     margin-top: 20px;
     top: 10%;
-
     font-family: 'poppins', sans-serif;
-
     transition: .2s linear;
-
-    
     position: sticky;
 }
 
 #searchItens:hover{
     transition: .2s linear;
     cursor: pointer;
-
 }
 
 #searchItens:focus{
@@ -229,27 +186,17 @@ main{
 .doacao-box{
     width: 55vw;
     height: auto;
-
-    
-
     margin-top: 5vh;
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column ;
-
     border-radius: 10px;
-
     background-color: #D9D9D9;
-
     position: relative;
-
     border: 2px solid var(--laranja-ababora);
 }
 
-
-/* Custom scrollbar - apenas no Chrome, Edge e Safari */
 .doacao-box::-webkit-scrollbar {
   width: 10px; /* largura da barra */
 }
@@ -269,28 +216,17 @@ main{
   background: var(--laranja-ababora);
   transition: .2s linear;
 }
-/* 
-.doacao-box:hover{
-    overflow-y: scroll;
-    background-color: red;
-} */
 
 .section-doador-info{
     width: 45vw;
     height: 8vh;
-
     padding-top: 2vh;
-
     margin-top: 1vh;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-
-    /* position: sticky; */
     top: 0px;
-
     background-color: #D9D9D9;
 }
 
@@ -301,21 +237,16 @@ main{
 .section-doador-info button{
     width: 8vw;
     height: 4vh;
-
     font-size: .8em;
-
     border: none;
     border-radius: 10px;
-
     background-color: var(--laranja-ababora);
-    color: white;
-    
+    color: white;  
     transition: .2s linear;
 }
 
 .section-doador-info button:hover{
     transition: .2s linear;
-
     cursor: pointer;
 }
 
@@ -326,14 +257,10 @@ main{
 .section-donation{
     width: 45vw;
     height: 15vh;
-
     margin-top: 2vh;
     margin-bottom: 3vh;
-    
     border-radius: 10px;
-
     background-color: #8D8D8D;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -350,30 +277,23 @@ main{
 .section-donation section:nth-child(1){
     width: 20vw;
     height: 12vh;
-
     margin-left: 2vw;
 }
 
 .section-donation section:nth-child(2){
     width: 15vw;
     height: 12vh;
-
     margin-right: 2vw;
 }
 
 button.confirm-donation{
     width: auto;
     height: auto;
-
     padding: 1%;
-
     font-size: 1em;
-
     border: none;
     border-radius: 10px;
-
     color: white;
-    
     transition: .2s linear;
 }
 
@@ -404,28 +324,15 @@ button.confirm-donation:nth-child(2){background-color: #C4514F;}
     flex-direction: row;
     margin-bottom: 2vh;
     margin-top: 3vh;
-    /* background-color: red; */
-}
-/* /////////////////////////////////////////////////////////////// */
-/* ////////////////////////--- CSS da page de criacao de doacao do adm ---//////////////////// */
-
-
-
-@media screen and (max-width: 800px) {
-    
 }
 
 button.info-button{
     width: 150px;
     height: 50px;
-
     font-size: 1em;
-
     border: none;
     border-radius: 10px;
-
     color: white;
-    
     transition: .2s linear;
 }
 
