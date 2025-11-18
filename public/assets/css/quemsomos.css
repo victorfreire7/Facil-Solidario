@@ -148,6 +148,8 @@ main{
     justify-content: center;
     width: 90%;
     height: auto;
+        text-align: center;
+        margin-top: 15px;
 }
 
 .cards span{
