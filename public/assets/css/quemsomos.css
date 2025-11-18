@@ -248,8 +248,10 @@ main{
 }
 
 .descricaoequipe{
-    height: 25vh;
+    height: auto;
     text-align: center;
+    min-height: 10vh;
+    padding: 10px;
 }
 
 .pause2{
@@ -364,6 +366,8 @@ main{
 
     .cards p{
         margin: 50px;
+        text-align: center;
+        margin-top: 15px;
     }
 
     .cards:hover{
