@@ -120,6 +120,9 @@ div.maps-api{
     align-items: center;
     justify-content: center;
 }
+.map-placeholder{
+    background-image: url(../img/pin-mapa.jpg);
+}
 
 @media screen and (max-width:800px) {
    
@@ -209,5 +212,14 @@ div.maps-api{
     }
     .container3 .maps-api{
         height: 50vh;
+    }
+    .map-placeholder{
+    width: 200px;
+    height: 200px;
+    background-image: url(../img/pin-mapa.jpg);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* margin-top: 100vh; */ 
     }
 }
