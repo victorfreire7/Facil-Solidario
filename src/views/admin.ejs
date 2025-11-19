@@ -9,6 +9,65 @@
   <link rel="stylesheet" href="/assets/css/index.css" />
   <link rel="stylesheet" href="/assets/css/crud.css" />
   <link rel="stylesheet" href="/assets/css/accessibility-plugin.css" />
+
+    
+   <style>
+      .content{display: flex;align-items: center;justify-content: center;}
+      form{
+        width: auto;
+        height: auto;
+        align-items: center;
+        /* display: flex;  justify-content: flex-start;flex-direction: column; */
+          background-color: #d9d9d9;
+          padding: 10px 10px 20px 10px;
+          border-radius: 15px;
+          font-size: 1.5em;
+          font-family: 'poppins';
+      }
+      form input{
+        font: 'poppins';
+        border-radius: 10px;
+        border: none;
+        font-size: .8em;
+        width: 3vw;
+        height: 5vh;
+        margin-right: 10px;
+        text-align: center;
+      }
+      form select{
+        font: 'poppins';
+        border-radius: 10px;
+        border: none;
+        font-size: .8em;
+        margin-right: 10px;
+        height: 5vh;
+      }
+
+
+      form button {
+    background-color: var(--laranja-ababora);
+    border: none;
+    color: var(--amarelo-requeijao);
+     width: 10vw;
+    height: 6vh;
+    font-size: .9em;
+    border-radius: 13px;
+    cursor: pointer;
+    text-align: center;
+}
+  .formDel{
+    width: max-content;
+    height: max-content;
+    background-color: none;
+
+  }
+  .formDel button{
+    width: max-content;
+    height: auto;
+    padding: 10px;
+  }
+    </style>
+
 </head>
 
 <body>
@@ -68,7 +127,7 @@
         </form>
 
         <% if (typeof params !== 'undefined') { %>
-          <form action="/admin/<%= params.email %>/<%= params.doacao %>/delete" method="get">
+          <form action="/admin/<%= params.email %>/<%= params.doacao %>/delete" class="formDel" method="get" style="padding: 0;margin-top: 10px;">
             <button type="submit">Deletar Doação</button>
           </form>
         <% } %>
@@ -108,7 +167,7 @@
                     </section>
 
                     <section>
-                      <form action="/admin/<%= user.email %>/<%= don.id_doacao %>" method="get">
+                      <form action="/admin/<%= user.email %>/<%= don.id_doacao %>" method="get" style="padding: 0;">
                         <button class="info-button" id="ok">Informações</button>
                       </form>
                     </section>

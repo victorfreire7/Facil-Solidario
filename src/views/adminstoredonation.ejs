@@ -9,6 +9,53 @@
   <link rel="stylesheet" href="/assets/css/index.css" />
   <link rel="stylesheet" href="/assets/css/crud.css" />
   <link rel="stylesheet" href="/assets/css/accessibility-plugin.css" />
+  
+   <style>
+      .content{display: flex;align-items: center;justify-content: center;}
+      form{
+        width: auto;
+        height: auto;
+        align-items: center;
+        /* display: flex;  justify-content: flex-start;flex-direction: column; */
+          background-color: #d9d9d9;
+          padding: 50px;
+          border-radius: 15px;
+          font-size: 1.5em;
+          font-family: 'poppins';
+      }
+      form input{
+        font: 'poppins';
+        border-radius: 10px;
+        border: none;
+        font-size: .8em;
+        width: 3vw;
+        height: 5vh;
+        margin-right: 10px;
+        text-align: center;
+      }
+      form select{
+        font: 'poppins';
+        border-radius: 10px;
+        border: none;
+        font-size: .8em;
+        margin-right: 10px;
+        height: 5vh;
+      }
+
+
+      form button {
+    background-color: var(--laranja-ababora);
+    border: none;
+    color: var(--amarelo-requeijao);
+     width: 10vw;
+    height: 6vh;
+    font-size: .9em;
+    border-radius: 13px;
+    cursor: pointer;
+    text-align: center;
+}
+    </style>
+
 </head>
 
 <body>
@@ -35,7 +82,7 @@
         <form action="" method="post">
           <input type="hidden" name="_csrf" value="<%=csrfToken%>">
 
-          <label for="tipo">TIPO:</label>
+          <label for="tipo" class="tipo">Tipo:</label>
           <select name="tipo" id="tipo">
             <option value="0" disabled selected>Tipo</option>
             <option value="cereais">Cereais</option>
@@ -49,7 +96,7 @@
             <option value="leiteempo">Leite em pó</option>
           </select>
 
-          <label for="quantidade">Quantidade:</label>
+          <label for="quantidade" class="qtd">Quantidade:</label>
           <input type="number" class="qtd-alimen" name="quantidade" id="quantidade"
           >
           <button type="submit">Criar</button>
