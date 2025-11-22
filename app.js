@@ -55,7 +55,7 @@ class App {
         this.app.use(csrf({ cookie: true }));
         this.app.use(csrfMiddleware); // MIDDLEWARE QUE VERIFICA SE O CSRFTOKEN É O CORRETO.
 
-        
+        this.app.set('trust proxy', 1);
         this.app.use(session({
             secret: process.env.SESSION_SECRET,
             resave: false,
@@ -63,7 +63,7 @@ class App {
             cookie: {
                 httpOnly: true,
                 secure: true,
-                sameSite: true,
+                sameSite: 'lax',
                 maxAge: 30*24*60*60*1000
             }
         }));
