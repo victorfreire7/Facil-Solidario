@@ -20,7 +20,7 @@ const politicasRoute = require('./src/routes/politicas');
 const cadastrarRoute = require('./src/routes/cadastrar');
 const esquecisenhaRoute = require('./src/routes/esquecisenha');
 const loginRoute = require('./src/routes/login');
-const logoutRoute = require('./src/routes/logout');
+const logoutroute = require('./src/routes/log-out');
 const formularioRoute = require('./src/routes/formulario');
 const adminloginRoute = require('./src/routes/adminlogin');
 const adminRoute = require('./src/routes/admin');
@@ -80,7 +80,7 @@ class App {
         this.app.use('/politicas-de-privacidade', politicasRoute);
         this.app.use('/sign-up', cadastrarRoute);
         this.app.use('/sign-in', loginRoute);
-        this.app.use('/log-out', logoutRoute);
+        this.app.use('/log-out', logoutroute);
         this.app.use('/forget-password', esquecisenhaRoute); // nao to conseguindo renderizar esta rota no localhost
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
         
