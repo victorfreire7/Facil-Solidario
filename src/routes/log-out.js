@@ -8,9 +8,15 @@ router.get('/', (req, res, next) => {
     // req.flash('successMessage', ['Logout realizado com sucesso!']);
     // res.redirect('/');
     
-    next();
-}, () => {
-    res.send('oi');
+    res.render('index', 
+    { 
+        user: req.session.user, 
+        csrfToken: req.csrfToken(), 
+        successMessage: req.flash('successMessage'), 
+        errorMessage: req.flash('errorMessage'),
+        donations: count ,
+        popupMessage: false,
+    });
 });
 
 module.exports = router;
