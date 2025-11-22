@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx nodemon server.js",
-    "deploy": "git restore . | git pull origin main"
+    "deploy": "git restore . | git pull origin main | sudo systemctl restart nginx"
   },
   "keywords": [],
   "author": "victorfreire7",
