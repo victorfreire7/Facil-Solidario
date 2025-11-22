@@ -5,8 +5,10 @@ router.get('/', (req, res) => {
     // req.session.user = null;
     // req.session.admin = null;
 
-    req.flash('successMessage', ['Logout realizado com sucesso!']);
-    res.redirect('/');
+    // req.flash('successMessage', ['Logout realizado com sucesso!']);
+    // res.redirect('/');
+
+    res.send('oi')
 });
 
 module.exports = router;
