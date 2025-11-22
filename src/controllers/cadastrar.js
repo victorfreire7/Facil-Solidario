@@ -109,7 +109,7 @@ async function sendCode(req, res) {
 }
 
 function indexConfirm(req, res) {
-    res.render('cadastroConfirm', 
+    res.render('cadastroconfirm', 
         { 
             csrfToken: req.csrfToken(), 
             userInfo: req.session.userInfo,
