@@ -1,6 +1,5 @@
 function index (req, res){
-    req.session.admin = null;
-    req.session.user = null;
+    req.session.destroy();
     return res.redirect('/');
 }
 
