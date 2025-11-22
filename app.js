@@ -80,7 +80,7 @@ class App {
         this.app.use('/politicas-de-privacidade', politicasRoute);
         this.app.use('/sign-up', cadastrarRoute);
         this.app.use('/sign-in', loginRoute);
-        this.app.use('/logout', logoutRoute);
+        this.app.use('/log-out', logoutRoute);
         this.app.use('/forget-password', esquecisenhaRoute); // nao to conseguindo renderizar esta rota no localhost
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
         
