@@ -36,7 +36,7 @@ class App {
         this.app = express();
         this.db();
         this.cronAdminCode();
-        // this.sendAdminCode();
+        this.sendAdminCode();
         this.middlewares();
         this.routes();
     }
@@ -45,14 +45,16 @@ class App {
         this.app.use(express.static('public'));
         this.app.set('views', './src/views');
         this.app.set('view engine', 'ejs');
+
         this.app.use(helmet()); // habilito a biblioteca helmet, protegendo o cabeçalho do HTML
         
-        this.app.use(bodyParser.urlencoded({ extended: false })); // permite a analise de dados STRING e ARRAY em formularios
-        this.app.use(cookieParser());
-        this.app.use(csrf({ cookie: true }));
-        this.app.use(csrfMiddleware); // MIDDLEWARE QUE VERIFICA SE O CSRFTOKEN É O CORRETO.
-        
         this.app.set('trust proxy', 1);
+
+        this.app.use(bodyParser.urlencoded({ extended: false })); // permite a analise de dados STRING e ARRAY em formularios
+        this.app.use(express.urlencoded({ extended: true }));
+        this.app.use(express.json({ limit: '10kb'})); // caso o usuario tente enviar dados maiores do que 10kb, sera retornado um erro.
+        
+        this.app.use(cookieParser());
 
         this.app.use(session({
             secret: process.env.SESSION_SECRET,
@@ -67,8 +69,9 @@ class App {
         }));
         
         this.app.use(flash());
-        this.app.use(express.urlencoded({ extended: true }));
-        this.app.use(express.json({ limit: '10kb'})); // caso o usuario tente enviar dados maiores do que 10kb, sera retornado um erro.
+
+        this.app.use(csrf({ cookie: true }));
+        this.app.use(csrfMiddleware); // MIDDLEWARE QUE VERIFICA SE O CSRFTOKEN É O CORRETO.
     }
 
     routes() {
