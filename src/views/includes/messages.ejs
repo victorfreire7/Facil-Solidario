@@ -1,10 +1,10 @@
-<%if(successMessage.length > 0){%>
+<%if(successMessage && successMessage.length > 0){%>
     <h1 class="successMessage message"><%=successMessage[0]%></h1>
 
     <script src="/assets/js/cron-flash-message.js"></script>
 <%}%> 
 
-<%if(errorMessage.length > 0){%>
+<%if(errorMessage && errorMessage.length > 0){%>
     <h1 class="errorMessage message"><%=errorMessage[0]%></h1>
 
     <script src="/assets/js/cron-flash-message.js"></script>
