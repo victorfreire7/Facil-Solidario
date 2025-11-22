@@ -36,7 +36,7 @@ class App {
         this.app = express();
         this.db();
         this.cronAdminCode();
-        // this.sendAdminCode();
+        this.sendAdminCode();
         this.middlewares();
         this.routes();
     }
