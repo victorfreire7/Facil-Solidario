@@ -1,10 +1,12 @@
+/* LIBRARIES    |
+                V        
+*/
 require("dotenv").config();
 const express = require('express');
 const session = require('express-session');
 const homeRoute = require('./src/routes/home');
 const adminRepository = require('./src/models/admin');
 const sgMail = require('@sendgrid/mail');
-
 const helmet = require('helmet');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
@@ -14,6 +16,9 @@ const randomStringGenerator = require('random-string-generator');
 const bcryptjs = require('bcryptjs');
 const cron = require('node-cron');
 
+/* ROUTES       |
+                V        
+*/
 const quemsomosRoute = require('./src/routes/quemsomos');
 const pontoscoletaRoute = require('./src/routes/pontoscoleta');
 const politicasRoute = require('./src/routes/politicas');
@@ -24,25 +29,34 @@ const formularioRoute = require('./src/routes/formulario');
 const adminloginRoute = require('./src/routes/adminlogin');
 const adminRoute = require('./src/routes/admin');
 
+/* MIDDLEWARES  |
+                V        
+*/
 const loginRequired = require('./src/middlewares/loginRequired');
 const adminloginRequired = require('./src/middlewares/adminloginRequired');
 const csrfMiddleware = require('./src/middlewares/csrfMiddleware');
 
+/* DB           |
+                V        
+*/
 const db = require('./src/db');
 
+/* SERVER       |
+                V        
+*/
 class App {
-    constructor(){
+    constructor(){ // TUDO QUE ESTA AQUI SERA EXECUTADO ASSIM QUE ESSA CLASS FOR CHAMADA.
         this.app = express();
-        this.db();
-        this.cronAdminCode();
-        this.sendAdminCode();
-        this.middlewares();
-        this.routes();
+        this.db(); // conecto com o BD.
+        this.cronAdminCode(); // executo a biblioteca CRON
+        this.sendAdminCode(); // sempre que o servidor for reiniciado, um novo código admin sera gerado.
+        this.middlewares(); // todas configuraçoes do servidor.
+        this.routes(); // todas rotas que o servidor engloba.
     }
 
     middlewares() {
-        this.app.use(express.static('public'));
-        this.app.set('views', './src/views');
+        this.app.use(express.static('public')); // seto minha pasta 'public' como arquivo estatico, assim meus views serao executadas já dentro dela.
+        this.app.set('views', './src/views'); //configuração das views.
         this.app.set('view engine', 'ejs');
 
         this.app.use(helmet()); // habilito a biblioteca helmet, protegendo o cabeçalho do HTML
@@ -54,7 +68,7 @@ class App {
         
         this.app.use(cookieParser());
 
-        this.app.use(session({
+        this.app.use(session({ // configuraçoes de sessão das sessions
             secret: process.env.SESSION_SECRET,
             resave: false,
             saveUninitialized: true,
@@ -77,7 +91,7 @@ class App {
         this.app.use('/politicas-de-privacidade', politicasRoute);
         this.app.use('/sign-up', cadastrarRoute);
         this.app.use('/sign-in', loginRoute);
-        this.app.use('/forget-password', esquecisenhaRoute); // nao to conseguindo renderizar esta rota no localhost
+        this.app.use('/forget-password', esquecisenhaRoute); 
         this.app.use('/formulario-doacao', loginRequired, formularioRoute);
         
         this.app.use('/admin-login', adminloginRoute);
@@ -86,13 +100,13 @@ class App {
         this.app.use((req, res) => { res.status(404).render('404')})
     }
 
-    cronAdminCode(){
+    cronAdminCode(){ //essa biblioteca executa qualquer coisa em um certo horario do dia.
         cron.schedule('0 5 * * *', () => { // 0 5 para se adequar ao horario de brasilia -> 00:00
-            this.sendAdminCode();
+            this.sendAdminCode(); //envia um novo código de administrador
         })
     }
 
-    sendAdminCode(req, res){
+    sendAdminCode(req, res){ // essa funçao envia um novo email com um novo código de admin, e sera executada posteiormente
         try {
             let dayLogin = randomStringGenerator(6); // gera uma string aleátoria de 6 caracteres.
             let dayPassword = randomStringGenerator(25); // faço o mesmo aqui
@@ -259,7 +273,7 @@ class App {
         }  
     }
 
-    async storeAdminCode(login, pass){
+    async storeAdminCode(login, pass){ //essa funçao adiciona o novo código no BD
         let admins = await adminRepository.findOne(); //guardo dentro de uma constante os valores da tabela admin
         if(!admins){ // caso nao exista um admin ainda, eu vou criar um.
             await adminRepository.create({
@@ -287,4 +301,4 @@ class App {
 }
 
 
-module.exports = new App().app;
+module.exports = new App().app; // exporto a class já sendo executada, para utilizada em 'server.js'
