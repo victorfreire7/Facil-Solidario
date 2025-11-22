@@ -13,12 +13,9 @@ async function index(req, res){
     
         res.render('admin', 
             { 
-                successMessage: req.flash('successMessage'), 
-                errorMessage: req.flash('errorMessage'),
                 csrfToken: req.csrfToken(), 
                 users: users, // guarda todos os usuarios, para ser mostrado
-                doacao: false,
-                popupMessage: false
+                doacao: false
             }
         )
     } catch {
@@ -42,9 +39,6 @@ async function show(req, res){
     
         res.render('admin', 
             { 
-                successMessage: req.flash('successMessage'), 
-                errorMessage: req.flash('errorMessage'),
-                popupMessage: false,
                 csrfToken: req.csrfToken(), 
                 users:  [users], // guarda apenas o usuario desejado, mas mantem ele em um ARRAY para ser lido no EJS
                 doacao: false 
@@ -62,9 +56,6 @@ async function showDoacao(req, res) {
         
         res.render('admin', 
             { 
-                successMessage: req.flash('successMessage'), 
-                errorMessage: req.flash('errorMessage'),
-                popupMessage: false,
                 csrfToken: req.csrfToken(), 
                 users:  false,
                 doacao: doacao,
@@ -147,9 +138,6 @@ async function deleteDoacao(req, res) {
 function showCreateDonation(req, res) {
     res.render('adminstoredonation', 
             { 
-                successMessage: req.flash('successMessage'), 
-                errorMessage: req.flash('errorMessage'),
-                popupMessage: false,
                 csrfToken: req.csrfToken()
             }
         )

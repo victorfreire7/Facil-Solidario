@@ -12,10 +12,7 @@ async function index (req, res){
         { 
             user: req.session.user, 
             csrfToken: req.csrfToken(), 
-            successMessage: req.flash('successMessage'), 
-            errorMessage: req.flash('errorMessage'),
-            donations: count ,
-            popupMessage: false,
+            donations: count
         });
 }
 

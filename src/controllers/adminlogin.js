@@ -8,10 +8,7 @@ const bcryptjs = require('bcryptjs');
 async function index(req, res) {
     res.render('adminlogin', 
     { 
-        successMessage: req.flash('successMessage'), 
-        errorMessage: req.flash('errorMessage'), 
-        csrfToken: req.csrfToken(),
-        popupMessage: false,
+        csrfToken: req.csrfToken()
     });
 }
 

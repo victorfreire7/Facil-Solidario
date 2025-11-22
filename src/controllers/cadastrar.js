@@ -7,9 +7,6 @@ function index (req, res){
     res.render('cadastro', 
         { 
             csrfToken: req.csrfToken(), 
-            successMessage: req.flash('successMessage'), 
-            errorMessage: req.flash('errorMessage'),
-            popupMessage: false,
         }
     ); // aqui seria a renderização do EJS
 }
@@ -112,10 +109,7 @@ function indexConfirm(req, res) {
     res.render('cadastroconfirm', 
         { 
             csrfToken: req.csrfToken(), 
-            userInfo: req.session.userInfo,
-            successMessage: req.flash('successMessage'), 
-            errorMessage: req.flash('errorMessage'),
-            popupMessage: false,
+            userInfo: req.session.userInfo
         }
     );
 }
@@ -139,10 +133,7 @@ function storeConfirm(req, res) {
 function indexPassword(req, res) {
     res.render('cadastroPassword', 
         { 
-            csrfToken: req.csrfToken(), 
-            successMessage: req.flash('successMessage'), 
-            errorMessage: req.flash('errorMessage'),
-            popupMessage: false,
+            errorMessage: req.flash('errorMessage')
         }
     );
 }

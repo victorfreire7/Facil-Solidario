@@ -8,10 +8,7 @@ const bcryptjs = require('bcryptjs');
 function index(req, res) {
     res.render('esquecisenha', 
         { 
-            csrfToken: req.csrfToken(), 
-            successMessage: req.flash('successMessage'),
-            errorMessage: req.flash('errorMessage'),
-            popupMessage: false,
+            errorMessage: req.flash('errorMessage')
         }
     );
 }
@@ -104,10 +101,7 @@ function sendCode(req, res) {
 function changePassIndex(req, res) { 
     res.render('esquecisenhaChange', 
         { 
-            csrfToken: req.csrfToken(), 
-            successMessage: req.flash('successMessage'),
             errorMessage: req.flash('errorMessage'),
-            popupMessage: false,
         }
     );
 }

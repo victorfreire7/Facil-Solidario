@@ -4,9 +4,6 @@ function index (req, res){
     res.render('formulario', 
         { 
             csrfToken: req.csrfToken(), 
-            successMessage: req.flash('successMessage'),
-            errorMessage: req.flash('errorMessage'),
-            popupMessage: req.flash('popupMessage')
         }
     );
 }

@@ -28,6 +28,8 @@ const adminRoute = require('./src/routes/admin');
 const loginRequired = require('./src/middlewares/loginRequired');
 const adminloginRequired = require('./src/middlewares/adminloginRequired');
 const csrfMiddleware = require('./src/middlewares/csrfMiddleware');
+const globalMiddleware = require('./src/middlewares/globalMiddleware');
+
 
 const db = require('./src/db');
 
@@ -36,19 +38,21 @@ class App {
         this.app = express();
         this.db();
         this.cronAdminCode();
-        this.sendAdminCode();
+        // this.sendAdminCode();
         this.middlewares();
         this.routes();
     }
 
     middlewares() {
+        this.app.use(globalMiddleware)
+
         this.app.use(express.static('public'));
         this.app.set('views', './src/views');
         this.app.set('view engine', 'ejs');
 
         this.app.use(helmet()); // habilito a biblioteca helmet, protegendo o cabeçalho do HTML
         
-        this.app.set('trust proxy', 1);
+        // this.app.set('trust proxy', 1);
 
         this.app.use(bodyParser.urlencoded({ extended: false })); // permite a analise de dados STRING e ARRAY em formularios
         this.app.use(express.urlencoded({ extended: true }));
@@ -59,10 +63,8 @@ class App {
         this.app.use(session({
             secret: process.env.SESSION_SECRET,
             resave: false,
-            saveUninitialized: false,
+            saveUninitialized: true,
             cookie: {
-                secure: process.env.NODE_ENV,
-                sameSite: 'lax',
                 maxAge: 30*24*60*60*1000
             }
         }));

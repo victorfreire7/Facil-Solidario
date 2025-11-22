@@ -5,10 +5,7 @@ require("dotenv").config();
 function index (req, res){
     res.render('login', 
         { 
-            csrfToken: req.csrfToken(), 
-            successMessage: req.flash('successMessage'),
-            errorMessage: req.flash('errorMessage'),
-            popupMessage: false,
+            errorMessage: req.flash('errorMessage')
         });
 }
 
