@@ -459,41 +459,44 @@ footer {
 
   .pop-up{
     width: 40vw;
-    height: 50vh;
+    max-width: 500px;
+    height: auto;
+    max-height: 60vh; /* evita ultrapassar a tela */
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     text-align: center;
-    padding: 5px;
+    padding: 20px;
     border: solid #FFF4E4 2px;
     border-radius: 15px;
     background-color: #8DA47C;
     color: white;
 
+    overflow-y: auto;  /* evita ultrapassar */
+    word-wrap: break-word; /* quebra o texto */
     z-index: 99999999999999999999999999999999;
-  }
+}
 
-  .pop-up h1{
-    padding: 2%;
-  }
+.pop-up h1{
+    padding: 10px 0;
+}
 
-  .pop-up .close{
-    width: 99%;
-    height: 5%;
-    /* background-color: #C4514F; */
-
+.pop-up .close{
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     font-size: 1.5em;
     cursor: pointer;
-  }
+}
 
-  .pop-up p{
-    padding: 2%;
+.pop-up p{
+    padding: 10px;
     font-size: 1.2em;
-  }
+    line-height: 1.4em;
+    overflow-wrap: break-word; /* força quebra em palavras grandes */
+}
 
   .message{ 
     top: 0;
