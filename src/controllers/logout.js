@@ -1,7 +1,7 @@
-function index (req, res){
-        req.session.user = null;
-        req.session.admin = null;
-        return res.redirect('/');
+function index (req, res, next){
+    req.session.user = null;
+    req.session.admin = null;
+    next();
 }
 
 module.exports = { index }
