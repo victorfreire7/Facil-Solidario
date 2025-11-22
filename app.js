@@ -47,7 +47,6 @@ class App {
 
         this.app.use(helmet()); // habilito a biblioteca helmet, protegendo o cabeçalho do HTML
         
-        this.app.set('trust proxy', 1);
 
         this.app.use(bodyParser.urlencoded({ extended: false })); // permite a analise de dados STRING e ARRAY em formularios
         this.app.use(express.urlencoded({ extended: true }));
@@ -58,10 +57,9 @@ class App {
         this.app.use(session({
             secret: process.env.SESSION_SECRET,
             resave: false,
-            saveUninitialized: false,
+            saveUninitialized: true,
             cookie: {
-                secure: process.env.NODE_ENV,
-                sameSite: 'lax',
+                secure: true,
                 maxAge: 30*24*60*60*1000
             }
         }));
