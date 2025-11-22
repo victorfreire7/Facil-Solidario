@@ -59,9 +59,11 @@ class App {
         this.app.use(session({
             secret: process.env.SESSION_SECRET,
             resave: false,
-            saveUninitialized: true,
+            saveUninitialized: false,
             cookie: {
                 httpOnly: true,
+                secure: true,
+                sameSite: true,
                 maxAge: 30*24*60*60*1000
             }
         }));
