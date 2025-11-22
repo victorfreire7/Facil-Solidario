@@ -55,15 +55,13 @@ class App {
     }
 
     middlewares() {
-        this.app.use(express.static('public')); // seto minha pasta 'public' como arquivo estatico, assim meus views serao executadas já dentro dela.
-        this.app.set('views', './src/views'); //configuração das views.
+        this.app.use(express.static('public'));
+        this.app.set('views', './src/views');
         this.app.set('view engine', 'ejs');
 
-        this.app.use(flash());
         this.app.use(helmet()); // habilito a biblioteca helmet, protegendo o cabeçalho do HTML
-        this.app.use(csrf({ cookie: true }));
-        this.app.use(csrfMiddleware); // MIDDLEWARE QUE VERIFICA SE O CSRFTOKEN É O CORRETO.
         
+        this.app.set('trust proxy', 1);
 
         this.app.use(bodyParser.urlencoded({ extended: false })); // permite a analise de dados STRING e ARRAY em formularios
         this.app.use(express.urlencoded({ extended: true }));
@@ -71,18 +69,21 @@ class App {
         
         this.app.use(cookieParser());
 
-        this.app.use(session({ // configuraçoes de sessão das sessions
+        this.app.use(session({
             secret: process.env.SESSION_SECRET,
             resave: false,
             saveUninitialized: false,
             cookie: {
-                httpOnly: true,
-                // secure: true,
+                secure: process.env.NODE_ENV,
+                sameSite: 'lax',
                 maxAge: 30*24*60*60*1000
             }
         }));
         
+        this.app.use(flash());
 
+        this.app.use(csrf({ cookie: true }));
+        this.app.use(csrfMiddleware); // MIDDLEWARE QUE VERIFICA SE O CSRFTOKEN É O CORRETO.
     }
 
     routes() {
