@@ -23,7 +23,7 @@ async function index(req, res){
         )
     } catch {
         req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
-        return res.redirect('/sign-up/password');
+        return res.redirect('/admin');
     }
 }
 
@@ -39,6 +39,11 @@ async function show(req, res){
                 order: [['entregue', 'ASC']] // primeiro retorno os valores false
             }]
         });
+
+        if(!users){
+            req.flash('errorMessage', ['Usuário não encontrado!']);
+            return res.redirect('/admin');
+        }
     
         res.render('admin', 
             { 
@@ -52,7 +57,7 @@ async function show(req, res){
         )
     } catch {
         req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
-        return res.redirect('/sign-up/password');
+        return res.redirect('/admin');
     }
 }
 
@@ -73,7 +78,7 @@ async function showDoacao(req, res) {
         );
     } catch {
         req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
-        return res.redirect('/sign-up/password');
+        return res.redirect('/admin');
     }
 }
 
@@ -91,7 +96,7 @@ async function update(req, res){
         })
     } catch {
         req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
-        return res.redirect('/sign-up/password');
+        return res.redirect('/admin');
     } 
 }
 
