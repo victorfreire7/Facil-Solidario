@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const logoutController = require('../controllers/logout');
 
-router.get('/', logoutController.index, (req, res) => {
+router.get('/', (req, res) => {
+    req.session.user = null;
+    req.session.admin = null;
     res.redirect('/');
 });
 
