@@ -49,7 +49,7 @@ class App {
         this.app = express();
         this.db(); // conecto com o BD.
         this.cronAdminCode(); // executo a biblioteca CRON
-        this.sendAdminCode(); // sempre que o servidor for reiniciado, um novo código admin sera gerado.
+        // this.sendAdminCode(); // sempre que o servidor for reiniciado, um novo código admin sera gerado.
         this.middlewares(); // todas configuraçoes do servidor.
         this.routes(); // todas rotas que o servidor engloba.
     }
@@ -59,7 +59,10 @@ class App {
         this.app.set('views', './src/views'); //configuração das views.
         this.app.set('view engine', 'ejs');
 
+        this.app.use(flash());
         this.app.use(helmet()); // habilito a biblioteca helmet, protegendo o cabeçalho do HTML
+        this.app.use(csrf({ cookie: true }));
+        this.app.use(csrfMiddleware); // MIDDLEWARE QUE VERIFICA SE O CSRFTOKEN É O CORRETO.
         
 
         this.app.use(bodyParser.urlencoded({ extended: false })); // permite a analise de dados STRING e ARRAY em formularios
@@ -71,16 +74,15 @@ class App {
         this.app.use(session({ // configuraçoes de sessão das sessions
             secret: process.env.SESSION_SECRET,
             resave: false,
-            saveUninitialized: false,
+            saveUninitialized: true,
             cookie: {
+                httpOnly: true,
+                // secure: true,
                 maxAge: 30*24*60*60*1000
             }
         }));
         
-        this.app.use(flash());
 
-        this.app.use(csrf({ cookie: true }));
-        this.app.use(csrfMiddleware); // MIDDLEWARE QUE VERIFICA SE O CSRFTOKEN É O CORRETO.
     }
 
     routes() {
