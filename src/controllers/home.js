@@ -43,7 +43,7 @@ function store (req, res){
                         </h2>
                         
                         <div style="margin-bottom: 25px;">
-                            <img src="http://localhost:3030/assets/img/logo-sem-txt.svg" alt="LOGOTIPO" style="width: 90px;" />
+                            <img src="https://facilsolidario.com.br/assets/img/logo-branca.png" alt="LOGOTIPO" style="width: 90px;" />
                         </div>
 
                         <p style="font-size: 15px; color: #f1f1f1; line-height: 22px;">
