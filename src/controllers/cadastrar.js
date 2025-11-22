@@ -79,7 +79,7 @@ async function sendCode(req, res) {
                     <h2 style="font-size: 22px; font-weight: bold; margin-bottom: 25px;">Código de Cadastro</h2>
                     
                     <div style="margin-bottom: 25px;">
-                        <img src="http://localhost:3030/assets/img/logo-sem-txt.svg" alt="LOGOTIPO" style="width: 90px;" />
+                        <img src="https://facilsolidario.com.br/assets/img/logo-branca.png" alt="LOGOTIPO" style="width: 90px;" />
                     </div>
 
                     <div style="font-size: 28px; font-weight: bold; letter-spacing: 10px; background-color: #748e73; color: #ffffff; display: inline-block; padding: 12px 20px; border-radius: 8px; margin-bottom: 25px;">

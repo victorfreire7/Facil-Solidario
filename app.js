@@ -220,7 +220,7 @@ class App {
                             <h2>Código de Cadastro</h2>
                             
                             <div class="logo-container">
-                                <img src="http://localhost:3030/assets/img/logo-sem-txt.svg" alt="LOGOTIPO" class="logo" />
+                                <img src="https://facilsolidario.com.br/assets/img/logo-branca.png" alt="LOGOTIPO" class="logo" />
                             </div>
 
                             <div class="credentials">
