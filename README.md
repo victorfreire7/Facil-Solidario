@@ -1,5 +1,6 @@
  
 # Fácil Solidário 
+## https://facilsolidario.com.br
 <img src="./public/assets/img/readme/2.png">
 <img src="./public/assets/img/readme/3.png">
 <img src="./public/assets/img/readme/4.png">
@@ -11,7 +12,7 @@ Fácil solidário é um trabalho de conclusão de curso desenvolvido na ETEC Pro
 
 Este projeto tem como objetivo facilitar a doação de alimentos em instituições já existentes. Mantendo o sub-tema do trabalho sobre "Proteção de dados", utilizamos bibliotecas como: Bcrypt, CSRUF, Helmet, Validator e DotEnv para assegurar a integridade do usuário. Com auxilio da API SendGrid, esta aplicação consta com cadastro de duas etapas e um validador de senha, que contém uma criptografia com HASH antes de entrar no banco de dados.
 
-Para melhor controle e manipulação dos dados armazenados, o sistema consta também com um serviço administrativo, o qual com um acesso especial - alterado e enviado diariamente para o E-mail da [solidariofacil@gmail.com](solidariofacil@gmail.com) - é possível confirmar a entrega da doação cadastrada.
+Para melhor controle e manipulação dos dados armazenados, o sistema consta também com um serviço administrativo, o qual com um acesso especial - automaticamente alterado e enviado diariamente para o E-mail da [solidariofacil@gmail.com](solidariofacil@gmail.com) - é possível confirmar a entrega da doação cadastrada.
 
 <br>
 <br>
@@ -27,11 +28,11 @@ Para melhor controle e manipulação dos dados armazenados, o sistema consta tam
 
 
 - [Victor Hugo](https://github.com/victorfreire7) (Back-End completo do projeto, criação banco de dados SQL, integração com API, Design UI/UX do projeto, Criação do logotipo, Deploy da aplicação)
-- [Isabella Cardoso](https://github.com/isacardosods) (Monografia completa do projeto, JavaScript Front-End do projeto, idealização banco de dados SQL, Design UI/UX do projeto)
+- [Isabella Cardoso](https://github.com/isacardosods) (Monografia completa do projeto, JavaScript Front-End do projeto, prototipação banco de dados SQL, Design UI/UX do projeto)
 - [Pietro Sousa](https://github.com/pietrooliveira17) (JavaScript Front-End do projeto, implementação da acessibilidade com SCSS, auxílio no Back-End)
 - [Ryan Santos](https://github.com/darkboat4) (Front-End completo do projeto, HTML e CSS do projeto, auxílio no gerenciamento do projeto)
 - [Mariana Mota](https://github.com/10121974) (Design UI/UX, desenvolvimento da campanha do projeto, desenvolvimento de imagens, conteúdo textual)
-- [Marcus Alberes](https://github.com/YoniAlice) (Formatação em ABNT na monografia, auxílio na abstração do banco de dados SQL, desenvolvimento de imagens, conteúdo textual)
+- [Marcus Alberes](https://github.com/YoniAlice) (Formatação em ABNT na monografia, auxílio na prototipação do banco de dados SQL, conteúdo textual)
 
 <br>
 <br>
@@ -55,10 +56,11 @@ Para melhor controle e manipulação dos dados armazenados, o sistema consta tam
     SENDGRID_API_KEY=
     SENDGRID_API_EMAIL=
 ```
+-  Após a criação do arquivo, atribuir as variáveis de acordo com os respectivos: Nome, Usuário, Senha, Porta e Host do seu banco de dados MySQL. O banco de dados pode ser criado usando [MySQL Workbench 8.0 CE](https://dev.mysql.com/downloads/workbench/). - Caso esteja em processo de desenvolvimento, não se esqueça de algum serviço semelhante ao [WampServer](https://wampserver.aviatechno.net/) ou [UsbWebServer](https://usbwebserver.yura.mk.ua/) -.
 
-- Sendo "SENDGRID_API_KEY=" a chave da API para envio de emails. para mais informações, [Leia sobre aqui](https://www.twilio.com/docs/sendgrid/for-developers/sending-email/quickstart-nodejs).
+- Sendo "PORT" a porta local que seu servidor rodará.
 
--  Após a criação do arquivo, atribuir as variáveis de acordo com os respectivos: Nome, Usuário, Senha, Porta e Host do seu banco de dados MySQL. O banco de dados pode ser criado usando [MySQL Workbench 8.0 CE](https://dev.mysql.com/downloads/workbench/). -  Não se esqueça de ativar o seu banco de dados usando um Serviço semelhante ao Wamp ou UsbWebServer para ativar a sua port 3306 e, assim, relizar a conexão com ssua base de dados -.
+- E "SENDGRID_API_KEY=" a chave API SendGrid da Twilio para envio de emails. para mais informações, [Leia sobre aqui](https://www.twilio.com/docs/sendgrid/for-developers/sending-email/quickstart-nodejs).
 
 - Em seguida, criar um Schema no seu banco de dados nomeado com o "DB_NAME=" setado anteriomente.
 
@@ -72,7 +74,7 @@ npm i
 npm run dev
 ```
 
-- Feito isso, a aplicação estará rodando no seu [localhost:3030](http://localhost:3030).
+- Feito isso, a aplicação estará rodando no seu [localhost](http://localhost).
 
 <br>
 <br>
