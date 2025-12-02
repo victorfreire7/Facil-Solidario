@@ -39,7 +39,8 @@ async function store(req, res) {
         res.redirect('/forget-password/code')
 
     } catch (error) {
-        res.json(error);
+        req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
+        return res.redirect('/admin');
     }
 }
 

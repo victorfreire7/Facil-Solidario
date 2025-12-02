@@ -48,7 +48,8 @@ async function store (req, res) {
         req.flash('popupMessage', ['AAAAA']);
         return res.redirect('/formulario-doacao');
     } catch (error) {
-        res.send(error)
+        req.flash('errorMessage', ['Um erro inesperado aconteceu! Tente novamente mais tarde.']);
+        return res.redirect('/admin');
     }
 }
 

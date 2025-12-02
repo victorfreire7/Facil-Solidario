@@ -49,7 +49,7 @@ class App {
         this.app = express();
         this.db(); // conecto com o BD.
         this.cronAdminCode(); // executo a biblioteca CRON
-        this.sendAdminCode(); // sempre que o servidor for reiniciado, um novo código admin sera gerado.
+        // this.sendAdminCode(); // sempre que o servidor for reiniciado, um novo código admin sera gerado.
         this.middlewares(); // todas configuraçoes do servidor.
         this.routes(); // todas rotas que o servidor engloba.
     }
