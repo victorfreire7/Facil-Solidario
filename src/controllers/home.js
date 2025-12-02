@@ -4,9 +4,9 @@ const doacaoRepository = require('../models/doacao');
 
 async function index (req, res){
 
-    let count = 0;
-    const allDonation = await doacaoRepository.findAll();    
-    allDonation.forEach(() => { count++ });
+    let count = 0; // crio um contador
+    const allDonation = await doacaoRepository.findAll(); // crio uma variavel que guarda todas doacoes
+    allDonation.forEach((result) => { count += parseInt(result.quantidade) });// adiciono a quantidade doada
 
     res.render('index', 
         { 
