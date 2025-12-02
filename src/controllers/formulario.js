@@ -16,7 +16,7 @@ async function store (req, res) {
         const convertion = JSON.parse(req.body.allValues); // estou buscando isso no input hidden do ejs que armazena todos itens que foram enviados.
 
         for (const d of convertion) {// armazena todos os itens que podem ser doados, para fazer uma validação se o front e backend batem.
-            if(d.quantidade > 9){
+            if(d.quantidade > 51){
                 req.flash('errorMessage', ['Por favor, digite quantidade menor do que 50.']);
                 return res.redirect('/formulario-doacao');
             }
